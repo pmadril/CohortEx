@@ -9,4 +9,4 @@ tags:
 summary: 'Test of cohortex editor'
 ---
 
-[object Object]
+{"Researcher Name":"Tereza Abrahao","Researcher ID":20,"Study Name":"#0043ff","gender":"female","studyDef":{"city":"Sao Paulo","state":"CA","citystate":"null, null"},"params":[{"type":"Características"},{"type":"Seleção"},{"type":"Evento Subsequente"}]}
