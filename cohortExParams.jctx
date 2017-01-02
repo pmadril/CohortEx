@@ -1,27 +1,10 @@
 ---
 schema: cohortexV1.0.0
-title: First schema
+title: 'First schema'
+layout: null
+tags: []
+published: true
+authRequired: false
 ---
 
-{
-  "Researcher Name": "Jeremy Dorn",
-  "Researcher ID": 25,
-  "Study Name": "#ffa500",
-  "gender": "male",
-  "studyDef": {
-    "city": "San Francisco",
-    "state": "CA",
-    "citystate": "null, null"
-  },
-  "params": [
-    {
-      "type": "Características"
-    },
-    {
-      "type": "Seleção"
-    },
-    {
-      "type": "Evento Subsequente"
-    }
-  ]
-}
+[object Object]
