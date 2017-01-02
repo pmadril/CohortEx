@@ -1,9 +1,12 @@
 ---
 schema: cohortexV1.0.0
-title: 'First schema'
+title: 'Schema Test'
 layout: null
-published: true
+published: false
 authRequired: false
+tags:
+  - cohortex
+summary: 'Test of cohortex editor'
 ---
 
 [object Object]
