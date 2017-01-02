@@ -1,27 +1,60 @@
 {
-   "title":"Default Page",
-   "description":"The following fields will be used to update the page metadata",
+   "title":"Research Parameters",
+   "description":"The following fields define the researcher and the research name.",
    "fields":[
       {
-         "name":"title",
-         "label":"Title",
+         "name":"researcher_id",
+         "label":"Researcher ID",
          "type":"text",
+         "help": "Use valid email address. May be your github email.",
+         "required":true
+      },
+      {
+         "name":"description",
+         "label":"Researcher",
+         "type":"text",
+         "help": "Your name or description."
+         "required":true
+      },
+      {
+         "name":"research_id",
+         "label":"Research ID",
+         "type":"text",
+         "help": "Anything that identifies your research among your others researches. (May be a number.)",
+         "required":true
+      },
+      {
+         "name":"description",
+         "label":"Research Description",
+         "type":"text",
+         "help": "Description of your main research.",
+         "required":true
+      },
+      {
+         "name":"study_id",
+         "label":"Study ID",
+         "type":"text",
+         "help": "Anything that identifies your study among your others studies for the currrent research.",
+         "required":true
+      },
+      {
+         "name":"description",
+         "label":"Study Description",
+         "type":"text",
+         "help": "A description of this study."
          "required":true
       },
       {
          "name":"tags",
          "type":"repeating",
-         "label":"Keywords"
+         "label":"Keywords",
+         "help": "Keywords for this study."
       },
       {
          "name":"summary",
          "type":"textarea",
-         "label":"Description"
-      },
-      {
-         "name":"author",
-         "type":"text",
-         "label":"Author"
+         "label":"Summary",
+         "help": "Brief summary of this study in the context of your current research.",
       },
       {
          "label":"Published",
@@ -33,7 +66,7 @@
          "label":"Authentication Required",
          "name":"authRequired",
          "type":"checkbox",
-         "value": false
+         "value": true
       }
    ],
    "json": {
