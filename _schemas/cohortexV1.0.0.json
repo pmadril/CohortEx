@@ -13,7 +13,7 @@
          "name":"description",
          "label":"Researcher",
          "type":"text",
-         "help": "Your name or description."
+         "help": "Your name or description.",
          "required":true
       },
       {
@@ -41,14 +41,14 @@
          "name":"description",
          "label":"Study Description",
          "type":"text",
-         "help": "A description of this study."
+         "help": "A description of this study.",
          "required":true
       },
       {
          "name":"tags",
          "type":"repeating",
          "label":"Keywords",
-         "help": "Keywords for this study."
+         "help": "Keywords for this study.",
       },
       {
          "name":"summary",
