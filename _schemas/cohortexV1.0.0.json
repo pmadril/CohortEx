@@ -48,13 +48,13 @@
          "name":"tags",
          "type":"repeating",
          "label":"Keywords",
-         "help": "Keywords for this study.",
+         "help": "Keywords for this study."
       },
       {
          "name":"summary",
          "type":"textarea",
          "label":"Summary",
-         "help": "Brief summary of this study in the context of your current research.",
+         "help": "Brief summary of this study in the context of your current research."
       },
       {
          "label":"Published",
