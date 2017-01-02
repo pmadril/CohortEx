@@ -2,7 +2,6 @@
 schema: cohortexV1.0.0
 title: 'First schema'
 layout: null
-tags: []
 published: true
 authRequired: false
 ---
