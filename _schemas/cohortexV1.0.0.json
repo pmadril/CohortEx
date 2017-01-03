@@ -59,10 +59,11 @@
 												 "required":true
 											  },
 											  "keywords": {
-												 "title": "Study keywords",
-												 "type":"array",
-												 "uniqueItems": true,
-												 "description": "Keywords for this study.",
+												  "title": "Study keywords",
+												  "type":"array",
+												  "format": "grid",
+												  "uniqueItems": true,
+												  "description": "Keywords for this study.",
 												  "items": {
 													"type": "object",
 													"title": "Keyword",
