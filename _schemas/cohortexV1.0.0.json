@@ -1,6 +1,6 @@
 {
    "title":"Research Parameters",
-   "description":"The following fields define the researcher and the research name.",
+   "description":"The following fields define the researcher.",
    "fields":[
       {
          "name":"researcher_id",
@@ -17,52 +17,6 @@
          "required":true
       },
       {
-         "name":"research_id",
-         "label":"Research ID",
-         "type":"text",
-         "help": "Anything that identifies your research among your others researches. (May be a number.)",
-         "required":true
-      },
-      {
-         "name":"description",
-         "label":"Research Description",
-         "type":"text",
-         "help": "Description of your main research.",
-         "required":true
-      },
-      {
-         "name":"study_id",
-         "label":"Study ID",
-         "type":"text",
-         "help": "Anything that identifies your study among your others studies for the currrent research.",
-         "required":true
-      },
-      {
-         "name":"description",
-         "label":"Study Description",
-         "type":"text",
-         "help": "A description of this study.",
-         "required":true
-      },
-      {
-         "name":"tags",
-         "type":"repeating",
-         "label":"Keywords",
-         "help": "Keywords for this study."
-      },
-      {
-         "name":"summary",
-         "type":"textarea",
-         "label":"Summary",
-         "help": "Brief summary of this study in the context of your current research."
-      },
-      {
-         "label":"Published",
-         "name":"published",
-         "type":"checkbox",
-         "value": true
-      },
-      {
          "label":"Authentication Required",
          "name":"authRequired",
          "type":"checkbox",
@@ -75,6 +29,62 @@
 					"title": "CohortEx Parameters",
 					"type": "object",
 					"properties": {
+						"Research and Study Identification": {
+							"type": "object",
+							"title": "Research Identification",
+							"format": "grid",
+							"properties": {
+											  "research_id": {
+												 "title": "Research ID",
+												 "type": "string",
+												 "help": "Anything that identifies your research among your others researches. (May be a number.)",
+												 "required": true
+											  },
+											  "description": {
+												 "title": "Research Description",
+												 "type": "string",
+												 "help": "Description of your main research.",
+												 "required": true
+											  },
+											  "study_id": {
+												 "title":"Study ID",
+												 "type":"string",
+												 "help": "Anything that identifies your study among your others studies for the currrent research.",
+												 "required":true
+											  },
+											  "description": {
+												 "title": "Study Description",
+												 "type":"string",
+												 "help": "A description of this study.",
+												 "required":true
+											  },
+											  "keywords": {
+												 "title": "Study keywords",
+												 "type":"array",
+												 "uniqueItems": true,
+												 "help": "Keywords for this study.",
+												  "items": {
+													"type": "object",
+													"title": "Keyword",
+													"properties": {
+														"keyword": {
+													  		"type": "string"
+														}
+													}
+												  }
+											  },
+											  "summary": {
+												 "type":"string",
+												 "format":"textarea",
+												 "title":"Summary",
+												 "help": "Brief summary of this study in the context of your current research."
+											  },
+											  "Published": {
+												  "type":"boolean",
+												  "format": "checkbox"
+											  }
+								}
+						},
 						"Enrollment": {
 							"type": "object",
 							"title": "Enrollment Interval",
