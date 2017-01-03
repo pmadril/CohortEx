@@ -198,10 +198,12 @@
 										"default": "ICD10_CATEGORY_PARTIAL"
 									  },
 									  "code": {
-										"type": "string"
+										"type": "string",
+										"minLength": 3,
+										"maxLength": 8 
 									  },
 									  "exclusion": {
-										"title": "Excluding...",
+										"title": "exclusion",
 										"type": "boolean",
 										"format": "checkbox"
 									  }
