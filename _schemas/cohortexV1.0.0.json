@@ -72,91 +72,82 @@
    "json": {
       "schema": 
 				{
-				 "title": "Study Parameters",
-				 "type": "object",
-				 "properties": {
-				   "Researcher Name": {
-					 "type": "string",
-					 "description": "First and Last name",
-					 "minLength": 4,
-					 "default": "Jeremy Dorn"
-				   },
-				   "Researcher ID": {
-					 "type": "integer",
-					 "default": 25,
-					 "minimum": 18,
-					 "maximum": 99
-				   },
-				   "Study Name": {
-					 "type": "string",
-					 "format": "color",
-					 "title": "favorite color",
-					 "default": "#ffa500"
-				   },
-				   "gender": {
-					 "type": "string",
-					 "enum": [
-				   "male",
-				   "female"
-					 ]
-				   },
-				   "studyDef": {
-					 "type": "object",
-					 "title": "Study Definition",
-					 "properties": {
-				   "city": {
-					 "type": "string",
-					 "default": "San Francisco"
-				   },
-				   "state": {
-					 "type": "string",
-					 "default": "CA"
-				   },
-				   "citystate": {
-					 "type": "string",
-					 "description": "This is generated automatically from the previous two fields",
-					 "template": "{{city}}, {{state}}",
-					 "watch": {
-					   "city": "location.city",
-					   "state": "location.state"
-					 }
-				   }
-					 }
-				   },
-				   "params": {
-					 "type": "array",
-					 "format": "tabs",
-					 "title": "Parâmetros",
-					 "items": {
-				   "type": "object",
-				   "title": "Group",
-				   "headerTemplate":"{{ i1 }} - {{self.type}}",
-				   "properties": {
-					 "type": {
-					   "title": "X",
-					   "type": "string",
-					   "enum": [
-						 "Características",
-						 "Seleção",
-						 "Evento Subsequente"
-					   ],
-					   "default": "Características"
-					 }
-				   }
-					 },
-					 "default": [
-				   {
-					 "type": "Características"
-				   },
-				   {
-					 "type": "Seleção"
-				   },
-				   {
-					 "type": "Evento Subsequente"
-				   }
-					 ]
-				   }
-				 }
+					"title": "Características",
+					"type": "object",
+					"properties": {
+						"Enrollment": {
+							"type": "object",
+							"title": "Período de Alistamento",
+							"format": "grid",
+							"properties": {
+									"initialDate": {
+										"title": "Início",
+										"type": "string",
+										"format": "date",
+										"description": "Data de inicio do alistamento",
+										 "default": "01/01/1985"
+										},
+									"endDate": {
+										"title": "Fim",
+										"type": "string",
+										"description": "Data de fim do alistamento",
+										"format": "date",
+										 "default": "31/12/2016"
+									}
+								}
+						},
+						"studyInterval": {
+							"type": "object",
+							"title": "Intervalo do estudo",
+							"format": "grid",
+							"properties": {
+								"initialDate": {
+									"title": "Início",
+									"type": "string",
+									"format": "date",
+									"description": "Data de inicio do estudo",
+									 "default": "01/01/2010"
+									},
+								"endDate": {
+									"title": "Fim",
+									"type": "string",
+									"format": "date",
+									"description": "Data de inicio do estudo",
+									 "default": "01/01/2016"
+								}
+							}
+						},
+						"personDemographics": {
+							"type": "object",
+							"title": "Demografia",
+							"format": "grid",
+							"properties": {
+								"minAge": {
+									"title": "Idade mínima",
+									"type": "integer",
+									"format": "date",
+									"description": "Data de inicio do estudo",
+									 "default": "01/01/2010"
+									},
+								"maxAge": {
+									"title": "Idade máxima",
+									"type": "integer",
+									"format": "date",
+									"description": "Data de inicio do estudo",
+									 "default": "01/01/2016"
+									},
+								"gender": {
+									"title": "Géneros em estudo",
+									"type": "array",
+									"uniqueItems": true,
+									"items": {
+										"type": "string",
+										"enum": ["Masculino","Feminino","Indeterminado","Outros"]
+										}
+									}
+							}
+						}
+					}
 				}
 	   
    }
