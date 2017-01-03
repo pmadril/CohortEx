@@ -175,7 +175,7 @@
 							"title": "Cohort Selection",
 							"properties": {
 								"personSurgeries": {
-									"type": "string",
+									"type": "object",
 									"title": "Surgeries",
 									"description": "Filter surgeries by sql pattern like: %REVASC% . Use upper case.",
 									"properties": {
