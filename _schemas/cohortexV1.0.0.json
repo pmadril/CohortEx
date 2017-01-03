@@ -32,7 +32,7 @@
 						"Research and Study Identification": {
 							"type": "object",
 							"title": "Research and Study Identification",
-							"format": "grid",
+							"layout": "grid",
 							"properties": {
 											  "research_id": {
 												 "title": "Research ID",
@@ -88,7 +88,7 @@
 						"Enrollment": {
 							"type": "object",
 							"title": "Enrollment Interval",
-							"format": "grid",
+							"layout": "grid",
 							"properties": {
 									"initialDate": {
 										"default": "01/01/1985",
@@ -111,7 +111,7 @@
 						"studyInterval": {
 							"type": "object",
 							"title": "Study Interval",
-							"format": "grid",
+							"layout": "grid",
 							"properties": {
 								"initialDate": {
 									"title": "Begin",
@@ -132,7 +132,7 @@
 						"personDemographics": {
 							"type": "object",
 							"title": "Demographics",
-							"format": "grid",
+							"layout": "grid",
 							"properties": {
 								"minAge": {
 									"title": "Minimum age",
