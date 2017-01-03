@@ -1,5 +1,5 @@
 {
-   "title":"Research Parameters",
+   "title":"Researcher Parameters",
    "description":"The following fields define the researcher.",
    "fields":[
       {
@@ -26,12 +26,12 @@
    "json": {
       "schema": 
 				{
-					"title": "CohortEx Parameters",
+					"title": "Research Parameters",
 					"type": "object",
 					"properties": {
 						"Research and Study Identification": {
 							"type": "object",
-							"title": "Research Identification",
+							"title": "Research and Study Identification",
 							"format": "grid",
 							"properties": {
 											  "research_id": {
@@ -40,7 +40,7 @@
 												 "description": "Anything that identifies your research among your others researches. (May be a number.)",
 												 "required": true
 											  },
-											  "description": {
+											  "res_description": {
 												 "title": "Research Description",
 												 "type": "string",
 												 "description": "Description of your main research.",
@@ -52,7 +52,7 @@
 												 "description": "Anything that identifies your study among your others studies for the currrent research.",
 												 "required":true
 											  },
-											  "description": {
+											  "study_description": {
 												 "title": "Study Description",
 												 "type":"string",
 												 "description": "A description of this study.",
