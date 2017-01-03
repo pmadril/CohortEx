@@ -26,7 +26,6 @@
    "json": {
       "schema": 
 				{
-					"title": "Research Parameters",
 					"type": "object",
 					"properties": {
 						"Research and Study Identification": {
