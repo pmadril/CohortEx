@@ -62,7 +62,6 @@
 												 "title": "Study summary",
 												 "type":"string",
 												 "format":"textarea",
-												 "title":"Summary",
 												 "description": "Brief summary of this study in the context of your current research."
 											  },
 											  "keywords": {
