@@ -158,6 +158,16 @@
 										"type": "string",
 										"enum": ["Male","Female","Unknown","Others"]
 										}
+									},
+								"disableGenderFilters": {
+									"title": "Disable filtering by:",
+									"type": "array",
+									"uniqueItems": true,
+									"required": true,
+									"items": {
+										"type": "string",
+										"enum": ["Gender","Min. Age","Max. Age"]
+										}
 									}
 							}
 						}
