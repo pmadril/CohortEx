@@ -72,25 +72,27 @@
    "json": {
       "schema": 
 				{
-					"title": "Características",
+					"title": "CohortEx Parameters",
 					"type": "object",
 					"properties": {
 						"Enrollment": {
 							"type": "object",
-							"title": "Período de Alistamento",
+							"title": "Enrollment Interval",
 							"format": "grid",
 							"properties": {
 									"initialDate": {
-										"title": "Início",
+										"readonly": true,
+										"title": "Begin",
 										"type": "string",
 										"format": "date",
-										"description": "Data de inicio do alistamento",
+										"description": "Enrollment begin date",
 										 "default": "01/01/1985"
 										},
 									"endDate": {
-										"title": "Fim",
+										"readonly": true,
+										"title": "End",
 										"type": "string",
-										"description": "Data de fim do alistamento",
+										"description": "Enrollment end date",
 										"format": "date",
 										 "default": "31/12/2016"
 									}
@@ -98,51 +100,51 @@
 						},
 						"studyInterval": {
 							"type": "object",
-							"title": "Intervalo do estudo",
+							"title": "Study Interval",
 							"format": "grid",
 							"properties": {
 								"initialDate": {
-									"title": "Início",
+									"title": "Begin",
 									"type": "string",
 									"format": "date",
-									"description": "Data de inicio do estudo",
+									"description": "Study begin date",
 									 "default": "01/01/2010"
 									},
 								"endDate": {
-									"title": "Fim",
+									"title": "End",
 									"type": "string",
 									"format": "date",
-									"description": "Data de inicio do estudo",
+									"description": "Study end date",
 									 "default": "01/01/2016"
 								}
 							}
 						},
 						"personDemographics": {
 							"type": "object",
-							"title": "Demografia",
+							"title": "Demographics",
 							"format": "grid",
 							"properties": {
 								"minAge": {
-									"title": "Idade mínima",
+									"title": "Minimum age",
 									"type": "integer",
 									"format": "date",
-									"description": "Data de inicio do estudo",
-									 "default": "01/01/2010"
+									"description": "Lowest age to participate os study",
+									 "default": "18"
 									},
 								"maxAge": {
-									"title": "Idade máxima",
+									"title": "Maimum age",
 									"type": "integer",
 									"format": "date",
 									"description": "Data de inicio do estudo",
-									 "default": "01/01/2016"
+									 "default": "110"
 									},
 								"gender": {
-									"title": "Géneros em estudo",
+									"title": "Genders",
 									"type": "array",
 									"uniqueItems": true,
 									"items": {
 										"type": "string",
-										"enum": ["Masculino","Feminino","Indeterminado","Outros"]
+										"enum": ["Male","Female","Unknown","Others"]
 										}
 									}
 							}
