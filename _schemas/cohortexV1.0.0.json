@@ -37,32 +37,32 @@
 											  "research_id": {
 												 "title": "Research ID",
 												 "type": "string",
-												 "help": "Anything that identifies your research among your others researches. (May be a number.)",
+												 "description": "Anything that identifies your research among your others researches. (May be a number.)",
 												 "required": true
 											  },
 											  "description": {
 												 "title": "Research Description",
 												 "type": "string",
-												 "help": "Description of your main research.",
+												 "description": "Description of your main research.",
 												 "required": true
 											  },
 											  "study_id": {
 												 "title":"Study ID",
 												 "type":"string",
-												 "help": "Anything that identifies your study among your others studies for the currrent research.",
+												 "description": "Anything that identifies your study among your others studies for the currrent research.",
 												 "required":true
 											  },
 											  "description": {
 												 "title": "Study Description",
 												 "type":"string",
-												 "help": "A description of this study.",
+												 "description": "A description of this study.",
 												 "required":true
 											  },
 											  "keywords": {
 												 "title": "Study keywords",
 												 "type":"array",
 												 "uniqueItems": true,
-												 "help": "Keywords for this study.",
+												 "description": "Keywords for this study.",
 												  "items": {
 													"type": "object",
 													"title": "Keyword",
@@ -77,7 +77,7 @@
 												 "type":"string",
 												 "format":"textarea",
 												 "title":"Summary",
-												 "help": "Brief summary of this study in the context of your current research."
+												 "description": "Brief summary of this study in the context of your current research."
 											  },
 											  "Published": {
 												  "type":"boolean",
@@ -137,21 +137,22 @@
 								"minAge": {
 									"title": "Minimum age",
 									"type": "integer",
-									"format": "date",
-									"description": "Lowest age to participate os study",
-									 "default": "18"
+									"description": "Lowest age to participate on study",
+									"required": true,
+									"default": "18"
 									},
 								"maxAge": {
 									"title": "Maimum age",
 									"type": "integer",
-									"format": "date",
 									"description": "Data de inicio do estudo",
+									"required": true,
 									 "default": "110"
 									},
 								"gender": {
 									"title": "Genders",
 									"type": "array",
 									"uniqueItems": true,
+									"required": true,
 									"items": {
 										"type": "string",
 										"enum": ["Male","Female","Unknown","Others"]
