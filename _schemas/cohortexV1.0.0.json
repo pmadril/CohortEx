@@ -88,7 +88,7 @@
 						"Enrollment": {
 							"type": "object",
 							"title": "Enrollment Interval",
-							"layout": "grid",
+							"format": "grid",
 							"properties": {
 									"initialDate": {
 										"default": "01/01/1985",
@@ -111,7 +111,7 @@
 						"studyInterval": {
 							"type": "object",
 							"title": "Study Interval",
-							"layout": "grid",
+							"format": "grid",
 							"properties": {
 								"initialDate": {
 									"title": "Begin",
@@ -132,7 +132,6 @@
 						"personDemographics": {
 							"type": "object",
 							"title": "Demographics",
-							"layout": "grid",
 							"properties": {
 								"minAge": {
 									"title": "Minimum age",
@@ -144,7 +143,7 @@
 								"maxAge": {
 									"title": "Maimum age",
 									"type": "integer",
-									"description": "Data de inicio do estudo",
+									"description": "Maximum age to participate",
 									"required": true,
 									 "default": "110"
 									},
