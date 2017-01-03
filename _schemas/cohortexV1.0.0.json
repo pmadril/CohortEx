@@ -183,6 +183,7 @@
 								  "uniqueItems": true,
 								  "items": {
 									"type": "object",
+                                    "title": "ICD-10 Diagnosis",
 									"properties": {
 									  "ICD0_category": {
 										"title": "ICD10 Code",
