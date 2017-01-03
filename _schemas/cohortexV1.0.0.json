@@ -61,7 +61,7 @@
 											  "keywords": {
 												  "title": "Study keywords",
 												  "type":"array",
-												  "format": "grid",
+												  "format": "table",
 												  "uniqueItems": true,
 												  "description": "Keywords for this study.",
 												  "items": {
