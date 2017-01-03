@@ -184,15 +184,6 @@
 											"type": "String",
 											"required": true,
 											"default": "%REVASC%"
-											},
-										"disableSurgeryFilter": {
-											"title": "Disable filtering by:",
-											"type": "array",
-											"uniqueItems": true,
-											"items": {
-												"type": "string",
-												"enum": ["Surgery"]
-												}
 											}
 									}
 								}
