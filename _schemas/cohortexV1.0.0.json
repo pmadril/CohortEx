@@ -26,6 +26,7 @@
    "json": {
       "schema": 
 				{
+					"title": "",
 					"type": "object",
 					"properties": {
 						"Research and Study Identification": {
