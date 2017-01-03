@@ -58,6 +58,13 @@
 												 "description": "A description of this study.",
 												 "required":true
 											  },
+											  "summary": {
+												 "title": "Study summary",
+												 "type":"string",
+												 "format":"textarea",
+												 "title":"Summary",
+												 "description": "Brief summary of this study in the context of your current research."
+											  },
 											  "keywords": {
 												  "title": "Study keywords",
 												  "type":"array",
@@ -73,12 +80,6 @@
 														}
 													}
 												  }
-											  },
-											  "summary": {
-												 "type":"string",
-												 "format":"textarea",
-												 "title":"Summary",
-												 "description": "Brief summary of this study in the context of your current research."
 											  },
 											  "Published": {
 												  "type":"boolean",
