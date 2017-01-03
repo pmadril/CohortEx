@@ -81,20 +81,20 @@
 							"format": "grid",
 							"properties": {
 									"initialDate": {
+										"default": "01/01/1985",
 										"readonly": true,
 										"title": "Begin",
 										"type": "string",
 										"format": "date",
-										"description": "Enrollment begin date",
-										 "default": "01/01/1985"
+										"description": "Enrollment begin date"
 										},
 									"endDate": {
+										"default": "31/12/2016",
 										"readonly": true,
 										"title": "End",
 										"type": "string",
-										"description": "Enrollment end date",
 										"format": "date",
-										 "default": "31/12/2016"
+										"description": "Enrollment end date"
 									}
 								}
 						},
