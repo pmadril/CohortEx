@@ -26,6 +26,7 @@
    "json": {
       "schema": 
 				{
+					"$schema": "http://json-schema.org/schema#",
 					"title": " ",
 					"type": "object",
 					"properties": {
