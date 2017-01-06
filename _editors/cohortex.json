@@ -1,0 +1,26 @@
+{
+   "title":"Researcher Parameters",
+   "description":"The following fields define the researcher.",
+   "fields":[
+      {
+         "name":"researcher_id",
+         "label":"Researcher ID",
+         "type":"text",
+         "help": "Use valid email address. May be your github email.",
+         "required":true
+      },
+      {
+         "name":"description",
+         "label":"Researcher",
+         "type":"text",
+         "help": "Your name or description.",
+         "required":true
+      },
+      {
+         "label":"Authentication Required",
+         "name":"authRequired",
+         "type":"checkbox",
+         "value": true
+      }
+   ]
+}
