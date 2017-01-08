@@ -1,7 +1,7 @@
 ---
 schema: cohortexV1.0.0
 title: 'Schema Test'
-layout: cohortex
+layout: null
 published: false
 authRequired: false
 tags:
@@ -28,6 +28,9 @@ description: 'Tereza Abrahao'
 			},
 			{
 				"keyword": "Heart diseases"
+			},
+			{
+				"keyword": "test"
 			}
 		]
 	},
