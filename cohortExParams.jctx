@@ -17,7 +17,7 @@ description: 'Tereza Abrahao'
 		"res_description": "DCV research on Incor patient database",
 		"study_id": "Statins",
 		"study_description": "A study of statins influence on DCV",
-		"summary": "Bla bla bla...",
+		"summary": "Umestudo das estatinas para testar o CohortEx",
 		"published": false,
 		"keywords": [
 			{
@@ -43,8 +43,8 @@ description: 'Tereza Abrahao'
 		"endDate": "2013-01-01"
 	},
 	"personDemographics": {
-		"minAge": 18,
-		"maxAge": 110,
+		"minAge": 21,
+		"maxAge": 100,
 		"gender": [
 			"Male",
 			"Female"
@@ -57,16 +57,6 @@ description: 'Tereza Abrahao'
 				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
 				"code": "I21",
 				"exclusion": false
-			},
-			{
-				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
-				"code": "I25",
-				"exclusion": false
-			},
-			{
-				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
-				"code": "I51",
-				"exclusion": true
 			}
 		],
 		"surgeriesSelection": {
