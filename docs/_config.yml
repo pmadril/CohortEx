@@ -15,7 +15,7 @@ exclude: [.gitignore]
 
 markdown: kramdown
 kramdown:
-  entity_output: numeric
+  entity_output: as_input
 
 permalink: /blog/:year/:month/:day/:title
 
