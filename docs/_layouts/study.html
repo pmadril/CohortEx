@@ -67,7 +67,7 @@ layout: default
     VIS.data.outHTML.checked=true;
     VIS.data.size.innerHTML="";
 		
-    var input= JSON.parse('{{ content | strip_html }}');
+    var input= {{ content | strip_html }}; //JSON.parse('');
 	
     var jsonRendered = HTML.display(input,0);
     $("jsonOutput").innerHTML=jsonRendered;
