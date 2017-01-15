@@ -1,0 +1,22 @@
+# Name of your site
+name: CohortEx Editor
+
+# Short description
+description: Cohort Parameters Editor
+
+# Your name, as you want it to appear underneath each post and in the footer
+author: Pablo Madril based on Daniel Klco work
+
+# The URL of your actual domain. This will be used to make absolute links in the RSS feed.
+url: https://github.com/pmadril/pmadril.github.io
+
+# Exclude system files
+exclude: [.gitignore]
+
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
+
+collections:
+  studies:
+    output: true
+

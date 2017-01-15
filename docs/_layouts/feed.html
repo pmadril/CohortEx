@@ -1,0 +1,23 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CohortEx - Studies</title>
+    <description>New studies developed on CohortEx platform</description>
+    <link>{{ site.url }}</link>
+    {% for study in site.studies %}
+      {% unless study.draft %}
+        <item>
+          <title>{{ study.title | xml_escape }}</title>
+          <description>{{ study.content | xml_escape }}</description>
+          <pubDate>{{ study.date | date_to_xmlschema }}</pubDate>
+          <link>{{ study.url | prepend: site.url }}</link>
+          <guid isPermaLink="true">{{ study.url | prepend: site.url }}</guid>
+        </item>
+      {% endunless %}
+    {% endfor %}
+  </channel>
+</rss>
+
