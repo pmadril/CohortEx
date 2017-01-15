@@ -36,7 +36,7 @@ layout: default
 			rows="10" cols="50"
 			placeholder="Paste your JSON here"
 			spellcheck="false"
-			autofocus="autofocus">{{ content | jsonify }}</textarea>
+			autofocus="autofocus">{{ content | strip_html }}</textarea>
 
 		<h2 style="font-size: 108%;">Output:</h2>
 		<output
@@ -67,7 +67,7 @@ layout: default
     VIS.data.outHTML.checked=true;
     VIS.data.size.innerHTML="";
 		
-    var input= {{ content | jsonify }};
+    var input= {{ content | strip_html }};
     var jsonRendered = HTML.display(input,0);
     $("jsonOutput").innerHTML=jsonRendered;
     
