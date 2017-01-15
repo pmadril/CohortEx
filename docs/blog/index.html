@@ -7,7 +7,7 @@ title: Studies and Posts
 <ul class="posts">
 
   {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
   {% endfor %}
     
 </ul>
@@ -15,7 +15,7 @@ title: Studies and Posts
 <ul class="posts">
 
   {% for study in site.studies %}
-    <li><span>{{ study.date | date_to_string }}</span> &raquo; <a href="{{ study.url }}" title="{{ study.title }}">{{ study.title }}</a></li>
+    <li><span>{{ study.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ study.url }}" title="{{ study.title }}">{{ study.title }}</a></li>
   {% endfor %}
     
 </ul>
