@@ -19,13 +19,14 @@ layout: default
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div class="post">
-    <h1>{{ page.title }}</h1>
+    <h1>{{ page.title }} - {{ page.description }}</h1>
+	<h3>{{ page.summary }}</h3>
     <em>
     	Posted on <span class="date">{{ page.date | date_to_string }}</span> by <span class="author">{{ page.description }}</span>
     </em>
     <hr class="large" />
 	<div class="content">
-	<div style="padding-left: 13em;">
+	<div style="padding-left: 1em;">
 		<!-- h2 style="margin-top: 0px; font-size: 108%;">
 			<label for="jsonInput">Input:</label>
 			<small id="jsonSize"></small>
