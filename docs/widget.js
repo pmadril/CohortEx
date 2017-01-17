@@ -22,7 +22,7 @@ if (script.attributes["data-schema"]) {
     if (script.attributes["data-docson"]) {
         docson = script.attributes["data-docson"].value;
     } else {
-        docson = script.src.replace("widget.js", "index.html");
+        docson = script.src.replace("widget.js", "docson_index.html");
     }
     document.write("<iframe id='" + script.attributes["data-schema"].value +
         "' style='padding: 0; border: 0; width:100%; background: transparent' src='" +
