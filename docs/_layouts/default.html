@@ -15,25 +15,41 @@
 
 
   <body>
-     <div class="github-fork-ribbon-wrapper right">
+    <div class="github-fork-ribbon-wrapper right">
         <div class="github-fork-ribbon">
             <a href="{{ site.url }}{{ site.base }}">Fork us on GitHub</a>
         </div>
     </div>
-    <nav>
-<ul>
-<li><a href="{{ site.baseurl }}/">Home</a></li>
-<li><a href="{{ site.baseurl }}/cohortexEditor.html">CohortEx Param. Editor</a></li>
-<li><a href="{{ site.baseurl }}/about">About</a></li>
-<li><a href="{{ site.baseurl }}/cv">CV</a></li>
-<li><a href="{{ site.baseurl }}/blog">Posts and Studies</a></li>
-</ul>
-    </nav>
-<div class="container">
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <header class="header">
+                <hgroup>
+                    <h1 class="brand-title">Code Hunks</h1>
+                    <h2 class="brand-tagline">Coding Prodigies</h2>
+                </hgroup><br><br>
+                <nav class="nav">
+                    <ul class="nav-list">      
+                      <li><a href="{{ site.baseurl }}/">Home</a></li>
+                      <li><a href="{{ site.baseurl }}/cohortexEditor.html">CohortEx Param. Editor</a></li>
+                      <li><a href="{{ site.baseurl }}/about">About</a></li>
+                      <li><a href="{{ site.baseurl }}/cv">CV</a></li>
+                      <li><a href="{{ site.baseurl }}/blog">Posts and Studies</a></li>
+                    </ul>
+                </nav>
 
-  {{ content }}
+            </header>
+        </div>
 
-</div>
+        <div class="pure-u-1">
+            <div class="content">
+              <div class="container">
+                {{ content }}
+
+              </div>
+            </div>
+        </div>
+    </div>
+      
   
   <footer>
    <ul>
