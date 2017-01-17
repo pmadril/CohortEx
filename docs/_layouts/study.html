@@ -38,8 +38,8 @@ layout: default
 			autofocus="autofocus">{{ content | strip_html }}</textarea -->
 		
 		<h2 style="font-size: 108%;"> Parameters Schema: {{ page.schema }} </h2>
-		<script src="http://lbovet.github.io/docson/widget.js" 
-			data-schema="/schemas/{{ page.schema }}.json">      
+		<script src="{{ site.baseurl }}/widget.js" 
+			data-schema="{{ site.baseurl }}/schemas/{{ page.schema }}.json">      
 		</script>
 		<h2 style="font-size: 108%;">Study parameters:</h2>
 		<output
