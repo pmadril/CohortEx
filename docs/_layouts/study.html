@@ -50,8 +50,8 @@ layout: default
 	<br/>
 	<h2 style="font-size: 108%;"> Parameters Schema: {{ page.schema }} </h2>
 	<script type="text/javascript" >    
-		data-schema="{{ site.baseurl }}/schemas/{{ page.schema }}.json";
-		docson = "{{ site.baseurl }}/docson_frame.html;
+		var data-schema="{{ site.baseurl }}/schemas/{{ page.schema }}.json";
+		var docson = "{{ site.baseurl }}/docson_frame.html";
 		document.write("<iframe id='" + data-schema +
 			"' style='padding: 0; border: 0; width:100%; background: transparent' src='" +
 			docson + "#" + data-schema + "'></iframe>");
