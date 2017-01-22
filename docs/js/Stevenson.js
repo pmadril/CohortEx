@@ -1,3 +1,5 @@
+---
+---
 var Stevenson = {
 	/**
 	 * Holds the current account information.  
@@ -9,7 +11,7 @@ var Stevenson = {
 		name : '',
 		password : '',
 		repo : '',
-		siteBaseURL: location,
+		siteBaseURL: {{ site.baseurl }},
 		username : '',
 		/**
 		 * Clears the account information from the session and local storage
