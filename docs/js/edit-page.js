@@ -140,7 +140,7 @@
 				oldPath: oldPath,
 				newPath: newPath,
 				success: function(path){
-					window.location.replace('/cms/edit.html#'+newPath);
+					window.location.replace(Stevenson.Account.siteBaseURL + '/cms/edit.html#'+newPath);
 					initialize();
 					Stevenson.ui.Messages.displayMessage("Moved file: " + oldPath +' to ' + newPath);
 					Stevenson.ui.Loader.hide();
@@ -229,7 +229,7 @@
 					Stevenson.ui.Messages.displayMessage('Page saved successfully!');
 					Stevenson.ui.Loader.hide();
 					if (Stevenson.util.getParameter('new') == 'true') {
-						window.location.replace('/cms/edit.html#'+currentPage.path);
+						window.location.replace(Stevenson.Account.siteBaseURL + '/cms/edit.html#'+currentPage.path);
 					} else {
 						$('#message').val('');
 						initialize();

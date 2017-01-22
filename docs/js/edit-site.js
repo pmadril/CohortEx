@@ -18,8 +18,8 @@
 				$('.breadcrumb .path').html(path);
 				$('#files tbody').html('');
 				$.each(files, function(index, file){
-//					if(file.path.indexOf('_config') != 0 && file.path.indexOf('_layouts') != 0 && file.path.indexOf('_editors') != 0 && file.path.indexOf('_schemas') != 0){
-					if(file.path.indexOf('.jctx') > 0) {
+					if(file.path.indexOf('_config') != 0 && file.path.indexOf('_layouts') != 0 && file.path.indexOf('_editors') != 0 && file.path.indexOf('_schemas') != 0){
+					//if(file.path.indexOf('.jctx') > 0) {
 						file.size = file.size ? bytesToSize(file.size) : '';
 						$('#files tbody').mustache('file', file);
 						}
@@ -56,7 +56,7 @@
 //				$('.file-edit').click();
 				Stevenson.ui.Loader.display('Loading editor...', 100);
 				var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
-				window.location = '/cms/edit.html#' + path;
+				window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
 			},
 			error: function(message){
 				Stevenson.ui.Loader.hide();
@@ -118,7 +118,7 @@
 						},
 						message: 'Creating new page ' + name,
 						success: function(){
-							window.location = '/cms/edit.html?new=true#'+filePath;
+							window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#'+filePath;
 						},
 						error: function(msg){
 							$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
@@ -140,7 +140,7 @@
 		$('.file-edit').click(function(){
 			Stevenson.ui.Loader.display('Loading editor...', 100);
 			var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
-			window.location = '/cms/edit.html#' + path;
+			window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
 			return false;
 		});
 		

@@ -21,7 +21,7 @@
             
 			Stevenson.repo.getLayouts({
                 success: function (branches) {
-                    window.location = '/cms/site.html';
+                    window.location = Stevenson.Account.siteBaseURL + '/cms/site.html';
                 },
                 error: function (err) {
 					Stevenson.ui.Messages.displayError('Unable to load layouts: '
@@ -31,7 +31,7 @@
             
             Stevenson.repo.getSchemas({
                 success: function (branches) {
-                    window.location = '/cms/site.html';
+                    window.location = Stevenson.Account.siteBaseURL + '/cms/site.html';
                 },
                 error: function (err) {
                     Stevenson.ui.Messages.displayError('Unable to load schemas: '
