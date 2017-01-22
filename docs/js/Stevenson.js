@@ -9,6 +9,7 @@ var Stevenson = {
 		name : '',
 		password : '',
 		repo : '',
+		siteBaseURL: location,
 		username : '',
 		/**
 		 * Clears the account information from the session and local storage
