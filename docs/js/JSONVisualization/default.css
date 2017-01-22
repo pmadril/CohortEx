@@ -1,10 +1,10 @@
 
 
 element.style {
-    padding-left: 5em; 
+    padding-left: 13em; 
 }
 
-table            { width: 100%; color: #FCFFF5; background-color: #193441; }
+table            { width: 70%; color: #FCFFF5; background-color: #193441; }
 table 			{ margin-bottom: 0; }
 th, td  		{ border: 1px solid #D1DBBD; vertical-align: top; text-align: left;}
 .ERR             { color: #FF0000; font-weight: bold; }

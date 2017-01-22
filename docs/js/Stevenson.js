@@ -3,7 +3,7 @@ var Stevenson = {
 	 * Holds the current account information.  
 	 */
 	Account: {
-		authenticated : true,
+		authenticated : false,
 		branch : '',
 		favoriteRepos : [],
 		name : '',
@@ -14,7 +14,7 @@ var Stevenson = {
 		 * Clears the account information from the session and local storage
 		 */
 		clear : function () {
-			Stevenson.Account.authenticated = true;
+			Stevenson.Account.authenticated = false;
 			Stevenson.Account.branch = '';
 			Stevenson.Account.favoriteRepos = [];
 			Stevenson.Account.name = '';
