@@ -54,9 +54,9 @@
 				Stevenson.ui.Loader.hide();
 				
 //				$('.file-edit').click();
-				Stevenson.ui.Loader.display('Loading editor...', 100);
-				var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
-				window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
+//				Stevenson.ui.Loader.display('Loading editor...', 100);
+//				var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
+//				window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
 			},
 			error: function(message){
 				Stevenson.ui.Loader.hide();
