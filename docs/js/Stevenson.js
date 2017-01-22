@@ -11,7 +11,7 @@ var Stevenson = {
 		name : '',
 		password : '',
 		repo : '',
-		siteBaseURL: {{ site.baseurl }},
+		siteBaseURL: '{{ site.baseurl }}',
 		username : '',
 		/**
 		 * Clears the account information from the session and local storage
@@ -71,7 +71,7 @@ var Stevenson = {
 		});
 
 		Stevenson.log.debug("Loading the global CMS template");
-		$.Mustache.load('/templates/cms.html').done(function(){		
+		$.Mustache.load(siteBaseURL + '/templates/cms.html').done(function(){		
 			Stevenson.log.info('Initializing application');
 
 			// Pre-start checks
@@ -94,7 +94,7 @@ var Stevenson = {
 			}else{
 				if (Stevenson.Account.authenticated && Stevenson.Account.authenticated == true) {
 					Stevenson.log.debug("Adding logged in top section");
-					$.Mustache.load('/templates/authentication.html').done(function () {
+					$.Mustache.load(siteBaseURL + '/templates/authentication.html').done(function () {
 						$('#top-login').html('');
 						$('#top-login').mustache('top-bar', {name: Stevenson.Account.name});
 					});
@@ -675,7 +675,7 @@ var Stevenson = {
 					}
 				}
 
-				$.Mustache.load('/templates/cms.html').done(function () {
+				$.Mustache.load(siteBaseURL + '/templates/cms.html').done(function () {
 					Stevenson.ui.ContentEditor.currentEditor.setContent(page);
 				});
 			},
@@ -787,7 +787,7 @@ var Stevenson = {
 						new EpicEditor({
 							textarea: 'content',
 							container: 'markdown-editor',
-							basePath: '/js/epiceditor',
+							basePath: siteBaseURL + '/js/epiceditor',
 							autogrow: true
 						}).load();
 					},
