@@ -43,7 +43,7 @@
 				success: function(user){
 					$('#login input').removeAttr("disabled");
 					$('#login-modal').modal('hide');
-					window.location = '/cms';
+					window.location = Stevenson.Account.siteBaseURL + '/cms';
 				}
 			});
 			return false;
