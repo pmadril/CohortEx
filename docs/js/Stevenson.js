@@ -333,6 +333,55 @@ var Stevenson = {
 				auth : "basic"
 			});
 		},
+
+		getLayoutsAndSchemas: function(options) {
+			var settings = $.extend({}, {
+				success: function(files){},
+				error: function(err){}
+				}, options);
+
+			var gh = Stevenson.repo.getGitHub();
+			var repo = gh.getRepo(Stevenson.Account.repo.split('/')[0], Stevenson.Account.repo
+					.split('/')[1]);
+			repo.getTree(Stevenson.Account.branch + '?recursive=true', function(err, tree) {
+				if (err) {
+					settings.error(Stevenson.repo.getErrorMessage(err));
+				} else {
+					Stevenson.log.debug("Trying to load layouts");
+					var layouts = [];
+					var schemas = [];
+					var pathLayouts = "_layouts";
+					var pathSchemas = "schemas";
+					for(var i=0; i < tree.length; i++) {
+						var rf = tree[i];
+						
+						var posPathLayout = rf.path.indexOf(pathLayouts);
+						var posPathSchema = rf.path.indexOf(pathSchemas);
+						
+						if( posPathLayout >= 0) {
+							var nameLayout = rf.path.substr(posPathLayout + pathLayouts.length + 1);
+							nameLayout = nameLayout.substring(0, nameLayout.indexOf('.'));
+							layouts.push(nameLayout);
+						} else {
+							if ( posPathSchema >= 0) {
+								var nameSchema = rf.path.substr(posPathSchema + pathSchemas.length + 1);
+								nameSchema = nameSchema.substring(0, nameSchema.indexOf('.'));
+								schemas.push(nameSchema);
+							} else {
+								Stevenson.log.debug("Skipping file: " + rf.path);								
+							}
+						};
+					}
+					Stevenson.repo.layouts = layouts;
+					Stevenson.session.set("Stevenson.repo.layouts", layouts);
+					
+					Stevenson.repo.schemas = schemas;
+					Stevenson.session.set("Stevenson.repo.schemas", schemas);
+					settings.success(layouts);
+				};
+			});
+		},
+		
 		getLayouts: function(options) {
 			var settings = $.extend({}, {
 				success: function(files){},
@@ -351,8 +400,9 @@ var Stevenson = {
 					for(var i=0; i < tree.length; i++) {
 						var path = "_layouts";
 						var rf = tree[i];
-						if(rf.path.indexOf(path) == 0) {
-							var name = rf.path.substr(path.length + 1);
+						var posPath = rf.path.indexOf(path);
+						if( posPath >= 0) {
+							var name = rf.path.substr(posPath + path.length + 1);
 							name = name.substring(0, name.indexOf('.'));
 							layouts.push(name);
 						} else {

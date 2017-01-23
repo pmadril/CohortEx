@@ -19,25 +19,18 @@
             Stevenson.Account.branch = $('#branches').val();
             Stevenson.Account.save();
             
-			Stevenson.repo.getLayouts({
+			Stevenson.repo.getLayoutsAndSchemas({
                 success: function (branches) {
                     window.location = Stevenson.Account.siteBaseURL + '/cms/site.html';
                 },
                 error: function (err) {
 					Stevenson.ui.Messages.displayError('Unable to load layouts: '
                             + err);
-                }
-            });
-            
-            Stevenson.repo.getSchemas({
-                success: function (branches) {
-                    window.location = Stevenson.Account.siteBaseURL + '/cms/site.html';
-                },
-                error: function (err) {
                     Stevenson.ui.Messages.displayError('Unable to load schemas: '
                             + err);
                 }
             });
+            
             return false;
         },
         loadRepos = function (group) {
