@@ -377,7 +377,7 @@ var Stevenson = {
 							nameLayout = nameLayout.substring(0, nameLayout.indexOf('.'));
 							layouts.push(nameLayout);
 							if (nameLayout.length == 0){
-								Stevenson.Account.layoutsPath=rf.path;
+								Stevenson.Account.layoutsPath=rf.path + '/';
 							}
 						} else {
 							if ( posPathSchemas >= 0) {
@@ -385,14 +385,14 @@ var Stevenson = {
 								nameSchema = nameSchema.substring(0, nameSchema.lastIndexOf('.'));
 								schemas.push(nameSchema);
 								if (nameSchema.length == 0){
-									Stevenson.Account.schemasPath=rf.path;
+									Stevenson.Account.schemasPath=rf.path + '/';
 								}
 							} else {
 								if ( posPathEditors >= 0) {
 									var nameEditor = rf.path.substr(posPathEditors + Stevenson.Account.editorsFolder.length + 1);
 									nameEditor = nameEditor.substring(0, nameEditor.lastIndexOf('.'));
 									if (nameEditor.length == 0){
-										Stevenson.Account.editorsPath=rf.path;
+										Stevenson.Account.editorsPath=rf.path + '/';
 									}
 								} else {
 									Stevenson.log.debug("Skipping file: " + rf.path);								
