@@ -14,11 +14,8 @@ var Stevenson = {
 		subFolder: '/',
 		subFolderDetector: '_config.yml',
 		schemasFolder: 'schemas',
-		schemasPath: '/',
 		layoutsFolder: '_layouts',
-		layoutsPath: '/',
 		editorsFolder: '_editors',
-		editorsPath: '/',
 		siteBaseURL: '{{ site.baseurl }}',
 		username : '',
 		/**
@@ -91,6 +88,10 @@ var Stevenson = {
 			Stevenson.Account.load();
 			Stevenson.repo.layouts = Stevenson.session.get("Stevenson.repo.layouts");
 			Stevenson.repo.schemas = Stevenson.session.get("Stevenson.repo.schemas");
+			
+			Stevenson.Account.layoutsPath = Stevenson.session.get("Stevenson.repo.layoutsPath");
+			Stevenson.Account.editorsPath = Stevenson.session.get("Stevenson.repo.editorsPath");
+			Stevenson.Account.schemasPath = Stevenson.session.get("Stevenson.repo.schemasPath");
 
 			Stevenson.log.debug('Checking to see if need to login');
 			if (Stevenson.loginRequired && Stevenson.Account.authenticated == false) {
@@ -402,13 +403,13 @@ var Stevenson = {
 					}
 					Stevenson.repo.layouts = layouts;
 					Stevenson.session.set("Stevenson.repo.layouts", layouts);
-					Stevenson.session.set("Stevenson.Account.layoutsPath", Stevenson.Account.layoutsPath);
+					Stevenson.session.set("Stevenson.repo.layoutsPath", Stevenson.Account.layoutsPath);
 					
-					Stevenson.session.set("Stevenson.Account.editorsPath", Stevenson.Account.editorsPath);
+					Stevenson.session.set("Stevenson.repo.editorsPath", Stevenson.Account.editorsPath);
 
 					Stevenson.repo.schemas = schemas;
 					Stevenson.session.set("Stevenson.repo.schemas", schemas);
-					Stevenson.session.set("Stevenson.Account.schemasPath", Stevenson.Account.schemasPath);
+					Stevenson.session.set("Stevenson.repo.schemasPath", Stevenson.Account.schemasPath);
 					
 					settings.success(layouts);
 				};
