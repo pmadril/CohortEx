@@ -402,9 +402,14 @@ var Stevenson = {
 					}
 					Stevenson.repo.layouts = layouts;
 					Stevenson.session.set("Stevenson.repo.layouts", layouts);
+					Stevenson.session.set("Stevenson.Account.layoutsPath", Stevenson.Account.layoutsPath);
 					
+					Stevenson.session.set("Stevenson.Account.editorsPath", Stevenson.Account.editorsPath);
+
 					Stevenson.repo.schemas = schemas;
 					Stevenson.session.set("Stevenson.repo.schemas", schemas);
+					Stevenson.session.set("Stevenson.Account.schemasPath", Stevenson.Account.schemasPath);
+					
 					settings.success(layouts);
 				};
 			});
