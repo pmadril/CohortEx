@@ -92,6 +92,7 @@ var Stevenson = {
 			Stevenson.Account.layoutsPath = Stevenson.session.get("Stevenson.repo.layoutsPath");
 			Stevenson.Account.editorsPath = Stevenson.session.get("Stevenson.repo.editorsPath");
 			Stevenson.Account.schemasPath = Stevenson.session.get("Stevenson.repo.schemasPath");
+			Stevenson.Account.subFolder   = Stevenson.session.get("Stevenson.repo.subFolder");
 
 			Stevenson.log.debug('Checking to see if need to login');
 			if (Stevenson.loginRequired && Stevenson.Account.authenticated == false) {
@@ -365,7 +366,7 @@ var Stevenson = {
 						
 						var posPathLayouts = rf.path.indexOf(Stevenson.Account.layoutsFolder);
 						var posPathEditors = rf.path.indexOf(Stevenson.Account.schemasFolder);
-						var posPathSchemas = rf.path.indexOf(Stevenson.Account.schemasFolder);
+						var posPathSchemas = rf.path.indexOf(Stevenson.Account.editorsFolder);
 						var posPathSubFolder = rf.path.indexOf(Stevenson.Account.subFolderDetector);
 						
 						//Detect docs
@@ -406,6 +407,7 @@ var Stevenson = {
 					Stevenson.session.set("Stevenson.repo.layoutsPath", Stevenson.Account.layoutsPath);
 					
 					Stevenson.session.set("Stevenson.repo.editorsPath", Stevenson.Account.editorsPath);
+					Stevenson.session.set("Stevenson.repo.subFolder", Stevenson.Account.subFolder);
 
 					Stevenson.repo.schemas = schemas;
 					Stevenson.session.set("Stevenson.repo.schemas", schemas);
