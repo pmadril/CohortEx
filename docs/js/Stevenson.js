@@ -11,6 +11,14 @@ var Stevenson = {
 		name : '',
 		password : '',
 		repo : '',
+		subFolder: '/',
+		subFolderDetector: '_config.yml',
+		schemasFolder: 'schemas',
+		schemasPath: '/',
+		layoutsFolder: '_layouts',
+		layoutsPath: '/',
+		editorsFolder: '_editors',
+		editorsPath: '/',
 		siteBaseURL: '{{ site.baseurl }}',
 		username : '',
 		/**
@@ -350,25 +358,45 @@ var Stevenson = {
 					Stevenson.log.debug("Trying to load layouts");
 					var layouts = [];
 					var schemas = [];
-					var pathLayouts = "_layouts";
-					var pathSchemas = "schemas";
+					
 					for(var i=0; i < tree.length; i++) {
 						var rf = tree[i];
 						
-						var posPathLayout = rf.path.indexOf(pathLayouts);
-						var posPathSchema = rf.path.indexOf(pathSchemas);
+						var posPathLayouts = rf.path.indexOf(Stevenson.Account.layoutsFolder);
+						var posPathEditors = rf.path.indexOf(Stevenson.Account.schemasFolder);
+						var posPathSchemas = rf.path.indexOf(Stevenson.Account.schemasFolder);
+						var posPathSubFolder = rf.path.indexOf(Stevenson.Account.subFolderDetector);
 						
-						if( posPathLayout >= 0) {
-							var nameLayout = rf.path.substr(posPathLayout + pathLayouts.length + 1);
+						//Detect docs
+						if(posPathSubFolder >= 0) {
+							Stevenson.Account.subFolder = rf.path.substring(0,posPathSubFolder);
+						}
+						
+						if( posPathLayouts >= 0) {
+							var nameLayout = rf.path.substr(posPathLayouts + Stevenson.Account.layoutsFolder.length + 1);
 							nameLayout = nameLayout.substring(0, nameLayout.indexOf('.'));
 							layouts.push(nameLayout);
+							if (nameLayout.length == 0){
+								Stevenson.Account.layoutsPath=rf.path;
+							}
 						} else {
-							if ( posPathSchema >= 0) {
-								var nameSchema = rf.path.substr(posPathSchema + pathSchemas.length + 1);
+							if ( posPathSchemas >= 0) {
+								var nameSchema = rf.path.substr(posPathSchemas + Stevenson.Account.schemasFolder.length + 1);
 								nameSchema = nameSchema.substring(0, nameSchema.lastIndexOf('.'));
 								schemas.push(nameSchema);
+								if (nameSchema.length == 0){
+									Stevenson.Account.schemasPath=rf.path;
+								}
 							} else {
-								Stevenson.log.debug("Skipping file: " + rf.path);								
+								if ( posPathEditors >= 0) {
+									var nameEditor = rf.path.substr(posPathEditors + Stevenson.Account.editorsFolder.length + 1);
+									nameEditor = nameEditor.substring(0, nameEditor.lastIndexOf('.'));
+									if (nameEditor.length == 0){
+										Stevenson.Account.editorsPath=rf.path;
+									}
+								} else {
+									Stevenson.log.debug("Skipping file: " + rf.path);								
+								}
 							}
 						};
 					}
@@ -455,13 +483,13 @@ var Stevenson = {
 			}, options);
             if (settings.schema && settings.schema !== null) {
                 Stevenson.repo.getFile({
-					path: '_schemas/'+settings.schema+'.json',
+					path: Stevenson.Account.schemasPath + settings.schema + '.json',
 					success: function(file){
 						settings.configSchema(JSON.parse(file.getPageContent()));
 					},
 					error:  function(message){
 						Stevenson.repo.getFile({
-							path:'_schemas/'+settings.schema+'.html',
+							path:Stevenson.Account.schemasPath + settings.schema + '.html',
 							success: function(file){
 								var properties = file.getProperties();
 								if(properties && properties.schema){
@@ -481,13 +509,13 @@ var Stevenson = {
             }
             if (settings.layout && settings.layout !== null) {
                 Stevenson.repo.getFile({
-                    path: '_editors/'+settings.layout+'.json',
+                    path: Stevenson.Account.editorsPath + settings.layout + '.json',
                     success: function(file){
                         settings.success(JSON.parse(file.getPageContent()));
                     },
                     error:  function(message){
                         Stevenson.repo.getFile({
-                            path:'_layouts/'+settings.layout+'.html',
+                            path:Stevenson.Account.layoutsPath + settings.layout + '.html',
                             success: function(file){
                                 var properties = file.getProperties();
                                 if(properties && properties.layout){
