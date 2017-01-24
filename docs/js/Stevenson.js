@@ -365,7 +365,7 @@ var Stevenson = {
 						} else {
 							if ( posPathSchema >= 0) {
 								var nameSchema = rf.path.substr(posPathSchema + pathSchemas.length + 1);
-								nameSchema = nameSchema.substring(0, nameSchema.indexOf('.'));
+								nameSchema = nameSchema.substring(0, nameSchema.lastIndexOf('.'));
 								schemas.push(nameSchema);
 							} else {
 								Stevenson.log.debug("Skipping file: " + rf.path);								
