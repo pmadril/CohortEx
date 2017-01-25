@@ -365,8 +365,8 @@ var Stevenson = {
 						var rf = tree[i];
 						
 						var posPathLayouts = rf.path.indexOf(Stevenson.Account.layoutsFolder);
-						var posPathEditors = rf.path.indexOf(Stevenson.Account.schemasFolder);
-						var posPathSchemas = rf.path.indexOf(Stevenson.Account.editorsFolder);
+						var posPathEditors = rf.path.indexOf(Stevenson.Account.editorsFolder);
+						var posPathSchemas = rf.path.indexOf(Stevenson.Account.schemasFolder);
 						var posPathSubFolder = rf.path.indexOf(Stevenson.Account.subFolderDetector);
 						
 						//Detect docs
