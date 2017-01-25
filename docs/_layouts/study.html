@@ -49,7 +49,7 @@ layout: cohortex_default
         <br/>
         <h2 style="font-size: 108%;"> Parameters Schema: {{ page.schema }} </h2>
         <script type="text/javascript" >    
-            var dataSchema="{{ repository_url }}/raw/master/schemas/{{ page.schema }}.json";
+            var dataSchema="{{ site.github.repository_url }}/raw/master/schemas/{{ page.schema }}.json";
             var docsonFrame = "{{ site.baseurl }}/docson_frame.html";
             document.write("<iframe id='" + dataSchema +
                 "' style='padding: 0; border: 0; width:100%; background: transparent' src='" +
