@@ -6,7 +6,7 @@
 			
 			var layout = properties.layout;
 			if(!layout || layout == '') {
-				layout = 'cohortex';
+				layout = 'default';
 			}
 			
 			var schema = properties.schema;

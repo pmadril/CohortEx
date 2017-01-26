@@ -504,13 +504,13 @@ var Stevenson = {
 			}, options);
             if (settings.schema && settings.schema !== null) {
                 Stevenson.repo.getFile({
-					path: Stevenson.Account.schemasPath + settings.schema + '.json',
+					path: Stevenson.Account.schemasPath + '/' + settings.schema + '.json',
 					success: function(file){
 						settings.configSchema(JSON.parse(file.getPageContent()));
 					},
 					error:  function(message){
 						Stevenson.repo.getFile({
-							path:Stevenson.Account.schemasPath + settings.schema + '.html',
+							path:Stevenson.Account.schemasPath  + '/' +  settings.schema + '.html',
 							success: function(file){
 								var properties = file.getProperties();
 								if(properties && properties.schema){
@@ -530,13 +530,13 @@ var Stevenson = {
             }
             if (settings.layout && settings.layout !== null) {
                 Stevenson.repo.getFile({
-                    path: Stevenson.Account.editorsPath + settings.layout + '.json',
+                    path: Stevenson.Account.editorsPath  + '/' +  settings.layout + '.json',
                     success: function(file){
                         settings.success(JSON.parse(file.getPageContent()));
                     },
                     error:  function(message){
                         Stevenson.repo.getFile({
-                            path:Stevenson.Account.layoutsPath + settings.layout + '.html',
+                            path:Stevenson.Account.layoutsPath  + '/' +  settings.layout + '.html',
                             success: function(file){
                                 var properties = file.getProperties();
                                 if(properties && properties.layout){
