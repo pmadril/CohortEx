@@ -140,7 +140,11 @@
 		$('.file-edit').click(function(){
 			Stevenson.ui.Loader.display('Loading editor...', 100);
 			var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
-			window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
+			if (path.indexOf(Stevenson.Account.schemaExtension) >= 0) {
+				window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#' + path;
+			} else {
+				window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
+			}
 			return false;
 		});
 		

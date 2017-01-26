@@ -16,6 +16,7 @@ var Stevenson = {
 		schemasFolder: 'schemas',
 		layoutsFolder: '_layouts',
 		editorsFolder: '_editors',
+		schemaExtension: '.jctx',
 		siteBaseURL: '{{ site.baseurl }}',
 		username : '',
 		/**

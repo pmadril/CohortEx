@@ -1,22 +1,23 @@
 ---
-layout: default 
-title: Edit Page
+layout: cohortex_default
+schema: cohortexV1.0.0 
+title: Edit CohortEx Study Parameters
 authRequired: true
-scripts: [/js/yaml.js, /js/tinymce/tinymce.min.js, /js/edit-page.js, /js/epiceditor/js/epiceditor.min.js]
+scripts: [/js/yaml.js, /js/jsoneditor/jsoneditor.min.js, /js/tinymce/tinymce.min.js, /js/edit-page.js, /js/epiceditor/js/epiceditor.min.js]
 ---
 
 <a href="javascript:window.history.back()" class="cancel">&lt; Back</a>
 <form id="rename-page" class="form-inline">
-	<h2>Editing <input id="page-path" type="text" />&nbsp;<input value="Rename" type="submit" class="btn btn-success" /></h2>
+	<h2>Editing <input id="page-path" type="text" />&nbsp;<!-- input value="Rename" type="submit" class="btn btn-success" / --></h2>
 </form>
 <form id="edit-page" class="form-horizontal">
 	<fieldset class="container properties">
-		<legend></legend>
+		<legend>Research Parameters</legend>
 		<p></p>
 		<div class="control-group">
-			<label for="layout" class="control-label">Page Layout</label>
+			<label for="schema" class="control-label">CohortEx Schema</label>
 			<div class="controls">
-				<select id="layout" name="layout">
+				<select id="schema" name="schema">
 				</select>
 			</div>
 		</div>
@@ -26,7 +27,7 @@ scripts: [/js/yaml.js, /js/tinymce/tinymce.min.js, /js/edit-page.js, /js/epicedi
 	<fieldset class="container content">
 	</fieldset>
 	<fieldset class="container buttons">
-		<legend>Controls</legend>
+		<legend>Update Study Parameters on GitHub</legend>
 		<div class="control-group">
 			<label for="message" class="control-label">Commit Message</label>
 			<div class="controls">
