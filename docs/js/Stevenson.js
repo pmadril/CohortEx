@@ -16,6 +16,7 @@ var Stevenson = {
 		schemasFolder: 'schemas',
 		layoutsFolder: '_layouts',
 		editorsFolder: '_editors',
+		templatesFolder: 'templates',
 		schemaExtension: '.jctx',
 		siteBaseURL: '{{ site.baseurl }}',
 		username : '',
@@ -77,7 +78,7 @@ var Stevenson = {
 		});
 
 		Stevenson.log.debug("Loading the global CMS template");
-		$.Mustache.load(Stevenson.Account.siteBaseURL + '/templates/cms.html').done(function(){		
+		$.Mustache.load(Stevenson.Account.siteBaseURL + Stevenson.Account.templatesPath + '/templates/cms.html').done(function(){		
 			Stevenson.log.info('Initializing application');
 
 			// Pre-start checks
@@ -93,6 +94,7 @@ var Stevenson = {
 			Stevenson.Account.layoutsPath = Stevenson.session.get("Stevenson.repo.layoutsPath");
 			Stevenson.Account.editorsPath = Stevenson.session.get("Stevenson.repo.editorsPath");
 			Stevenson.Account.schemasPath = Stevenson.session.get("Stevenson.repo.schemasPath");
+			Stevenson.Account.templatesPath = Stevenson.session.get("Stevenson.repo.templatesPath");
 			Stevenson.Account.subFolder   = Stevenson.session.get("Stevenson.repo.subFolder");
 
 			Stevenson.log.debug('Checking to see if need to login');
@@ -105,7 +107,7 @@ var Stevenson = {
 			}else{
 				if (Stevenson.Account.authenticated && Stevenson.Account.authenticated == true) {
 					Stevenson.log.debug("Adding logged in top section");
-					$.Mustache.load(Stevenson.Account.siteBaseURL + '/templates/authentication.html').done(function () {
+					$.Mustache.load(Stevenson.Account.siteBaseURL + Stevenson.Account.templatesPath + '/templates/authentication.html').done(function () {
 						$('#top-login').html('');
 						$('#top-login').mustache('top-bar', {name: Stevenson.Account.name, siteBaseURL: Stevenson.Account.siteBaseURL});
 					});
@@ -368,11 +370,13 @@ var Stevenson = {
 						var posPathLayouts = rf.path.indexOf(Stevenson.Account.layoutsFolder);
 						var posPathEditors = rf.path.indexOf(Stevenson.Account.editorsFolder);
 						var posPathSchemas = rf.path.indexOf(Stevenson.Account.schemasFolder);
+						var posPathTemplates = rf.path.indexOf(Stevenson.Account.templatesFolder);
 						var posPathSubFolder = rf.path.indexOf(Stevenson.Account.subFolderDetector);
 						
 						//Detect docs
 						if(posPathSubFolder >= 0) {
-							Stevenson.Account.subFolder = rf.path.substring(0,posPathSubFolder);
+							Stevenson.Account.subFolder = '/' + rf.path.substring(0,posPathSubFolder);
+							Stevenson.log.debug("Define subFolder as: " + Stevenson.Account.subFolder);								
 						}
 						
 						if( posPathLayouts >= 0) {
@@ -380,7 +384,8 @@ var Stevenson = {
 							nameLayout = nameLayout.substring(0, nameLayout.indexOf('.'));
 							layouts.push(nameLayout);
 							if (nameLayout.length == 0){
-								Stevenson.Account.layoutsPath=rf.path + '/';
+								Stevenson.Account.layoutsPath= '/' +  rf.path;
+								Stevenson.log.debug("Define layoutsPath as: " + Stevenson.Account.layoutsPath);								
 							}
 						} else {
 							if ( posPathSchemas >= 0) {
@@ -388,16 +393,22 @@ var Stevenson = {
 								nameSchema = nameSchema.substring(0, nameSchema.lastIndexOf('.'));
 								schemas.push(nameSchema);
 								if (nameSchema.length == 0){
-									Stevenson.Account.schemasPath=rf.path + '/';
+									Stevenson.Account.schemasPath= '/' +  rf.path;
+									Stevenson.log.debug("Define schemasPath as: " + Stevenson.Account.schemasPath);								
 								}
 							} else {
 								if ( posPathEditors >= 0) {
 									var nameEditor = rf.path.substr(posPathEditors + Stevenson.Account.editorsFolder.length + 1);
 									nameEditor = nameEditor.substring(0, nameEditor.lastIndexOf('.'));
 									if (nameEditor.length == 0){
-										Stevenson.Account.editorsPath=rf.path + '/';
+										Stevenson.Account.editorsPath= '/' +  rf.path;
+										Stevenson.log.debug("Define editorsPath as: " + Stevenson.Account.editorsPath);								
 									}
 								} else {
+									if (posPathTemplates >= 0) {
+										Stevenson.Account.templatesPath = '/' + rf.path.substring(0,posPathTemplates);
+										Stevenson.log.debug("Define templatesPath as: " + Stevenson.Account.templatesPath);								
+									}
 									Stevenson.log.debug("Skipping file: " + rf.path);								
 								}
 							}
@@ -408,6 +419,7 @@ var Stevenson = {
 					Stevenson.session.set("Stevenson.repo.layoutsPath", Stevenson.Account.layoutsPath);
 					
 					Stevenson.session.set("Stevenson.repo.editorsPath", Stevenson.Account.editorsPath);
+					Stevenson.session.set("Stevenson.repo.templatesPath", Stevenson.Account.templatesPath);
 					Stevenson.session.set("Stevenson.repo.subFolder", Stevenson.Account.subFolder);
 
 					Stevenson.repo.schemas = schemas;
@@ -762,7 +774,7 @@ var Stevenson = {
 					}
 				}
 
-				$.Mustache.load(Stevenson.Account.siteBaseURL + '/templates/cms.html').done(function () {
+				$.Mustache.load(Stevenson.Account.siteBaseURL + Stevenson.Account.templatesPath + '/templates/cms.html').done(function () {
 					Stevenson.ui.ContentEditor.currentEditor.setContent(page);
 				});
 			},
@@ -874,7 +886,7 @@ var Stevenson = {
 						new EpicEditor({
 							textarea: 'content',
 							container: 'markdown-editor',
-							basePath: Stevenson.Account.siteBaseURL + '/js/epiceditor',
+							basePath: Stevenson.Account.siteBaseURL + Stevenson.Account.subFolder + '/js/epiceditor',
 							autogrow: true
 						}).load();
 					},

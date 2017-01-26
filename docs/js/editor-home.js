@@ -21,7 +21,7 @@
             
 			Stevenson.repo.getLayoutsAndSchemas({
                 success: function (branches) {
-                    window.location = Stevenson.Account.siteBaseURL + '/cms/site.html';
+                    window.location = Stevenson.Account.siteBaseURL + Stevenson.Account.subFolder + '/cms/site.html';
                 },
                 error: function (err) {
 					Stevenson.ui.Messages.displayError('Unable to load layouts: '

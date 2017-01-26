@@ -29,7 +29,7 @@
 					Stevenson.ui.ContentEditor.configure({});
 					Stevenson.ui.Loader.hide();
 					Stevenson.ui.Messages.displayError('Exception loading properties editor: '
-							+ message+', if you haven\'t already, <a href="/cms/edit.html?new=true#_schemas/'+schema+'.json">configure the schema for this configuration</a>.');
+							+ message+', if you haven\'t already, <a href="' + Stevenson.Account.subFolder + '/cms/edit.html?new=true#' + Stevenson.Account.schemasPath + '/'+schema+'.json">configure the schema for this configuration</a>.');
 				},
 				configSchema: function(config){
 					editorConfig = config;
@@ -55,7 +55,7 @@
 	
 		if (Stevenson.Account.repo == '') {
 			Stevenson.log.warn('Website repository not set');
-			Stevenson.ui.Messages.displayError('Website repository not set.  <a href="/cms">Configure</a>');
+			Stevenson.ui.Messages.displayError('Website repository not set.  <a href="' + Stevenson.Account.subFolder + '/cms">Configure</a>');
 		}
 		
 		var pagePath = window.location.hash.substr(1);
@@ -89,7 +89,7 @@
 			Stevenson.repo.getFile({
 				path: pagePath,
 				success: function(file){
-					Stevenson.log.debug('Retrieved page');
+					Stevenson.log.debug('Retrieved page: ' + file.path);
 					currentPage = file;
 					
 					Stevenson.log.debug('Setting content');
@@ -140,7 +140,7 @@
 				oldPath: oldPath,
 				newPath: newPath,
 				success: function(path){
-					window.location.replace(Stevenson.Account.siteBaseURL + '/cms/edit.html#'+newPath);
+					window.location.replace(Stevenson.Account.siteBaseURL + Stevenson.Account.subFolder + '/cms/edit.html#'+newPath);
 					initialize();
 					Stevenson.ui.Messages.displayMessage("Moved file: " + oldPath +' to ' + newPath);
 					Stevenson.ui.Loader.hide();
@@ -229,7 +229,7 @@
 					Stevenson.ui.Messages.displayMessage('Page saved successfully!');
 					Stevenson.ui.Loader.hide();
 					if (Stevenson.util.getParameter('new') == 'true') {
-						window.location.replace(Stevenson.Account.siteBaseURL + '/cms/edit.html#'+currentPage.path);
+						window.location.replace(Stevenson.Account.siteBaseURL + Stevenson.Account.subFolder + '/cms/edit.html#'+currentPage.path);
 					} else {
 						$('#message').val('');
 						initialize();
