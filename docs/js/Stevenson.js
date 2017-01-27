@@ -364,6 +364,13 @@ var Stevenson = {
 					var layouts = [];
 					var schemas = [];
 					
+					//Not really necessary
+					Stevenson.Account.subFolder = '';
+					Stevenson.Account.layoutsPath= '';
+					Stevenson.Account.schemasPath = '';
+					Stevenson.Account.editorsPath = '';
+					Stevenson.Account.templatesPath = '';
+					
 					for(var i=0; i < tree.length; i++) {
 						var rf = tree[i];
 						
@@ -375,7 +382,7 @@ var Stevenson = {
 						
 						//Detect docs
 						if(posPathSubFolder >= 0) {
-							Stevenson.Account.subFolder = '/' + rf.path.substring(0,posPathSubFolder);
+							Stevenson.Account.subFolder = rf.path.substring(0,posPathSubFolder) +  '/' ;
 							Stevenson.log.debug("Define subFolder as: " + Stevenson.Account.subFolder);								
 						}
 						
@@ -384,7 +391,7 @@ var Stevenson = {
 							nameLayout = nameLayout.substring(0, nameLayout.indexOf('.'));
 							layouts.push(nameLayout);
 							if (nameLayout.length == 0){
-								Stevenson.Account.layoutsPath= '/' +  rf.path;
+								Stevenson.Account.layoutsPath = rf.path +  '/' ;
 								Stevenson.log.debug("Define layoutsPath as: " + Stevenson.Account.layoutsPath);								
 							}
 						} else {
@@ -393,7 +400,7 @@ var Stevenson = {
 								nameSchema = nameSchema.substring(0, nameSchema.lastIndexOf('.'));
 								schemas.push(nameSchema);
 								if (nameSchema.length == 0){
-									Stevenson.Account.schemasPath= '/' +  rf.path;
+									Stevenson.Account.schemasPath = rf.path +  '/' ;
 									Stevenson.log.debug("Define schemasPath as: " + Stevenson.Account.schemasPath);								
 								}
 							} else {
@@ -401,12 +408,12 @@ var Stevenson = {
 									var nameEditor = rf.path.substr(posPathEditors + Stevenson.Account.editorsFolder.length + 1);
 									nameEditor = nameEditor.substring(0, nameEditor.lastIndexOf('.'));
 									if (nameEditor.length == 0){
-										Stevenson.Account.editorsPath= '/' +  rf.path;
+										Stevenson.Account.editorsPath = rf.path +  '/' ;
 										Stevenson.log.debug("Define editorsPath as: " + Stevenson.Account.editorsPath);								
 									}
 								} else {
 									if (posPathTemplates >= 0) {
-										Stevenson.Account.templatesPath = '/' + rf.path.substring(0,posPathTemplates);
+										Stevenson.Account.templatesPath = rf.path.substring(0,posPathTemplates) +  '/' ;
 										Stevenson.log.debug("Define templatesPath as: " + Stevenson.Account.templatesPath);								
 									}
 									Stevenson.log.debug("Skipping file: " + rf.path);								
@@ -504,13 +511,13 @@ var Stevenson = {
 			}, options);
             if (settings.schema && settings.schema !== null) {
                 Stevenson.repo.getFile({
-					path: Stevenson.Account.schemasPath + '/' + settings.schema + '.json',
+					path: Stevenson.Account.schemasPath + settings.schema + '.json',
 					success: function(file){
 						settings.configSchema(JSON.parse(file.getPageContent()));
 					},
 					error:  function(message){
 						Stevenson.repo.getFile({
-							path:Stevenson.Account.schemasPath  + '/' +  settings.schema + '.html',
+							path:Stevenson.Account.schemasPath  +  settings.schema + '.html',
 							success: function(file){
 								var properties = file.getProperties();
 								if(properties && properties.schema){
@@ -530,13 +537,13 @@ var Stevenson = {
             }
             if (settings.layout && settings.layout !== null) {
                 Stevenson.repo.getFile({
-                    path: Stevenson.Account.editorsPath  + '/' +  settings.layout + '.json',
+                    path: Stevenson.Account.editorsPath  +  settings.layout + '.json',
                     success: function(file){
                         settings.success(JSON.parse(file.getPageContent()));
                     },
                     error:  function(message){
                         Stevenson.repo.getFile({
-                            path:Stevenson.Account.layoutsPath  + '/' +  settings.layout + '.html',
+                            path:Stevenson.Account.layoutsPath +  settings.layout + '.html',
                             success: function(file){
                                 var properties = file.getProperties();
                                 if(properties && properties.layout){
