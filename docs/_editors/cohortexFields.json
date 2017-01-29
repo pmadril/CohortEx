@@ -1,6 +1,3 @@
----
-layout: default
----
 {
    "title":"Researcher Parameters",
    "description":"The following fields define the researcher.",
@@ -18,6 +15,12 @@ layout: default
          "type":"text",
          "help": "Your name or description.",
          "required":true
+      },
+      {
+         "label":"Published",
+         "name":"published",
+         "type":"checkbox",
+         "value": true
       },
       {
          "label":"Authentication Required",
