@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: stevPost
 title: "CohortEx: Cohort Extraction Tool, Launches Site"
 date: 2017-01-26
 ---
