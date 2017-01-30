@@ -1,10 +1,10 @@
-<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/js/JSONVisualization/default.css">
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/stevJs/JSONVisualization/default.css">
 
-<script type="text/javascript" src="{{ site.baseurl }}/js/JSONVisualization/yuiloader-dom-event.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/stevJs/JSONVisualization/yuiloader-dom-event.js"></script>
 
-<script type="text/javascript" src="{{ site.baseurl }}/js/JSONVisualization/json-min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/stevJs/JSONVisualization/json-min.js"></script>
 
-<script type="text/javascript" src="{{ site.baseurl }}/js/JSONVisualization/default.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/stevJs/JSONVisualization/default.js"></script>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -46,7 +46,7 @@
         <h2 style="font-size: 108%;"> Parameters Schema: {{ page.schema }} </h2>
         <script type="text/javascript" >    
             var dataSchema="https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/schemas/{{ page.schema }}.json";
-            var docsonFrame = "{{ site.baseurl }}/docson_frame.html";
+            var docsonFrame = "{{ site.baseurl }}/stevDocsonFrame.html";
             document.write("<iframe id='" + dataSchema +
                 "' style='padding: 0; border: 0; width:100%; background: transparent' src='" +
                 docsonFrame + "#" + dataSchema + "'></iframe>");

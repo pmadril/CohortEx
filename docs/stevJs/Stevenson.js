@@ -893,7 +893,7 @@ var Stevenson = {
 						new EpicEditor({
 							textarea: 'content',
 							container: 'markdown-editor',
-							basePath: Stevenson.Account.siteBaseURL + '/js/epiceditor',
+							basePath: Stevenson.Account.siteBaseURL + '/stevJs/epiceditor',
 							autogrow: true
 						}).load();
 					},
