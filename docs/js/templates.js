@@ -19,11 +19,14 @@
 								layout.id = id;
 								layout.editorurl = Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
 								for(var i=0;i<editors.length;i++){
-									if(editors[i].path == '_editors/'+id+'.json'){
+									if(editors[i].path ==Stevenson.Account.editorsPath + id+'.json'){ //'_editors/'
 										layout.editorurl = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
 										break;
 									}
 								}
+								
+								layout.path = Stevenson.Account.siteBaseURL + layout.path;
+								
 								$('#templates').mustache('template', layout);
 							}
 						});
