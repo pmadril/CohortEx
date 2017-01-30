@@ -382,7 +382,7 @@ var Stevenson = {
 						
 						//Detect docs
 						if(posPathSubFolder >= 0) {
-							Stevenson.Account.subFolder = rf.path.substring(0,posPathSubFolder) +  '/' ;
+							Stevenson.Account.subFolder = rf.path.substring(0,posPathSubFolder);
 							Stevenson.log.debug("Define subFolder as: " + Stevenson.Account.subFolder);								
 						}
 						

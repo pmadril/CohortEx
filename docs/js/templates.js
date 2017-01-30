@@ -17,10 +17,10 @@
 								Stevenson.log.info('Adding layout: '+layout.path);
 								var id = layout.path.replace('.html','').replace(Stevenson.Account.layoutsPath,'');
 								layout.id = id;
-								layout.editorurl = '/cms/edit.html?new=true#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
+								layout.editorurl = Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
 								for(var i=0;i<editors.length;i++){
 									if(editors[i].path == '_editors/'+id+'.json'){
-										layout.editorurl = '/cms/edit.html#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
+										layout.editorurl = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
 										break;
 									}
 								}
@@ -52,10 +52,10 @@
 								Stevenson.log.info('Adding schema: '+schema.path);
 								var id = schema.path.replace('.html','').replace(Stevenson.Account.schemasPath,''); //'_schemas/'
 								schema.id = id;
-								schema.schemaurl = '/cms/edit.html?new=true#' + Stevenson.Account.schemasPath + id + '.json'; // _schemas/
+								schema.schemaurl = Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#' + Stevenson.Account.schemasPath + id + '.json'; // _schemas/
 								for(var i=0;i<schemas.length;i++){
 									if(schemas[i].path == Stevenson.Account.schemasPath + id+'.json'){ //'_schemas/'
-										schema.schemaurl = '/cms/edit.html#' + Stevenson.Account.schemasPath + id + '.json'; //_schemas/
+										schema.schemaurl = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + Stevenson.Account.schemasPath + id + '.json'; //_schemas/
 										break;
 									}
 								}
@@ -84,7 +84,7 @@
 			if(templateName.indexOf('.html') == -1){
 				templateName += '.html';
 			}
-			window.location = '/cms/edit.html?new=true#' + Stevenson.Account.layoutsPath +templateName; //_layouts/
+			window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#' + Stevenson.Account.layoutsPath + templateName; //_layouts/
 			return false;
 		});
 		$('.breadcrumb .repo').html(Stevenson.Account.repo);
