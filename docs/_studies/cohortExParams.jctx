@@ -1,7 +1,7 @@
 ---
 schema: cohortexV1.0.0
 title: 'Schema Test'
-layout: null
+layout: cohortexStudy
 published: false
 authRequired: false
 tags:

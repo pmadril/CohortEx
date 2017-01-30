@@ -1,7 +1,7 @@
 ---
 schema: cohortexV1.0.0
 title: 'DCV Study'
-layout: study
+layout: cohortexStudy
 published: true
 authRequired: false
 tags:
