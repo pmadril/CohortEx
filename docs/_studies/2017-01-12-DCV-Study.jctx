@@ -1,15 +1,3 @@
----
-schema: cohortexV1.0.0
-title: 'DCV Study'
-layout: cohortexStudy
-published: true
-authRequired: false
-tags:
-  - cohortex
-summary: 'Test of cohortex editor'
-researcher_id: tereza.abrahao@usp.br
-description: 'Tereza Abrahao'
----
 
 {
 	"Research and Study Identification": {
