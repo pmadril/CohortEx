@@ -64,7 +64,7 @@
 									}
 								}
 								
-								layout.path = Stevenson.Account.siteBaseURL + '/' + layout.path;
+								schema.path = Stevenson.Account.siteBaseURL + '/' + schema.path;
 								
 								$('#templates').mustache('template', schema);
 							}
