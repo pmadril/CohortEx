@@ -46,7 +46,7 @@
         <h2 style="font-size: 108%;"> Parameters Schema: {{ page.schema }} </h2>
         <script type="text/javascript" >    
             var dataSchema="https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/schemas/{{ page.schema }}.json";
-            var docsonFrame = "{{ site.baseurl }}/docson_frame.html";
+            var docsonFrame = "{{ site.baseurl }}/cohortexDocson/docson_frame.html";
             document.write("<iframe id='" + dataSchema +
                 "' style='padding: 0; border: 0; width:100%; background: transparent' src='" +
                 docsonFrame + "#" + dataSchema + "'></iframe>");
