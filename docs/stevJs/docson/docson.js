@@ -18,7 +18,7 @@ var docson = docson || {};
 
 docson.templateBaseUrl="templates";
 
-define(["stevJs/docson/jquery", "stevJs/docson/handlebars", "stevJs/docson/highlight", "stevJs/docson/jsonpointer", "stevJs/docson/marked", "stevJs/docson/traverse"], function(jquery, handlebars, highlight, jsonpointer, marked) {
+define(["lib/jquery", "lib/handlebars", "lib/highlight", "lib/jsonpointer", "lib/marked", "lib/traverse"], function(jquery, handlebars, highlight, jsonpointer, marked) {
 
     var ready = $.Deferred();
     var boxTemplate;
