@@ -29,7 +29,7 @@
 					Stevenson.ui.ContentEditor.configure({});
 					Stevenson.ui.Loader.hide();
 					Stevenson.ui.Messages.displayError('Exception loading properties editor: '
-							+ message+', if you haven\'t already, <a href="' + Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#' + Stevenson.Account.siteBaseURL + Stevenson.Account.schemasPath + '/' + schema + '.json">configure the schema for this configuration</a>.');
+							+ message+', if you haven\'t already, <a href="' + Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#' + Stevenson.Account.siteBaseURL + '/' + Stevenson.Account.schemasPath + schema + '.json">configure the schema for this configuration</a>.');
 				},
 				configSchema: function(config){
 					editorConfig = config;
