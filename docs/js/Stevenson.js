@@ -78,7 +78,7 @@ var Stevenson = {
 		});
 
 		Stevenson.log.debug("Loading the global CMS template");
-		$.Mustache.load(Stevenson.Account.siteBaseURL + '/templates/cms.html').done(function(){		
+		$.Mustache.load(Stevenson.Account.siteBaseURL + '/templates/stevCms.html').done(function(){		
 			Stevenson.log.info('Initializing application');
 
 			// Pre-start checks
@@ -107,7 +107,7 @@ var Stevenson = {
 			}else{
 				if (Stevenson.Account.authenticated && Stevenson.Account.authenticated == true) {
 					Stevenson.log.debug("Adding logged in top section");
-					$.Mustache.load(Stevenson.Account.siteBaseURL + '/templates/authentication.html').done(function () {
+					$.Mustache.load(Stevenson.Account.siteBaseURL + '/templates/stevAuthentication.html').done(function () {
 						$('#top-login').html('');
 						$('#top-login').mustache('top-bar', {name: Stevenson.Account.name, siteBaseURL: Stevenson.Account.siteBaseURL});
 					});
@@ -781,7 +781,7 @@ var Stevenson = {
 					}
 				}
 
-				$.Mustache.load(Stevenson.Account.siteBaseURL + '/templates/cms.html').done(function () {
+				$.Mustache.load(Stevenson.Account.siteBaseURL + '/templates/stevCms.html').done(function () {
 					Stevenson.ui.ContentEditor.currentEditor.setContent(page);
 				});
 			},
