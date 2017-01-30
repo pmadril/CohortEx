@@ -17,7 +17,7 @@
 								Stevenson.log.info('Adding layout: '+layout.path);
 								var id = layout.path.replace('.html','').replace(Stevenson.Account.layoutsPath,'');
 								layout.id = id;
-								layout.templateurl = Stevenson.Account.siteBaseURL + '/cms/edit.html?editor=text#' + Stevenson.Account.editorsPath + id + '.json';
+								layout.templateurl = Stevenson.Account.siteBaseURL + '/cms/edit.html?editor=text#' + Stevenson.Account.editorsPath + id + '.html';
 								layout.editorurl = Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
 								for(var i=0;i<editors.length;i++){
 									if(editors[i].path ==Stevenson.Account.editorsPath + id+'.json'){ //'_editors/'
