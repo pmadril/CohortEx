@@ -25,7 +25,7 @@
 									}
 								}
 								
-								layout.path = Stevenson.Account.siteBaseURL + layout.path;
+								layout.path = Stevenson.Account.siteBaseURL + '/' + layout.path;
 								
 								$('#templates').mustache('template', layout);
 							}
