@@ -8,6 +8,11 @@ scripts: [/stevJs/JSONVisualization/yuiloader-dom-event.js, /stevJs/JSONVisualiz
     var studyURL = "https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/{{ page.studyPath }}";
     var fileLoaded;
     var fileContent;
+
+    $.ajaxSetup({
+    async: false
+    });    
+
     $.getJSON(studyURL, function(json) {
         fileLoaded = json;
         var parts = fileLoaded.split('---');
@@ -18,6 +23,10 @@ scripts: [/stevJs/JSONVisualization/yuiloader-dom-event.js, /stevJs/JSONVisualiz
             Stevenson.log.warn('No YAML header found on study file');
 		}
         
+    });
+    
+    $.ajaxSetup({
+    async: false
     });
 </script>
 
