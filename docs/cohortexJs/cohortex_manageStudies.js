@@ -163,7 +163,9 @@ description: \'Your full name here...\' \n\
 										content:'--- \n\
 schema: cohortexV1.0.0 \n\
 studyPath: ' + this.path + '\n\
-layout: cohortexStudy \n\
+layout: cohortexStudy, \n\
+published: true, \n\
+authRequired: true, \n\
 --- '
 },
 								message: 'Creating new study post for ' + this.fileName,
