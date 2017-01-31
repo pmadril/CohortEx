@@ -135,15 +135,15 @@
 						page: {
 							content:'--- \
 schema: cohortexV1.0.0 \
-title: "Write title here..." \
+title: \'Write title here...\' \
 layout: cohortexStudy \
 published: false \
 authRequired: false \
 tags: \
   - cohortex \
-summary: "Write a brief decription here..." \
+summary: \'Write a brief decription here...\' \
 researcher_id: tereza.abrahao@usp.br \
-description: "Your full name here..." \
+description: \'Your full name here...\' \
 ---'
 						},
 						message: 'Creating new page ' + name,
