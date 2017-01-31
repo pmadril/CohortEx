@@ -92,8 +92,12 @@ title: Study Page
     VIS.data.outHTML.checked=true;
     VIS.data.size.innerHTML="";
 		
-    var input= {{ content | strip_html }}; //JSON.parse('');
-	
+    //var input= {{ content | strip_html }}; //JSON.parse('');
+	var input;
+    var studyURL = "https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/studies/{{ page.studyPath }}";
+    $.getJSON(my_url, function(json) {
+      input = json;
+    });
     var jsonRendered = HTML.display(input,0);
     $("jsonOutput").innerHTML=jsonRendered;
     

@@ -135,8 +135,9 @@
 						page: {
 							content:'--- \n\
 schema: cohortexV1.0.0 \n\
-title: \'Write title here...\' \n\
+studyPath: ' + filePath + '\n\
 layout: cohortexStudy \n\
+title: \'Write title here...\' \n\
 published: false \n\
 authRequired: false \n\
 tags: \n\
@@ -148,9 +149,28 @@ description: \'Your full name here...\' \n\
 {\n\
 }'
 						},
-						message: 'Creating new page ' + newName,
-						success: function(){
-							window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+filePath;
+						message: 'Creating new study ' + newName,
+						success: function(filePath,newName){
+							
+							Stevenson.repo.savePage({
+								path: 'docs/_studies/' + newName,
+								page: {
+										content:'--- \n\
+schema: cohortexV1.0.0 \n\
+studyPath: ' + filePath + '\n\
+layout: cohortexStudy \n\
+--- ''
+},
+								message: 'Creating new study post ' + newName,
+								success: function() {
+									window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+filePath;
+								},
+								error: function(msg){
+									$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
+									$('#new-file-name').addClass('error');
+									$('#new-file-modal .modal-body').prepend('<div class="alert alert-error">Error creating study post: '+msg+'.</div>');
+								}
+							});
 						},
 						error: function(msg){
 							$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
