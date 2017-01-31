@@ -159,7 +159,7 @@ description: \'Your full name here...\' \n\
 schema: cohortexV1.0.0 \n\
 studyPath: ' + filePath + '\n\
 layout: cohortexStudy \n\
---- ''
+--- '
 },
 								message: 'Creating new study post ' + newName,
 								success: function() {
