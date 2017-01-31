@@ -1,5 +1,3 @@
----
----
 {
    "title":"Default Page",
    "description":"The following fields will be used to update the page metadata",
@@ -39,6 +37,6 @@
       }
    ],
    "rte": {
-      "document_base_url": "{{ site.url}}{{site.baseurl}}/"
+      "document_base_url": Stevenson.Account.documentBaseURL
    }
 }
