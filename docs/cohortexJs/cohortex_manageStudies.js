@@ -154,17 +154,18 @@ description: \'Your full name here...\' \n\
 						success: function(){
 							
 							Stevenson.repo.savePage({
-								path: 'docs/_studies/' + this.page.fileName,
+								path: 'docs/_studies/' + this.fileName,
 								page: {
+										origPath: this.path,
 										content:'--- \n\
 schema: cohortexV1.0.0 \n\
-studyPath: ' + filePath + '\n\
+studyPath: ' + this.path + '\n\
 layout: cohortexStudy \n\
 --- '
 },
-								message: 'Creating new study post ' + newName,
+								message: 'Creating new study post ' + this.fileName,
 								success: function() {
-									window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+this.page.path;
+									window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+this.origPath;
 								},
 								error: function(msg){
 									$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
