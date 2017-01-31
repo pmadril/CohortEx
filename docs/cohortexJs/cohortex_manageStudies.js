@@ -27,9 +27,9 @@
 				});
 				$('#files input[type=checkbox]').each(function(index, item){
 						$(item).removeAttr('checked');
-						if (index == $('#files input[type=checkbox]').length - 1) {
-							$(item).attr("checked", true);
-						}
+						//if (index == $('#files input[type=checkbox]').length - 1) {
+						//	$(item).attr("checked", true);
+						//}
 					});
 				
 				$('.folder-close').click(function(){
@@ -106,16 +106,45 @@
 				$('#new-file-modal .modal-body .alert-error').remove();
 				var name = $('#file-name').val();
 				if(name != ''){
+					var today = new Date();
+					var dd = today.getDate();
+
+					var mm = today.getMonth()+1; 
+					var yyyy = today.getFullYear();
+					if(dd<10) 
+					{
+						dd='0'+dd;
+					} 
+
+					if(mm<10) 
+					{
+						mm='0'+mm;
+					} 
+					var todayStr = yyyy+'-'+mm+'-'+dd+'-';
+					
+					var newName = todayStr + name;
+					
 					var path = $('#files').attr('data-path');
-					var filePath = path + "/" + name;
+					var filePath = path + "/" + newName;
 					if(path == ""){
-						filePath = name;
+						filePath = newName;
 					}
 					$('#new-file-modal .btn, #new-file-modal input').attr('disabled','disabled');
 					Stevenson.repo.savePage({
 						path: filePath,
 						page: {
-							content:''
+							content:'---
+schema: cohortexV1.0.0
+title: "Write title here..."
+layout: cohortexStudy
+published: false
+authRequired: false
+tags:
+  - cohortex
+summary: 'Write a brief decription here...'
+researcher_id: tereza.abrahao@usp.br
+description: 'Your full name here...'
+---'
 						},
 						message: 'Creating new page ' + name,
 						success: function(){
