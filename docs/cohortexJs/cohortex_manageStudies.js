@@ -123,6 +123,7 @@
 					var todayStr = yyyy+'-'+mm+'-'+dd+'-';
 					
 					var newName = todayStr + name + '.jctx';
+					var mdName  = todayStr + name + '.md';
 					
 					var path = $('#files').attr('data-path');
 					var filePath = path + "/" + newName;
@@ -132,6 +133,7 @@
 					$('#new-file-modal .btn, #new-file-modal input').attr('disabled','disabled');
 					Stevenson.repo.savePage({
 						fileName: newName,
+						mkdnName: mdName,
 						path: filePath,
 						page: {
 							content:'--- \n\
@@ -154,16 +156,17 @@ description: \'Your full name here...\' \n\
 						success: function(){
 							
 							Stevenson.repo.savePage({
-								path: 'docs/_studies/' + this.fileName,
+								path: 'docs/_studies/' + this.mkdnName,
 								page: {
 										origPath: this.path,
+									    mkName: this.mkdnName,
 										content:'--- \n\
 schema: cohortexV1.0.0 \n\
 studyPath: ' + this.path + '\n\
 layout: cohortexStudy \n\
 --- '
 },
-								message: 'Creating new study post ' + this.fileName,
+								message: 'Creating new study post for ' + this.fileName,
 								success: function() {
 									window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+this.page.origPath;
 								},
