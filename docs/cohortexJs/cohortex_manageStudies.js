@@ -148,9 +148,9 @@ description: \'Your full name here...\' \n\
 {\n\
 }'
 						},
-						message: 'Creating new page ' + name,
+						message: 'Creating new page ' + newName,
 						success: function(){
-							window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html?new=true#'+filePath;
+							window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+filePath;
 						},
 						error: function(msg){
 							$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
