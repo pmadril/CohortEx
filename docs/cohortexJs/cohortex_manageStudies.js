@@ -122,7 +122,7 @@
 					} 
 					var todayStr = yyyy+'-'+mm+'-'+dd+'-';
 					
-					var newName = todayStr + name;
+					var newName = todayStr + name + '.jctx';
 					
 					var path = $('#files').attr('data-path');
 					var filePath = path + "/" + newName;
@@ -148,7 +148,7 @@ description: "Your full name here..." \
 						},
 						message: 'Creating new page ' + name,
 						success: function(){
-							window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#'+filePath;
+							window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html?new=true#'+filePath;
 						},
 						error: function(msg){
 							$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
