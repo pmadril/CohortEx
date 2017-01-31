@@ -165,7 +165,7 @@ layout: cohortexStudy \n\
 },
 								message: 'Creating new study post ' + this.fileName,
 								success: function() {
-									window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+this.origPath;
+									window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+this.page.origPath;
 								},
 								error: function(msg){
 									$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
