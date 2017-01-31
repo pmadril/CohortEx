@@ -131,6 +131,7 @@
 					}
 					$('#new-file-modal .btn, #new-file-modal input').attr('disabled','disabled');
 					Stevenson.repo.savePage({
+						fileName: newName,
 						path: filePath,
 						page: {
 							content:'--- \n\
@@ -150,10 +151,10 @@ description: \'Your full name here...\' \n\
 }'
 						},
 						message: 'Creating new study ' + newName,
-						success: function(filePath,newName){
+						success: function(){
 							
 							Stevenson.repo.savePage({
-								path: 'docs/_studies/' + newName,
+								path: 'docs/_studies/' + this.page.fileName,
 								page: {
 										content:'--- \n\
 schema: cohortexV1.0.0 \n\
@@ -163,7 +164,7 @@ layout: cohortexStudy \n\
 },
 								message: 'Creating new study post ' + newName,
 								success: function() {
-									window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+filePath;
+									window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+this.page.path;
 								},
 								error: function(msg){
 									$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
