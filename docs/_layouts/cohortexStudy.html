@@ -1,17 +1,26 @@
 ---
 layout: stevDefault
 title: Study Page
-scripts: [cohortexJs/cohortexStudyPost.js, stevJs/JSONVisualization/yuiloader-dom-event.js, stevJs/JSONVisualization/json-min.js, stevJs/JSONVisualization/default.js, stevJs/edit-page.js, cohortexDocson/lib/jquery.js]
+scripts: [cohortexJs/cohortexStudyPost.js]
 ---
+<!-- stevJs/JSONVisualization/yuiloader-dom-event.js, stevJs/JSONVisualization/json-min.js, stevJs/JSONVisualization/default.js, stevJs/edit-page.js,, cohortexDocson/lib/jquery.js -->
 <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/stevJs/JSONVisualization/default.css">
+
+<script type="text/javascript" >
+    var studyURL = "https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/{{ page.studyPath }}";
+</script>
+
+<!-- script type="text/javascript" src="{{ site.baseurl }}/stevJs/JSONVisualization/yuiloader-dom-event.js"></script -->
+<!-- script type="text/javascript" src="{{ site.baseurl }}/stevJs/JSONVisualization/json-min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/stevJs/JSONVisualization/default.js"></script>
 <script>
     var studyURL = "https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/{{ page.studyPath }}";
     var fileLoaded;
     var fileContent;
 
-    $.ajaxSetup({
-    async: false
-    });    
+//    $.ajaxSetup({
+//    async: false
+//    });    
 
     $.getJSON(studyURL, function(json) {
         fileLoaded = json;
@@ -25,19 +34,19 @@ scripts: [cohortexJs/cohortexStudyPost.js, stevJs/JSONVisualization/yuiloader-do
         
     });
     
-    $.ajaxSetup({
-    async: false
-    });
+//    $.ajaxSetup({
+//    async: false
+//    });
 </script>
-
+-->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<!-- script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=313766222068236";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));</script -->
 <div class="post">
     <h1>{{ page.title }} - {{ page.description }}</h1>
 	<h3>{{ page.summary }}</h3>
@@ -102,7 +111,7 @@ scripts: [cohortexJs/cohortexStudyPost.js, stevJs/JSONVisualization/yuiloader-do
     <h4>Comments</h4>
     <div class="fb-comments" data-href="{{site.url}}{{page.url}}" data-width="470" data-num-posts="2"></div>
 </div>
-<script type="text/javascript" >
+<!-- script type="text/javascript" >
     VIS.data.outHTML.checked=true;
     VIS.data.inStrict.checked=true;
     VIS.data.preserve.checked=true;
@@ -118,4 +127,4 @@ scripts: [cohortexJs/cohortexStudyPost.js, stevJs/JSONVisualization/yuiloader-do
     var jsonRendered = HTML.display(input,0);
     $("jsonOutput").innerHTML=jsonRendered;
     
-	</script>
+	</script -->
