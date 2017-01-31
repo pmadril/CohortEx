@@ -95,9 +95,25 @@ title: Study Page
     //var input= {{ content | strip_html }}; //JSON.parse('');
 	var input;
     var studyURL = "https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/{{ page.studyPath }}";
-    $.getJSON(studyURL, function(json) {
-      input = json;
+    var json = (function () {
+    var json = null;
+    $.ajax({
+        'async': false,
+        'global': false,
+        'url': studyURL,
+        'dataType': "json",
+        'success': function (data) {
+            json = data;
+        }
     });
+    return json;
+})();
+    input = json;
+    
+    //$.getJSON(studyURL, function(json) {
+    //  input = json;
+    //});
+    
     var jsonRendered = HTML.display(input,0);
     $("jsonOutput").innerHTML=jsonRendered;
     
