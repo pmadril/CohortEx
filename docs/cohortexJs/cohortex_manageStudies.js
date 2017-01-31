@@ -133,18 +133,20 @@
 					Stevenson.repo.savePage({
 						path: filePath,
 						page: {
-							content:'--- \
-schema: cohortexV1.0.0 \
-title: \'Write title here...\' \
-layout: cohortexStudy \
-published: false \
-authRequired: false \
-tags: \
-  - cohortex \
-summary: \'Write a brief decription here...\' \
-researcher_id: tereza.abrahao@usp.br \
-description: \'Your full name here...\' \
----'
+							content:'--- \n\
+schema: cohortexV1.0.0 \n\
+title: \'Write title here...\' \n\
+layout: cohortexStudy \n\
+published: false \n\
+authRequired: false \n\
+tags: \n\
+  - cohortex \n\
+summary: \'Write a brief decription here...\' \n\
+researcher_id: tereza.abrahao@usp.br \n\
+description: \'Your full name here...\' \n\
+---\n\
+{\n\
+}'
 						},
 						message: 'Creating new page ' + name,
 						success: function(){
