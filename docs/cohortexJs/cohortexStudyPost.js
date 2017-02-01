@@ -1,4 +1,4 @@
-(function($) {
+(function() {
 	var loadStudyForPosting = function(path){
 		Stevenson.ui.Loader.display('Loading study ' +  path + ' for posting...', 500);
         Stevenson.log.info('Loading study ' +  path + ' for posting...');
