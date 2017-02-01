@@ -107,7 +107,7 @@
 		});
         */
 	};
-	Stevenson.ext.afterInit(function() {
+	Stevenson.ext.beforeInit(function() {
 		
 		Stevenson.log.info('Initializing study file: ' + Stevenson.studyURL + ' for posting');
 		loadStudyForPosting(Stevenson.studyURL);
