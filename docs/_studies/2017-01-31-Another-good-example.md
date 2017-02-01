@@ -4,4 +4,5 @@ studyPath: studies/2017-01-31-Another-good-example.jctx
 layout: cohortexStudy 
 published: true
 authRequired: false 
+scripts: [/cohortexJs/cohortexStudyPost.js]
 --- 

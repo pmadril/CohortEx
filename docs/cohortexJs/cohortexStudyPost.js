@@ -2,6 +2,26 @@
 	var loadStudyForPosting = function(path){
 		Stevenson.ui.Loader.display('Loading study ' +  path + ' for posting...', 500);
         Stevenson.log.info('Loading study ' +  path + ' for posting...');
+        
+        $.ajax({
+            url: path,
+            success: function (data){
+                  var parts = data.split('---');
+                if(parts.length == 3){
+                    Stevenson.studyContent = parts[2];
+                    Stevenson.ui.Loader.hide();
+                    Stevenson.log.info('Study file: ' +  path + ' read.');
+               } else {
+                    Stevenson.studyContent = parts[0];
+                    Stevenson.log.warn('No YAML header found on study file');
+                }
+           },
+            error: function (message){
+						Stevenson.ui.Loader.hide();
+						Stevenson.ui.Messages.displayError('Unable to load study file: ' + path + message);
+					}
+        });
+        
         /*
 		layoutsPathWOLastSlash = Stevenson.Account.layoutsPath.substring(0,Stevenson.Account.layoutsPath.lastIndexOf('/'));
 		editorsPathWOLastSlash = Stevenson.Account.editorsPath.substring(0,Stevenson.Account.editorsPath.lastIndexOf('/'));
@@ -89,16 +109,10 @@
 	};
 	Stevenson.ext.afterInit(function() {
 		
-		Stevenson.log.info('Initializing study files for posting');
-		$('#new-template').submit(function(){
-			var templateName = $('input[name=template-name]').val();
-			if(templateName.indexOf('.html') == -1){
-				templateName += '.html';
-			}
-			window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#' + Stevenson.Account.layoutsPath + templateName; //_layouts/
-			return false;
-		});
-		$('.breadcrumb .repo').html(Stevenson.Account.repo);
-		loadStudyForPosting();
+		Stevenson.log.info('Initializing study file: ' + Stevenson.studyURL + ' for posting');
+		loadStudyForPosting(Stevenson.studyURL);
+        
+        
 	});
 })(jQuery);
+
