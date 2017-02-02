@@ -51,6 +51,7 @@
 
                     $.each(repos, function (index, repo) {
                         var lastRepo = (index === repos.length - 1);
+						//CohortExDev - Just accept repositories forked from forkRootName as parent
                         if (repo.fork === true) {
                             forksRepo.push(repo);
                         }
@@ -124,6 +125,7 @@
                 },
                 error: function (message) {
                     Stevenson.ui.Loader.hide();
+					isLoading = false;
                     Stevenson.ui.Messages.displayError('Unable to load repositories: '
                             + message);
                 }
@@ -147,18 +149,18 @@
 								return false;
 							});
 						}
-                        $(this).tab('show');
-                        return false;
-                    });
-                    $('.repos').append('<div class="tab-pane" id="' + org.login + '"></div>');
+						$(this).tab('show');
+						return false;
+					});
+					$('.repos').append('<div class="tab-pane" id="' + org.login + '"></div>');
 				});
 				Stevenson.ui.Loader.hide();
 				loadRepos();
 				$('.nav-tabs a[href=#mine]').click(function () {
-                    $(this).tab('show');
-                    return false;
-                });
-            },
+					$(this).tab('show');
+					return false;
+				});
+			},
 			error: function (message) {
 				Stevenson.ui.Loader.hide();
 				Stevenson.ui.Messages.displayError('Unable to load groups: '
