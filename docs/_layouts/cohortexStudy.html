@@ -27,6 +27,9 @@ title: Study Page
 
 <script>    !window.JSON && document.write(unescape('%3Cscript src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"%3E%3C/script%3E'))</script>
 
+<div id="lnks">
+ Parameters Schema: {{ page.schema }} 
+</div>
 <script type="text/javascript" >    
     var dataSchema="https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/schemas/{{ page.schema }}.json";
     var docsonFrame = "{{ site.baseurl }}/cohortexDocson/docson_frame.html";
@@ -49,9 +52,6 @@ title: Study Page
     }
     window.addEventListener("message", receiveMessage, false);
 </script>
-<div id="lnks">
-<h1 style="font-size: 108%;"> Parameters Schema: {{ page.schema }} </h1>
-</div>
 <span class="meta">
     <small>By {{ site.author }} &copy; {{page.date | date: "%Y"}}</small>
 </span>
