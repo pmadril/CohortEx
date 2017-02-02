@@ -27,6 +27,11 @@ title: Study Page
 
 <script>    !window.JSON && document.write(unescape('%3Cscript src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"%3E%3C/script%3E'))</script>
 
+<div id="mask"></div>
+
+<h1>Parameters of study: <i>{{ page.title }}</i>. Posted on <b><span class="date">{{ page.date | date_to_string }}</span></b> by <b><span class="author">{{ page.description }}</span></b></h1>
+<h3>{{ page.summary }}</h3>
+
 <div id="lnks">
  Parameters Schema: {{ page.schema }} 
 </div>
