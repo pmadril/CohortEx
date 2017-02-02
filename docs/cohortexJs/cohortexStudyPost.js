@@ -119,7 +119,7 @@
                     Stevenson.studyContent = parts[2];
                     Stevenson.ui.Loader.hide();
                     Stevenson.log.info('Study file: ' +  path + ' read.');
-                    showJSONDoc(Stevenson.studyContent);
+                    showJSONDoc(JSON.parse(Stevenson.studyContent));
                     
                } else {
                     Stevenson.studyContent = parts[0];
