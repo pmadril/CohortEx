@@ -58,18 +58,18 @@
           return sb;
         };
         
-        if (callShowJSON === true) {
-            showJson();
-            return;
-        }
-
         var model = studyContent,
             txt = $$('TEXTAREA')[0],
             humanize = true && location.hash.indexOf('dehumanize') == -1,
             isIE = /msie/i.test(navigator.userAgent) && !/opera/i.test(navigator.userAgent);
 
-        $("content").innerHTML = val(model);  
-        txt.innerHTML=JSON.stringify(model);
+        if (callShowJSON === true) {
+            showJson();
+            return;
+        } else {
+            $("content").innerHTML = val(model);  
+            txt.innerHTML=JSON.stringify(model);
+        }
 
         function showJson(){ doc.body.className='show-json'; txt.select(); txt.focus(); };
 
