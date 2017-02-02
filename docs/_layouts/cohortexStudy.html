@@ -8,7 +8,7 @@ title: Study Page
 <h3>{{ page.summary }}</h3>
 
 <div id="lnks">
-  <a href="javascript:document.body.className='show-json'">view json datasource</a>
+  <a href="javascript:Stevenson.ext.showJSONDoc(null, true)">view json datasource</a>
   <b>from original url:</b>
   <a href="http://northwind.servicestack.net/customers/ALFKI?">http://northwind.servicestack.net/customers/ALFKI?</a>
 </div>
@@ -27,7 +27,9 @@ title: Study Page
 
 <script>    !window.JSON && document.write(unescape('%3Cscript src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"%3E%3C/script%3E'))</script>
 
-<h2 style="font-size: 108%;"> Parameters Schema: {{ page.schema }} </h2>
+<div id="lnks">
+<h1 style="font-size: 108%;"> Parameters Schema: {{ page.schema }} </h1>
+</div>
 <script type="text/javascript" >    
     var dataSchema="https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/schemas/{{ page.schema }}.json";
     var docsonFrame = "{{ site.baseurl }}/cohortexDocson/docson_frame.html";
