@@ -22,7 +22,7 @@
 			//CohortExDev - Go to studies folder on repo=master (was: /cms/site.html#)
 			Stevenson.repo.getLayoutsAndSchemas({
                 success: function (branches) {
-                    window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_manageStudies.html#' + Stevenson.Account.studiesPath + Stevenson.Account.studiesFolder;
+                    window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_manageStudies.html#' + Stevenson.Account.studiesPath + Stevenson.Account.studiesFolder;
                 },
                 error: function (err) {
 					Stevenson.ui.Messages.displayError('Unable to load layouts: '

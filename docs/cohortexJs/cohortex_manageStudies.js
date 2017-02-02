@@ -54,10 +54,6 @@
 				$('#files').dataTable();
 				Stevenson.ui.Loader.hide();
 				
-//				$('.file-edit').click();
-//				Stevenson.ui.Loader.display('Loading editor...', 100);
-//				var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
-//				window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
 			},
 			error: function(message){
 				Stevenson.ui.Loader.hide();
@@ -170,7 +166,7 @@ authRequired: true \n\
 },
 								message: 'Creating new study post for ' + this.fileName,
 								success: function() {
-									window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#'+this.page.origPath;
+									window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html#'+this.page.origPath;
 								},
 								error: function(msg){
 									$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
@@ -200,9 +196,9 @@ authRequired: true \n\
 			Stevenson.ui.Loader.display('Loading editor...', 100);
 			var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
 			if (path.indexOf(Stevenson.Account.schemaExtension) >= 0) {
-				window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_edit.html#' + path;
+				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html#' + path;
 			} else {
-				window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
+				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/chortex_edit.html#' + path;
 			}
 			return false;
 		});
