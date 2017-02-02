@@ -33,7 +33,14 @@
 		</script>
 	</head>
 	<body>
-		{% include {{ page.mainMenu }} %}
+		{% case page.layout %}
+			{% when 'cohortexStudy' %}
+				{% include cmsMenuBar.html %}
+			{% when 'stevDefault' %}
+				{% include mainMenuBar.html %}
+			{% else %}
+				{% include mainMenuBar.html %}
+		{% endcase %}
 		<div class="container-fluid">
 			<div class="row">
 				<div class="span12">
