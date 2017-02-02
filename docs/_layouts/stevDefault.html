@@ -33,10 +33,12 @@
 		</script>
 	</head>
 	<body>
-		{% case page.layout %}
-			{% when 'cohortexStudy' %}
+		{% case page.mainMenu %}
+			{% when 'stevMenuBar' %}
+				{% include stevMenuBar.html %}
+			{% when 'cmsMenuBar' %}
 				{% include cmsMenuBar.html %}
-			{% when 'stevDefault' %}
+			{% when 'mainMenuBar' %}
 				{% include mainMenuBar.html %}
 			{% else %}
 				{% include mainMenuBar.html %}
