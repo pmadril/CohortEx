@@ -1,5 +1,5 @@
 (function() {
-    Stevenson.ext.showJSONDoc (function(studyContent){
+    Stevenson.ext.showJSONDoc = function(studyContent){
         var doc = document, win = window,
             $ = function(id) { return doc.getElementById(id); },
             $$ = function(sel) { return doc.getElementsByTagName(sel); },
@@ -106,7 +106,7 @@
           if (v1 == v2) return 0;
           return v1 > v2 ? 1 : -1;
         };
-    });
+    };
 	var loadStudyForPosting = function(path){
 		Stevenson.ui.Loader.display('Loading study ' +  path + ' for posting...', 500);
         Stevenson.log.info('Loading study ' +  path + ' for posting...');
