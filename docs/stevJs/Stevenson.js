@@ -417,15 +417,15 @@ var Stevenson = {
 										Stevenson.log.info("Define editorsPath as: " + Stevenson.Account.editorsPath);								
 									}
 								} else {
-									if (posPathTemplates >= 0) {
-										Stevenson.Account.templatesPath = rf.path.substring(0,posPathTemplates) +  '/' ;
+									if (posPathTemplates >= 0 && rf.path == Stevenson.Account.subFolder + Stevenson.Account.templatesFolder) {
+										Stevenson.Account.templatesPath = Stevenson.Account.subFolder  ;
 										Stevenson.log.info("Define templatesPath as: " + Stevenson.Account.templatesPath);								
 									} else {
 										if (posPathStudies >= 0) {
-											Stevenson.Account.studiesPath = rf.path.substring(0,posPathStudies) +  '/' ;
+											Stevenson.Account.studiesPath = rf.path.substring(0,posPathStudies) ;
 											Stevenson.log.info("Define studiesPath as: " + Stevenson.Account.studiesPath);
 										} else {
-											Stevenson.log.debug("Skipping file: " + rf.path);								
+											//Stevenson.log.debug("Skipping file: " + rf.path);								
 										}
 									}
 								}

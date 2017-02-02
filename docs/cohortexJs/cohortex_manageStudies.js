@@ -152,7 +152,7 @@ description: \'Your full name here...\' \n\
 						success: function(){
 							
 							Stevenson.repo.savePage({
-								path: 'docs/_studies/' + this.mkdnName,
+								path: Stevenson.Account.subFolder + '_stdyPosts/' + this.mkdnName,
 								page: {
 										origPath: this.path,
 									    mkName: this.mkdnName,
