@@ -422,7 +422,7 @@ var Stevenson = {
 										Stevenson.log.info("Define templatesPath as: " + Stevenson.Account.templatesPath);								
 									} else {
 										if (posPathStudies >= 0) {
-											Stevenson.Account.studiesPath = rf.path.substring(0,posPathStudies) ;
+											Stevenson.Account.studiesPath = rf.path + '/' ;
 											Stevenson.log.info("Define studiesPath as: " + Stevenson.Account.studiesPath);
 										} else {
 											//Stevenson.log.debug("Skipping file: " + rf.path);								
