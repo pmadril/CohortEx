@@ -2,6 +2,9 @@
 layout: cohortexStudyDefault
 title: Study Page
 ---
+<script>
+    Stevenson.studyURL = "https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/{{ page.studyPath }}";
+</script>
 <div id="mask"></div>
 
 <h1>Parameters of study: <i>{{ page.title }}</i>. Posted on <b><span class="date">{{ page.date | date_to_string }}</span></b> by <b><span class="author">{{ page.description }}</span></b></h1>

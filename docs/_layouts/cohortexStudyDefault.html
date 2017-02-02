@@ -30,7 +30,6 @@
 		{% for script in page.scripts %}<script src="{{ site.baseurl }}{{ script }}"></script>{% endfor %} 
 		<script>
 			Stevenson.loginRequired = {{page.authRequired}};
-            Stevenson.studyURL = "https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/{{ page.studyPath }}";
 		</script>
 	</head>
 	<body>
@@ -58,18 +57,13 @@
 				</div>
 			</div>
 		</div>
-        
-		<div class="container-fluid">
-			{{content}}
- 			<hr/>
-       </div>
-        
 		<div class="container-fluid">
 			<div class="row">
 				<div class="span12">
 					<div id="message-container"></div>
 				</div>
 			</div>
+			{{content}}
 			<hr/>
 			<footer>
 				<p>CohortEx Parameters Editor: Based on <a href="StevensonCMS">StevensonCMS</a> from <a href="https://www.danklco.com/">Daniel Klco</a>- Apache License 2.0</p>
