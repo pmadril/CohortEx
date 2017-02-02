@@ -60,6 +60,7 @@
         
         if (callShowJSON === true) {
             showJson();
+            return;
         }
 
         var model = studyContent,
@@ -70,7 +71,7 @@
         $("content").innerHTML = val(model);  
         txt.innerHTML=JSON.stringify(model);
 
-        showJson: function (){ doc.body.className='show-json'; txt.select(); txt.focus(); };
+        function showJson(){ doc.body.className='show-json'; txt.select(); txt.focus(); };
 
         doc.onclick = function(e) {
             e = e || window.event, el = e.target || e.srcElement, cls = el.className;
