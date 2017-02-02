@@ -66,7 +66,7 @@
         $("content").innerHTML = val(model);  
         txt.innerHTML=JSON.stringify(model);
 
-        function showJson(){ doc.body.className='show-json'; txt.select(); txt.focus(); };
+        showJson: function (){ doc.body.className='show-json'; txt.select(); txt.focus(); };
 
         doc.onclick = function(e) {
             e = e || window.event, el = e.target || e.srcElement, cls = el.className;
