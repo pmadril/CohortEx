@@ -418,7 +418,7 @@ var Stevenson = {
 									}
 								} else {
 									if (posPathTemplates >= 0 && rf.path == Stevenson.Account.subFolder + Stevenson.Account.templatesFolder) {
-										Stevenson.Account.templatesPath = Stevenson.Account.subFolder  ;
+										Stevenson.Account.templatesPath = rf.path  ;
 										Stevenson.log.info("Define templatesPath as: " + Stevenson.Account.templatesPath);								
 									} else {
 										if (posPathStudies >= 0) {
