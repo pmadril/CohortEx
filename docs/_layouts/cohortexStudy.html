@@ -29,12 +29,8 @@ title: Study Page
 
 <div id="mask"></div>
 
-<h1>Parameters of study: <i>{{ page.title }}</i>. Posted on <b><span class="date">{{ page.date | date_to_string }}</span></b> by <b><span class="author">{{ page.description }}</span></b></h1>
-<h3>{{ page.summary }}</h3>
+<h1>Study parameters are described by the schema: <i>{{ page.schema }}</i></h1>
 
-<div id="lnks">
- Parameters Schema: {{ page.schema }} 
-</div>
 <script type="text/javascript" >    
     var dataSchema="https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/schemas/{{ page.schema }}.json";
     var docsonFrame = "{{ site.baseurl }}/cohortexDocson/docson_frame.html";
