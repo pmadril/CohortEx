@@ -19,9 +19,10 @@
             Stevenson.Account.branch = $('#branches').val();
             Stevenson.Account.save();
             
+			//CohortExDev - Go to studies folder on repo=master (was: /cms/site.html#)
 			Stevenson.repo.getLayoutsAndSchemas({
                 success: function (branches) {
-                    window.location = Stevenson.Account.siteBaseURL + '/cms/site.html';
+                    window.location = Stevenson.Account.siteBaseURL + '/cms/cohortex_manageStudies.html#' + Stevenson.Account.studiesPath + Stevenson.Account.studiesFolder;
                 },
                 error: function (err) {
 					Stevenson.ui.Messages.displayError('Unable to load layouts: '
@@ -79,6 +80,8 @@
                                                                 $('#branches').append('<option value="' + branch + '">' + branch + '</option>');
                                                             });
                                                             $('#current-repo').html(repo);
+															
+															//CohortExDev -Force master branch unless there is no master branch
                                                             if (branches.length !== 1 && branches.indexOf('master') < 0) {
                                                                 Stevenson.ui.Loader.hide();
                                                                 $('#branch-modal').modal('show');

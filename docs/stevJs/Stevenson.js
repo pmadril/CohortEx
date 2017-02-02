@@ -14,12 +14,14 @@ var Stevenson = {
 		subFolder: '/',
 		subFolderDetector: '_config.yml',
 		schemasFolder: 'schemas',
+		studiesFolder: 'studies',
 		layoutsFolder: '_layouts',
 		editorsFolder: '_editors',
 		templatesFolder: 'templates',
 		schemaExtension: '.jctx',
         documentBaseURL: '{{ site.url}}{{site.baseurl}}',
 		siteBaseURL: '{{ site.baseurl }}',
+		forkRootName: 'CohortEx',
 		username : '',
 		/**
 		 * Clears the account information from the session and local storage
@@ -371,6 +373,7 @@ var Stevenson = {
 					Stevenson.Account.schemasPath = '';
 					Stevenson.Account.editorsPath = '';
 					Stevenson.Account.templatesPath = '';
+					Stevenson.Account.studiesPath = '';
 					
 					for(var i=0; i < tree.length; i++) {
 						var rf = tree[i];
@@ -380,11 +383,12 @@ var Stevenson = {
 						var posPathSchemas = rf.path.indexOf(Stevenson.Account.schemasFolder);
 						var posPathTemplates = rf.path.indexOf(Stevenson.Account.templatesFolder);
 						var posPathSubFolder = rf.path.indexOf(Stevenson.Account.subFolderDetector);
+						var posPathStudies = rf.path.indexOf(Stevenson.Account.studiesFolder);
 						
 						//Detect docs
 						if(posPathSubFolder >= 0) {
 							Stevenson.Account.subFolder = rf.path.substring(0,posPathSubFolder);
-							Stevenson.log.debug("Define subFolder as: " + Stevenson.Account.subFolder);								
+							Stevenson.log.info("Define subFolder as: " + Stevenson.Account.subFolder);								
 						}
 						
 						if( posPathLayouts >= 0) {
@@ -393,7 +397,7 @@ var Stevenson = {
 							layouts.push(nameLayout);
 							if (nameLayout.length == 0){
 								Stevenson.Account.layoutsPath = rf.path +  '/' ;
-								Stevenson.log.debug("Define layoutsPath as: " + Stevenson.Account.layoutsPath);								
+								Stevenson.log.info("Define layoutsPath as: " + Stevenson.Account.layoutsPath);								
 							}
 						} else {
 							if ( posPathSchemas >= 0) {
@@ -402,7 +406,7 @@ var Stevenson = {
 								schemas.push(nameSchema);
 								if (nameSchema.length == 0){
 									Stevenson.Account.schemasPath = rf.path +  '/' ;
-									Stevenson.log.debug("Define schemasPath as: " + Stevenson.Account.schemasPath);								
+									Stevenson.log.info("Define schemasPath as: " + Stevenson.Account.schemasPath);								
 								}
 							} else {
 								if ( posPathEditors >= 0) {
@@ -410,14 +414,20 @@ var Stevenson = {
 									nameEditor = nameEditor.substring(0, nameEditor.lastIndexOf('.'));
 									if (nameEditor.length == 0){
 										Stevenson.Account.editorsPath = rf.path +  '/' ;
-										Stevenson.log.debug("Define editorsPath as: " + Stevenson.Account.editorsPath);								
+										Stevenson.log.info("Define editorsPath as: " + Stevenson.Account.editorsPath);								
 									}
 								} else {
 									if (posPathTemplates >= 0) {
 										Stevenson.Account.templatesPath = rf.path.substring(0,posPathTemplates) +  '/' ;
-										Stevenson.log.debug("Define templatesPath as: " + Stevenson.Account.templatesPath);								
+										Stevenson.log.info("Define templatesPath as: " + Stevenson.Account.templatesPath);								
+									} else {
+										if (posPathStudies >= 0) {
+											Stevenson.Account.studiesPath = rf.path.substring(0,posPathStudies) +  '/' ;
+											Stevenson.log.info("Define studiesPath as: " + Stevenson.Account.studiesPath);
+										} else {
+											Stevenson.log.debug("Skipping file: " + rf.path);								
+										}
 									}
-									Stevenson.log.debug("Skipping file: " + rf.path);								
 								}
 							}
 						};
