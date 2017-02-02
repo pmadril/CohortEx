@@ -64,7 +64,7 @@
                                         name: forkedRepo.full_name,
                                         success: function (forkedRepo) {
                                             forksCount -= 1;
-                                            if (forkedRepo.source.name === Stevensone.Account.forkRootName) {
+                                            if (forkedRepo.source.name === Stevenson.Account.forkRootName) {
                                                 validRepo = true;
                                                 container.mustache('repo-item', forkedRepo);
 
