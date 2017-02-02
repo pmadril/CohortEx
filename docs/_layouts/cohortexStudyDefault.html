@@ -30,6 +30,7 @@
 		{% for script in page.scripts %}<script src="{{ site.baseurl }}{{ script }}"></script>{% endfor %} 
 		<script>
 			Stevenson.loginRequired = {{page.authRequired}};
+            Stevenson.studyURL = "https://raw.githubusercontent.com/{{ site.github.repository_nwo }}/master/{{ page.studyPath }}";
 		</script>
 	</head>
 	<body>
