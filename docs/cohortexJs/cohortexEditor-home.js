@@ -22,7 +22,11 @@
 			//CohortExDev - Go to studies folder on repo=master (was: /cms/site.html#)
 			Stevenson.repo.getLayoutsAndSchemas({
                 success: function (branches) {
-                    window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_manageStudies.html#' + Stevenson.Account.studiesPath ;
+					if (Stevenson.ext.type == 'study') {
+                    	window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_manageStudies.html#' + Stevenson.Account.studiesPath ;
+					} else {
+                    	window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_managePosts.html#' + Stevenson.Account.subFolder + '_posts' ;
+					}
                 },
                 error: function (err) {
 					Stevenson.ui.Messages.displayError('Unable to load layouts: '
@@ -136,6 +140,13 @@
             });
         };
 	Stevenson.ext.afterInit(function () {
+		
+		//CohortExDev - Select if study or post
+		Stevenson.ext.type = Stevenson.util.getParameter('type');
+		if(Stevenson.ext.type == '') {
+			Stevenson.ext.type = 'study';
+		}
+		
 		Stevenson.ui.Loader.display('Loading organizations...', 100);
 		Stevenson.repo.getOrgs({
 			success: function (orgs) {
