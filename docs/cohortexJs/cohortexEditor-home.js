@@ -14,7 +14,7 @@
 			});
 		}
 	},
-        selectBranch = function () {
+        selectBranch = function () { //CohortExDev - selectBranch defines where to go
             Stevenson.Account.repo = $('#current-repo').html();
             Stevenson.Account.branch = $('#branches').val();
             Stevenson.Account.save();
@@ -59,6 +59,8 @@
                             if (forksRepo.length > 0) {
                                 forksCount = forksRepo.length;
                                 forksRepo[forksRepo.length - 1].lastRepo = true;
+								
+								//CohortExDev - For each repo, built the intem (pencil and link)
                                 $.each(forksRepo, function (index, forkedRepo) {
                                     Stevenson.repo.getRepo({
                                         name: forkedRepo.full_name,
@@ -90,6 +92,8 @@
 																if (branches.indexOf('master') > 0) {
 																	$('#branches').val('master');
 																}
+																
+																//CohortExDev - selectBranch defines where to go
                                                                 selectBranch();
                                                             }
                                                         },
