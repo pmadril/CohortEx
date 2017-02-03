@@ -19,7 +19,7 @@ var Stevenson = {
 		editorsFolder: '_editors',
 		templatesFolder: 'templates',
 		schemaExtension: '.jctx',
-        documentBaseURL: '{{ site.url}}{{site.baseurl}}',
+        documentBaseURL: '{{ site.url}}',
 		siteBaseURL: '{{ site.baseurl }}',
 		forkRootName: 'CohortEx',
 		username : '',
@@ -830,6 +830,8 @@ var Stevenson = {
 									menubar: false,
 									image_list: imageList
 								}, config.rte);
+								// CohortExDev - Correct url to actual value
+								rteConfig.document_base_url = Stevenson.Account.documentBaseURL;
 								tinymce.init(rteConfig);
 							}
 						});
