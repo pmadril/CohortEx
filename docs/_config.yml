@@ -14,7 +14,7 @@ url: https://pmadril.github.io/CohortEx/
 
 # Exclude system files
 exclude: [.gitignore]
-include = ['_editors']
+include: [_editors]
 
 markdown: kramdown
 kramdown:
