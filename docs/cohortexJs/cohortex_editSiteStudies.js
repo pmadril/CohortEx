@@ -131,21 +131,21 @@
 						mkdnName: mdName,
 						path: filePath,
 						page: {
-							content:'--- \n\
-schema: cohortexV1.0.0 \n\
-studyPath: ' + filePath + '\n\
-layout: cohortexStudy \n\
-title: \'Write title here...\' \n\
-published: false \n\
-authRequired: false \n\
-tags: \n\
-  - cohortex \n\
-summary: \'Write a brief decription here...\' \n\
-researcher_id: tereza.abrahao@usp.br \n\
-description: \'Your full name here...\' \n\
----\n\
-{\n\
-}'
+							content:'--- \n' +
+							'schema: cohortexV1.0.0 \n' +
+							'studyPath: ' + filePath + '\n' +
+							'layout: cohortexStudy \n' +
+							'title: \'Write title here...\' \n' +
+							'published: false \n' +
+							'authRequired: false \n' +
+							'tags: \n' +
+							'	- cohortex \n' +
+							'summary: \'Write a brief decription here...\' \n' +
+							'researcher_id: tereza.abrahao@usp.br \n' +
+							'description: \'Your full name here...\' \n' +
+							'---\n' +
+							'{\n' +
+							'}'
 						},
 						message: 'Creating new study ' + newName,
 						success: function(){
@@ -155,14 +155,14 @@ description: \'Your full name here...\' \n\
 								page: {
 										origPath: this.path,
 									    mkName: this.mkdnName,
-										content:'--- \n\
-schema: cohortexV1.0.0 \n\
-studyPath: ' + this.path + '\n\
-layout: cohortexStudy \n\
-published: true \n\
-authRequired: true \n\
---- '
-},
+										content:'--- \n\' +
+										'schema: cohortexV1.0.0 \n\' +
+										'studyPath: ' + this.path + '\n\' +
+										'layout: cohortexStudy \n\' +
+										'published: true \n\' +
+										'authRequired: true \n\' +
+										'--- \n'
+								},
 								message: 'Creating new study post for ' + this.fileName,
 								success: function() {
 									window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editStudy.html#'+this.page.origPath;

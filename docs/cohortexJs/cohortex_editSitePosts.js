@@ -137,7 +137,7 @@
 									'date: ' + todayStr + '\n' +
 									'published: false \n' +
 									'authRequired: false \n' +
-									'---\n';
+									'---\n'
 						},
 						message: 'Creating new post: ' + newName,
 						success: function(){
