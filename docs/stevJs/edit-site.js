@@ -97,6 +97,9 @@
 				$('#new-file-modal .modal-body .alert-error').remove();
 				var name = $('#file-name').val();
 				if(name != ''){
+					//Change whitespaces in name with -
+					name = name..replace(/\s/g, "-");
+					
 					var path = $('#files').attr('data-path');
 					var filePath = path + "/" + name;
 					if(path == ""){
