@@ -39,6 +39,6 @@
       }
    ],
    "rte": {
-      "document_base_url": {{ site.url}}{{site.baseurl}}
+      "document_base_url": https://github.com/pmadril/CohortEx/
    }
 }
