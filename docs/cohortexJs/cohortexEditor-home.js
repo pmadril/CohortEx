@@ -23,9 +23,9 @@
 			Stevenson.repo.getLayoutsAndSchemas({
                 success: function (branches) {
 					if (Stevenson.ext.type == 'study') {
-                    	window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editSiteStudies.html#' + Stevenson.Account.studiesPath ;
+                    	window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_siteStudies.html#' + Stevenson.Account.studiesPath ;
 					} else {
-                    	window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editSitePosts.html#' + Stevenson.Account.subFolder + '_posts' ;
+                    	window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_sitePosts.html#' + Stevenson.Account.subFolder + '_posts' ;
 					}
                 },
                 error: function (err) {
