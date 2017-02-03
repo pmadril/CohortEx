@@ -18,18 +18,14 @@
 				$('.breadcrumb .path').html(path);
 				$('#files tbody').html('');
 				$.each(files, function(index, file){
-//					if(file.path.indexOf('_config') != 0 && file.path.indexOf('_layouts') != 0 && file.path.indexOf('_editors') != 0 && file.path.indexOf('_schemas') != 0){
-					//Showw only cohortex studies files - no close-folder
-					if(file.path.indexOf('.jctx') > 0) {
+					//CohortExDev - Show all files - no close-folder
+					if(file.path.indexOf('_config') != 0 && file.path.indexOf('_layouts') != 0 && file.path.indexOf('_editors') != 0 && file.path.indexOf('_schemas') != 0){
 						file.size = file.size ? bytesToSize(file.size) : '';
 						$('#files tbody').mustache('file', file);
 						}
 				});
 				$('#files input[type=checkbox]').each(function(index, item){
 						$(item).removeAttr('checked');
-						//if (index == $('#files input[type=checkbox]').length - 1) {
-						//	$(item).attr("checked", true);
-						//}
 					});
 				
 				$('.folder-close').click(function(){
@@ -132,48 +128,17 @@
 						mkdnName: mdName,
 						path: filePath,
 						page: {
-							content:'--- \n\
-schema: cohortexV1.0.0 \n\
-studyPath: ' + filePath + '\n\
-layout: cohortexStudy \n\
-title: \'Write title here...\' \n\
-published: false \n\
-authRequired: false \n\
-tags: \n\
-  - cohortex \n\
-summary: \'Write a brief decription here...\' \n\
-researcher_id: tereza.abrahao@usp.br \n\
-description: \'Your full name here...\' \n\
----\n\
-{\n\
-}'
+							content:'--- \n' +
+									'layout: stevPost \n' + 
+									'title: \'Write a title here..\' \n' +
+									'date: ' + todayStr + '\n' +
+									'published: false \n' +
+									'authRequired: false \n' +
+									'---\n';
 						},
-						message: 'Creating new study ' + newName,
+						message: 'Creating new post: ' + newName,
 						success: function(){
-							
-							Stevenson.repo.savePage({
-								path: Stevenson.Account.subFolder + '_stdyPosts/' + this.mkdnName,
-								page: {
-										origPath: this.path,
-									    mkName: this.mkdnName,
-										content:'--- \n\
-schema: cohortexV1.0.0 \n\
-studyPath: ' + this.path + '\n\
-layout: cohortexStudy \n\
-published: true \n\
-authRequired: true \n\
---- '
-},
-								message: 'Creating new study post for ' + this.fileName,
-								success: function() {
-									window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html#'+this.page.origPath;
-								},
-								error: function(msg){
-									$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
-									$('#new-file-name').addClass('error');
-									$('#new-file-modal .modal-body').prepend('<div class="alert alert-error">Error creating study post: '+msg+'.</div>');
-								}
-							});
+								window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#'+this.page.origPath;	
 						},
 						error: function(msg){
 							$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
@@ -195,10 +160,11 @@ authRequired: true \n\
 		$('.file-edit').click(function(){
 			Stevenson.ui.Loader.display('Loading editor...', 100);
 			var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
+			// CohortExDev If it is .jctx, it is a study
 			if (path.indexOf(Stevenson.Account.schemaExtension) >= 0) {
-				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html#' + path;
+				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editStudy.html#' + path;
 			} else {
-				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/chortex_edit.html#' + path;
+				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/chortex_editPost.html#' + path;
 			}
 			return false;
 		});

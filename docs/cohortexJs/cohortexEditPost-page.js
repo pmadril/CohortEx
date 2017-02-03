@@ -6,14 +6,7 @@
 			
 			var layout = properties.layout;
 			if(!layout || layout == '') {
-				layout = 'default';
-			}
-			
-			var schema = properties.schema;
-			if(!schema || schema == '') {
-				schema = 'cohortexV1.0.0';
-			} else {
-				properties.layout = layout;
+				layout = 'stevPost';
 			}
 			
 			Stevenson.repo.getEditorConfig({
@@ -29,7 +22,7 @@
 					Stevenson.ui.ContentEditor.configure({});
 					Stevenson.ui.Loader.hide();
 					Stevenson.ui.Messages.displayError('Exception loading properties editor: '
-							+ message+', if you haven\'t already, <a href="' + Stevenson.Account.siteBaseURL + '/cohortexCms/edit.html?new=true#' + Stevenson.Account.siteBaseURL + '/' + Stevenson.Account.schemasPath + schema + '.json">configure the schema for this configuration</a>.');
+							+ message+', if you haven\'t already, <a href="' + Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html?new=true#' + Stevenson.Account.siteBaseURL + '/' + Stevenson.Account.schemasPath + schema + '.json">configure the schema for this configuration</a>.');
 				},
 				configSchema: function(config){
 					editorConfig = config;
@@ -140,7 +133,7 @@
 				oldPath: oldPath,
 				newPath: newPath,
 				success: function(path){
-					window.location.replace(Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html#'+newPath);
+					window.location.replace(Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#'+newPath);
 					initialize();
 					Stevenson.ui.Messages.displayMessage("Moved file: " + oldPath +' to ' + newPath);
 					Stevenson.ui.Loader.hide();
@@ -229,7 +222,7 @@
 					Stevenson.ui.Messages.displayMessage('Page saved successfully!');
 					Stevenson.ui.Loader.hide();
 					if (Stevenson.util.getParameter('new') == 'true') {
-						window.location.replace(Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html#'+currentPage.path);
+						window.location.replace(Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#'+currentPage.path);
 					} else {
 						$('#message').val('');
 						initialize();

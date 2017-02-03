@@ -17,11 +17,11 @@
 								Stevenson.log.info('Adding layout: '+layout.path);
 								var id = layout.path.replace('.html','').replace(Stevenson.Account.layoutsPath,'');
 								layout.id = id;
-								layout.templateurl = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html?editor=text#' + Stevenson.Account.layoutsPath + id + '.html';
-								layout.editorurl = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html?new=true#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
+								layout.templateurl = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html?editor=text#' + Stevenson.Account.layoutsPath + id + '.html';
+								layout.editorurl = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html?new=true#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
 								for(var i=0;i<editors.length;i++){
 									if(editors[i].path ==Stevenson.Account.editorsPath + id+'.json'){ //'_editors/'
-										layout.editorurl = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
+										layout.editorurl = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#' + Stevenson.Account.editorsPath + id + '.json'; //_editors/
 										break;
 									}
 								}
@@ -56,10 +56,10 @@
 								Stevenson.log.info('Adding schema: '+schema.path);
 								var id = schema.path.replace('.html','').replace(Stevenson.Account.schemasPath,''); //'_schemas/'
 								schema.id = id;
-								schema.schemaurl = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html?new=true#' + Stevenson.Account.schemasPath + id + '.json'; // _schemas/
+								schema.schemaurl = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html?new=true#' + Stevenson.Account.schemasPath + id + '.json'; // _schemas/
 								for(var i=0;i<schemas.length;i++){
 									if(schemas[i].path == Stevenson.Account.schemasPath + id+'.json'){ //'_schemas/'
-										schema.schemaurl = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html#' + Stevenson.Account.schemasPath + id + '.json'; //_schemas/
+										schema.schemaurl = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#' + Stevenson.Account.schemasPath + id + '.json'; //_schemas/
 										break;
 									}
 								}
@@ -91,7 +91,7 @@
 			if(templateName.indexOf('.html') == -1){
 				templateName += '.html';
 			}
-			window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_edit.html?new=true#' + Stevenson.Account.layoutsPath + templateName; //_layouts/
+			window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html?new=true#' + Stevenson.Account.layoutsPath + templateName; //_layouts/
 			return false;
 		});
 		$('.breadcrumb .repo').html(Stevenson.Account.repo);

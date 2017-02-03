@@ -18,7 +18,8 @@
 				$('.breadcrumb .path').html(path);
 				$('#files tbody').html('');
 				$.each(files, function(index, file){
-					if (file.path.indexOf('_config') != 0 && file.path.indexOf('_layouts') != 0 && file.path.indexOf('_editors') != 0){
+					//CohortExDev - Show only cohortex studies files - no close-folder
+					if(file.path.indexOf('.jctx') > 0) {
 						file.size = file.size ? bytesToSize(file.size) : '';
 						$('#files tbody').mustache('file', file);
 						}
@@ -97,20 +98,78 @@
 				$('#new-file-modal .modal-body .alert-error').remove();
 				var name = $('#file-name').val();
 				if(name != ''){
+					var today = new Date();
+					var dd = today.getDate();
+
+					var mm = today.getMonth()+1; 
+					var yyyy = today.getFullYear();
+					if(dd<10) 
+					{
+						dd='0'+dd;
+					} 
+
+					if(mm<10) 
+					{
+						mm='0'+mm;
+					} 
+					var todayStr = yyyy+'-'+mm+'-'+dd+'-';
+					
+					var newName = todayStr + name + '.jctx';
+					var mdName  = todayStr + name + '.md';
+					
 					var path = $('#files').attr('data-path');
-					var filePath = path + "/" + name;
+					var filePath = path + "/" + newName;
 					if(path == ""){
-						filePath = name;
+						filePath = newName;
 					}
 					$('#new-file-modal .btn, #new-file-modal input').attr('disabled','disabled');
 					Stevenson.repo.savePage({
+						fileName: newName,
+						mkdnName: mdName,
 						path: filePath,
 						page: {
-							content:''
+							content:'--- \n\
+schema: cohortexV1.0.0 \n\
+studyPath: ' + filePath + '\n\
+layout: cohortexStudy \n\
+title: \'Write title here...\' \n\
+published: false \n\
+authRequired: false \n\
+tags: \n\
+  - cohortex \n\
+summary: \'Write a brief decription here...\' \n\
+researcher_id: tereza.abrahao@usp.br \n\
+description: \'Your full name here...\' \n\
+---\n\
+{\n\
+}'
 						},
-						message: 'Creating new page ' + name,
+						message: 'Creating new study ' + newName,
 						success: function(){
-							window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html?new=true#'+filePath;
+							
+							Stevenson.repo.savePage({
+								path: Stevenson.Account.subFolder + '_stdyPosts/' + this.mkdnName,
+								page: {
+										origPath: this.path,
+									    mkName: this.mkdnName,
+										content:'--- \n\
+schema: cohortexV1.0.0 \n\
+studyPath: ' + this.path + '\n\
+layout: cohortexStudy \n\
+published: true \n\
+authRequired: true \n\
+--- '
+},
+								message: 'Creating new study post for ' + this.fileName,
+								success: function() {
+									window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editStudy.html#'+this.page.origPath;
+								},
+								error: function(msg){
+									$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
+									$('#new-file-name').addClass('error');
+									$('#new-file-modal .modal-body').prepend('<div class="alert alert-error">Error creating study post: '+msg+'.</div>');
+								}
+							});
 						},
 						error: function(msg){
 							$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
@@ -132,7 +191,11 @@
 		$('.file-edit').click(function(){
 			Stevenson.ui.Loader.display('Loading editor...', 100);
 			var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
-			window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
+			if (path.indexOf(Stevenson.Account.schemaExtension) >= 0) {
+				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#' + path;
+			} else {
+				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/chortex_editStudy.html#' + path;
+			}
 			return false;
 		});
 		

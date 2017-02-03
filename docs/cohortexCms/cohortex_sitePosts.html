@@ -2,7 +2,7 @@
 layout: stevDefault 
 title: Edit Site
 authRequired: true
-scripts: [/cohortexJs/cohortex_manageStudies.js]
+scripts: [/cohortexJs/cohortex_editSitePosts.js]
 ---
 
 <div class="navbar main-menu">
@@ -15,11 +15,14 @@ scripts: [/cohortexJs/cohortex_manageStudies.js]
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="javascript:void(0);" class="new">New Study</a>
+						<a href="javascript:void(0);" class="new">New Post</a>
 					</li>
 					<li>&nbsp;</li>
 					<li>
 						<a href="javascript:void(0);" class="file-edit">Edit</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" class="file-copy">Copy</a>
 					</li>
 					<li>
 						<a href="javascript:void(0);" class="file-delete">Delete</a>
@@ -44,7 +47,7 @@ scripts: [/cohortexJs/cohortex_manageStudies.js]
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="{{ site.baseurl }}/cohortexCms/cohortex_edit.html#docs/_config.yml" class="site-configure">Configure</a>
+						<a href="{{ site.baseurl }}/cohortexCms/cohortex_editPost.html#docs/_config.yml" class="site-configure">Configure</a>
 					</li>
 					<!-- CohortExDevli>
 						<a href="{{ site.baseurl }}/cohortexCms/cohortexTemplates.html" class="site-templates">Templates</a>

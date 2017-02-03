@@ -2,7 +2,7 @@
 layout: stevDefault 
 title: Edit Site
 authRequired: true
-scripts: [/stevJs/cohortexEdit-site.js]
+scripts: [/cohortexJs/cohortex_editSiteStudies.js]
 ---
 
 <div class="navbar main-menu">
@@ -15,17 +15,11 @@ scripts: [/stevJs/cohortexEdit-site.js]
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="javascript:void(0);" class="new">New File</a>
-					</li>
-					<li>
-						<a href="javascript:void(0);" class="file-upload">Upload</a>
+						<a href="javascript:void(0);" class="new">New Study</a>
 					</li>
 					<li>&nbsp;</li>
 					<li>
 						<a href="javascript:void(0);" class="file-edit">Edit</a>
-					</li>
-					<li>
-						<a href="javascript:void(0);" class="file-move">Move</a>
 					</li>
 					<li>
 						<a href="javascript:void(0);" class="file-copy">Copy</a>
@@ -53,9 +47,9 @@ scripts: [/stevJs/cohortexEdit-site.js]
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="{{ site.baseurl }}/cohortexCms/cohortexEdit.html#docs/_config.yml" class="site-configure">Configure</a>
+						<a href="{{ site.baseurl }}/cohortexCms/cohortex_editStudy.html#docs/_config.yml" class="site-configure">Configure</a>
 					</li>
-					<!-- CohortExDev li>
+					<!-- CohortExDevli>
 						<a href="{{ site.baseurl }}/cohortexCms/cohortexTemplates.html" class="site-templates">Templates</a>
 					</li -->
 				</ul>
@@ -65,7 +59,7 @@ scripts: [/stevJs/cohortexEdit-site.js]
 </div>
 <ul class="breadcrumb">
 	<li><a href="{{ site.baseurl }}/cohortexCms">Home</a> <span class="divider">/</span></li>
-	<!-- CohortExDev li><a href="{{ site.baseurl }}/cohortexCms/cohortexSite.html" class="repo"></a> <span class="divider">/</span></li -->
+	<!-- CohortExDev li><a href="{{ site.baseurl }}/cohortexCms/cohortexSite.html" class="repo"></a > <span class="divider">/</span></li -->
 	<li class="active path">Data</li>
 </ul>
 <div id="grid-container">
