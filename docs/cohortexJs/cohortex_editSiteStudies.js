@@ -197,7 +197,7 @@
 			if (path.indexOf(Stevenson.Account.schemaExtension) >= 0) {
 				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#' + path;
 			} else {
-				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/chortex_editStudy.html#' + path;
+				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editStudy.html#' + path;
 			}
 			return false;
 		});
