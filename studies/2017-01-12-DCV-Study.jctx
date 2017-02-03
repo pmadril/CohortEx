@@ -4,6 +4,7 @@ title: 'DCV Study'
 layout: cohortexStudy
 published: true
 authRequired: false
+studyPath: studies/2017-01-12-DCV-Study.jctx
 tags:
   - cohortex
 summary: 'Test of cohortex editor'
