@@ -155,12 +155,12 @@
 								page: {
 										origPath: this.path,
 									    mkName: this.mkdnName,
-										content:'--- \n\' +
-										'schema: cohortexV1.0.0 \n\' +
-										'studyPath: ' + this.path + '\n\' +
-										'layout: cohortexStudy \n\' +
-										'published: true \n\' +
-										'authRequired: true \n\' +
+										content:'--- \n' +
+										'schema: cohortexV1.0.0 \n' +
+										'studyPath: ' + this.path + '\n' +
+										'layout: cohortexStudy \n' +
+										'published: true \n' +
+										'authRequired: true \n' +
 										'--- \n'
 								},
 								message: 'Creating new study post for ' + this.fileName,
