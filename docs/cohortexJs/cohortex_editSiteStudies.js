@@ -18,8 +18,8 @@
 				$('.breadcrumb .path').html(path);
 				$('#files tbody').html('');
 				$.each(files, function(index, file){
-					//CohortExDev - Show only cohortex studies files - no close-folder
-					if(file.path.indexOf('.jctx') > 0) {
+					//CohortExDev - Show only cohortex studies files - no folder-close
+					if(file.path.indexOf('.jctx') > 0 && file.type != 'folder-close') {
 						file.size = file.size ? bytesToSize(file.size) : '';
 						$('#files tbody').mustache('file', file);
 						}

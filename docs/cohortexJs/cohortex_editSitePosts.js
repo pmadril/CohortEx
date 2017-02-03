@@ -18,8 +18,8 @@
 				$('.breadcrumb .path').html(path);
 				$('#files tbody').html('');
 				$.each(files, function(index, file){
-					//CohortExDev - Show all files - no close-folder
-					if(file.path.indexOf('_config') != 0 && file.path.indexOf('_layouts') != 0 && file.path.indexOf('_editors') != 0 && file.path.indexOf('_schemas') != 0){
+					//CohortExDev - Show all files - no folder-close
+					if(file.path.indexOf('_config') != 0 && file.path.indexOf('_layouts') != 0 && file.path.indexOf('_editors') != 0 && file.path.indexOf('_schemas') != 0 && file.type != 'folder-close'){
 						file.size = file.size ? bytesToSize(file.size) : '';
 						$('#files tbody').mustache('file', file);
 						}
