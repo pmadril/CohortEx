@@ -98,7 +98,7 @@
 				var name = $('#file-name').val();
 				if(name != ''){
 					//Change whitespaces in name with -
-					name = name..replace(/\s/g, "-");
+					name = name.replace(/\s/g, "-");
 					
 					var path = $('#files').attr('data-path');
 					var filePath = path + "/" + name;

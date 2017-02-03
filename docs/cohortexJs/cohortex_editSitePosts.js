@@ -99,7 +99,7 @@
 				var name = $('#file-name').val();
 				if(name != ''){
 					//Change whitespaces in name with -
-					name = name..replace(/\s/g, "-");
+					name = name.replace(/\s/g, "-");
 					
 					var today = new Date();
 					var dd = today.getDate();
