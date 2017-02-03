@@ -421,7 +421,7 @@ var Stevenson = {
 										Stevenson.Account.templatesPath = rf.path + '/';
 										Stevenson.log.info("Define templatesPath as: " + Stevenson.Account.templatesPath);								
 									} else {
-										if (posPathStudies >= 0) {
+										if (posPathStudies >= 0 && posPathStudies + Stevenson.Account.studiesFolder.length == rf.path.length) {
 											Stevenson.Account.studiesPath = rf.path + '/' ;
 											Stevenson.log.info("Define studiesPath as: " + Stevenson.Account.studiesPath);
 										} else {
