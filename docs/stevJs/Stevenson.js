@@ -817,7 +817,7 @@ var Stevenson = {
 									}
 								});
 								var rteConfig = $.extend({
-									relative_urls: false,
+									relative_urls: true,
 									selector: '#content',
 									plugins: [
 										"autolink lists link image charmap print preview hr anchor pagebreak",
