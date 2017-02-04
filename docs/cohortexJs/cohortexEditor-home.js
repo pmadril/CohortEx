@@ -147,7 +147,7 @@
 			Stevenson.ext.type = 'study';
 		}
 		//Set the corresponding title
-		$('#select-title').innerHTML = Stevenson.ext.type;
+		$('#select-title').html(Stevenson.ext.type);
 		
 		Stevenson.ui.Loader.display('Loading organizations...', 100);
 		Stevenson.repo.getOrgs({
