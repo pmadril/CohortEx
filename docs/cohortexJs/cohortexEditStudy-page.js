@@ -55,7 +55,7 @@
 	
 		if (Stevenson.Account.repo == '') {
 			Stevenson.log.warn('Website repository not set');
-			Stevenson.ui.Messages.displayError('Website repository not set.  <a href="' + Stevenson.Account.siteBaseURL + '/cms">Configure</a>');
+			Stevenson.ui.Messages.displayError('Website repository not set.  <a href="' + Stevenson.Account.siteBaseURL + '/cohortexCms">Configure</a>');
 		}
 		
 		var pagePath = window.location.hash.substr(1);
