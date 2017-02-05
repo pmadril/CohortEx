@@ -135,7 +135,12 @@
 		$('.file-edit').click(function(){
 			Stevenson.ui.Loader.display('Loading editor...', 100);
 			var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
-			window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
+			if (path !== undefined && path != '') {
+				window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
+			} else {
+					Stevenson.ui.Messages.displayError("No file selected. Please, select a file to edit.);
+					Stevenson.ui.Loader.hide();
+			}
 			return false;
 		});
 		
