@@ -7,6 +7,7 @@
 		return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
 	}
 	var loadFiles = function(path){
+		var chkbxRun=false;
 		Stevenson.ui.Loader.display('Loading files...', 100);
 		$('#grid-container').html('');
 		$('#grid-container').mustache('grid', {});
@@ -32,15 +33,21 @@
 					window.location.hash = $(this).attr('data-path');
 				});
 				$('#files .file').click(function(){
+					if (chkbxRun == true){
+						chkbxRun = false;
+						return;
+					}
 					$('#files input[type=checkbox]').each(function(index, item){
 						$(item).removeAttr('checked');
 					});
 					$(this).find('input[type=checkbox]').each(function(idx, elem){
-						$(elem).attr('checked','checked');
+							$(elem).attr('checked','checked');
 					})
 				});
 				$('#files input[type=checkbox]').click(function(){
 					var checked = this;
+					chkbxRun = true;
+					
 					$('#files input[type=checkbox]').each(function(index, item){
 						if(item != checked){
 							$(item).removeAttr('checked');
