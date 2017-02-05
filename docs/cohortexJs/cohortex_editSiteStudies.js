@@ -33,15 +33,23 @@
 					window.location.hash = $(this).attr('data-path');
 				});
 				$('#files .file').click(function(){
+					var checked = '';
+					
 					if (chkbxRun == true){
 						chkbxRun = false;
 						return;
 					}
+					
+					$(this).find('input[type=checkbox]').each(function(idx, elem){
+						checked = $(elem).attr('checked');
+					})
 					$('#files input[type=checkbox]').each(function(index, item){
 						$(item).removeAttr('checked');
 					});
 					$(this).find('input[type=checkbox]').each(function(idx, elem){
+						if (checked != 'checked') {
 							$(elem).attr('checked','checked');
+						}
 					})
 				});
 				$('#files input[type=checkbox]').click(function(){

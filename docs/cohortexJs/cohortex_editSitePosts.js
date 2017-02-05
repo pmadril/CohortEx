@@ -47,7 +47,7 @@
 						$(item).removeAttr('checked');
 					});
 					$(this).find('input[type=checkbox]').each(function(idx, elem){
-						if (cheked != 'checked') {
+						if (checked != 'checked') {
 							$(elem).attr('checked','checked');
 						}
 					})
