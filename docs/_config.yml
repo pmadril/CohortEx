@@ -22,6 +22,6 @@ kramdown:
 permalink: /blog/:year/:month/:day/:title
 
 collections:
-  studies:
+  stdyPosts:
     output: true
 
