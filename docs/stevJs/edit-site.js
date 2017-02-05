@@ -138,7 +138,7 @@
 			if (path !== undefined && path != '') {
 				window.location = Stevenson.Account.siteBaseURL + '/cms/edit.html#' + path;
 			} else {
-					Stevenson.ui.Messages.displayError("No file selected. Please, select a file to edit.);
+					Stevenson.ui.Messages.displayError("No file selected. Please, select a file to edit.");
 					Stevenson.ui.Loader.hide();
 			}
 			return false;

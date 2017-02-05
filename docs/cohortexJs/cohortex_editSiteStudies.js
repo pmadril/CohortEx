@@ -212,7 +212,7 @@
 			if (path !== undefined && path != '' && path.indexOf(Stevenson.Account.schemaExtension) >= 0) {
 				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editStudy.html#' + path;
 			} else {
-					Stevenson.ui.Messages.displayError("No file selected. Please, select a file to edit.);
+					Stevenson.ui.Messages.displayError("No file selected. Please, select a file to edit.");
 					Stevenson.ui.Loader.hide();
 			}
 			return false;

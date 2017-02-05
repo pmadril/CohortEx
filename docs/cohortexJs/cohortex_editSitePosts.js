@@ -180,7 +180,7 @@
 			if (path !== undefined && path != '') >= 0) {
 				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#' + path;
 			} else {
-					Stevenson.ui.Messages.displayError("No file selected. Please, select a file to edit.);
+					Stevenson.ui.Messages.displayError("No file selected. Please, select a file to edit.");
 					Stevenson.ui.Loader.hide();
 			}
 			return false;
