@@ -132,8 +132,7 @@
 					} 
 					var todayStr = yyyy+'-'+mm+'-'+dd+'-';
 					
-					var newName = todayStr + name + '.jctx';
-					var mdName  = todayStr + name + '.md';
+					var newName = todayStr + name + '.md';
 					
 					var path = $('#files').attr('data-path');
 					var filePath = path + "/" + newName;
@@ -143,7 +142,6 @@
 					$('#new-file-modal .btn, #new-file-modal input').attr('disabled','disabled');
 					Stevenson.repo.savePage({
 						fileName: newName,
-						mkdnName: mdName,
 						path: filePath,
 						page: {
 							content:'--- \n' +
