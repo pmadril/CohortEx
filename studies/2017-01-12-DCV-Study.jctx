@@ -1,9 +1,9 @@
 ---
 schema: cohortexV1.0.0
 title: 'DCV Study'
-layout: null
+layout: cohortexStudy
 published: true
-authRequired: false
+authRequired: true
 studyPath: studies/2017-01-12-DCV-Study.jctx
 tags:
   - cohortex
