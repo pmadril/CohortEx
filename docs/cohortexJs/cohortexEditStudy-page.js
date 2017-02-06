@@ -135,6 +135,11 @@
 			
 			var schema = $('#schema').val();
 			var title = $('#title').val();
+			
+			if (schema == ''){
+				schema = cohortexV1.0.0;
+			}
+			
 			if(properties) {
 				properties.layout = 'cohortexStudy';
 				properties.schema = schema;

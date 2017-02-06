@@ -152,7 +152,7 @@
 				Stevenson.log.debug('Adding Jekyll header');
 				
 				/* Jekyll Header files need to only be ASCII */
-				if(!(/^[\000-\177]*$/.test(pageContent)) && currentPage.getType() !== 'jctx') {
+				if(!(/^[\000-\177]*$/.test(pageContent))) {
 					var c = '';
 					for (var i = 0; i < pageContent.length; i++) {
 						if (pageContent.charCodeAt(i) > 127) {
