@@ -175,11 +175,11 @@
 										content:'--- \n' +
 										'schema: cohortexV1.0.0 \n' +
 										'studyPath: ' + this.path + '\n' +
+										'styles: [/css/cohortexCss/showJSON.css] \n' +
+										'scripts: [/cohortexJs/cohortexStudyPost.js] \n' +
 										'layout: cohortexStudy \n' +
 										'published: true \n' +
 										'authRequired: true \n' +
-										'styles: [/css/cohortexCss/showJSON.css] \n' +
-										'scripts: [/cohortexJs/cohortexStudyPost.js] \n' +
 										'--- \n'
 								},
 								message: 'Creating new study post for ' + this.fileName,
