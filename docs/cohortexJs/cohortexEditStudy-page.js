@@ -16,8 +16,11 @@
 				schema: properties.schema,
 				layout: properties.layout,
 				success: function(config){
+					//CohortExDev: editorConfig is used in save function
 					editorConfig = config;
 					Stevenson.ui.Editor.load(editorConfig, properties);
+					//JSONeditor does not use these configuration (fields), 
+					//but we do not have another abstract method
 					Stevenson.ui.ContentEditor.configure(editorConfig);
 					Stevenson.ui.Loader.hide();
 				},
@@ -28,8 +31,8 @@
 							+ message+', if you haven\'t already, <a href="' + Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editStudy.html?new=true#' + Stevenson.Account.siteBaseURL + '/' + Stevenson.Account.schemasPath + schema + '.json">configure the schema for this study</a>.');
 				},
 				configSchema: function(config){
-					editorConfig = config;
-					Stevenson.ui.ContentEditor.configure(editorConfig);
+					//CohortExDev: load the schema into editor. Do not destroy editorConfig, we need it for save function
+					Stevenson.ui.ContentEditor.configure(config);
 					Stevenson.ui.Loader.hide();
 				}
 			});

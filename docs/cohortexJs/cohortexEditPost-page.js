@@ -22,11 +22,6 @@
 					Stevenson.ui.Loader.hide();
 					Stevenson.ui.Messages.displayError('Exception loading properties editor: '
 							+ message+', if you haven\'t already, <a href="' + Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html?new=true#' + Stevenson.Account.siteBaseURL + '/' + Stevenson.Account.schemasPath + schema + '.json">configure the layout for this post</a>.');
-				},
-				configSchema: function(config){
-					editorConfig = config;
-					Stevenson.ui.ContentEditor.configure(editorConfig);
-					Stevenson.ui.Loader.hide();
 				}
 			});
 		} else {
