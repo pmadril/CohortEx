@@ -149,17 +149,14 @@
 							content:'--- \n' +
 							'schema: cohortexV1.0.0 \n' +
 							'layout: cohortexStudy \n' +
-							'studyPath: ' + filePath + '\n' +
+							'researcher_id: ' + Stevenson.Account.primaryEmail +'\n' +
+							'description: \'Your full name here...\' \n' +
 							'title: \'Write title here...\' \n' +
-							'published: false \n' +
-							'authRequired: false \n' +
 							'tags: \n' +
 							'	- cohortex \n' +
-							'summary: \'Write a brief decription here...\' \n' +
-							'researcher_id: tereza.abrahao@usp.br \n' +
-							'description: \'Your full name here...\' \n' +
-							'styles: [/css/cohortexCss/showJSON.css] \n' +
-							'scripts: [/cohortexJs/cohortexStudyPost.js] \n' +
+							'published: false \n' +
+							'authRequired: false \n' +
+							'summary: \'Write a brief text to blog page...\' \n' +
 							'---\n' +
 							'{\n' +
 							'}'
