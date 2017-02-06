@@ -136,7 +136,7 @@
 					var mdName  = todayStr + name + '.md';
 					
 					var path = $('#files').attr('data-path');
-					var filePath = path;
+					var filePath = path + "/" + newName;
 					if(path == ""){
 						filePath = newName;
 					}
@@ -165,7 +165,7 @@
 						success: function(){
 							
 							Stevenson.repo.savePage({
-								path: Stevenson.Account.subFolder + '_stdyPosts',
+								path: Stevenson.Account.subFolder + '_stdyPosts' + '/' + this.mkdnName,
 								fileName: this.mkdnName,
 								page: {
 										origPath: this.path,

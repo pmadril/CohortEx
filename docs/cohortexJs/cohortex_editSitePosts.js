@@ -135,7 +135,7 @@
 					var newName = todayStr + name + '.md';
 					
 					var path = $('#files').attr('data-path');
-					var filePath = path;
+					var filePath = path + "/" + newName;
 					if(path == ""){
 						filePath = newName;
 					}
