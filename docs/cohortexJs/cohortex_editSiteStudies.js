@@ -235,20 +235,20 @@
 					path: path,
 					success: function(path){
 						//CohortExDev: delete corresponding _stdyPost site
-						mdpath = path.replace('.jctx', '.md');
+						var mdpath = path.replace('.jctx', '.md');
 						mdpath = Stevenson.Account.subFolder + '_stdyPost/' + mdpath.substr(mdpath.lastIndexOf('/'));
-						
+						var origFile = path;
 						Stevenson.repo.deleteFile({
 							path: mdpath,
-							origName: path,
+							studyFile: origFile,
 							success: funcion(path){
-								Stevenson.ui.Messages.displayMessage("Deleted file: " + origName);
+								Stevenson.ui.Messages.displayMessage("Deleted file: " + studyFile);
 								Stevenson.ui.Loader.hide();
 								var path = window.location.hash;
-								if(origName != ''){
-									origName = origName.substr(1);
+								if(path != ''){
+									path = path.substr(1);
 								}
-								loadFiles(origName);
+								loadFiles(path);
 							},
 							error: function(message){
 								Stevenson.ui.Messages.displayError("Failed to delete file: " + origName + " due to error "+message);
