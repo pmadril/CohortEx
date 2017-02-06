@@ -29,7 +29,7 @@ summary: 'teste estudo statina e DCV'
 	},
 	"studyInterval": {
 		"initialDate": "01/01/2010",
-		"endDate": "01/01/2016"
+		"endDate": "01/01/2017"
 	},
 	"personDemographics": {
 		"minAge": 18,
@@ -42,6 +42,11 @@ summary: 'teste estudo statina e DCV'
 			{
 				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
 				"code": "I50",
+				"exclusion": false
+			},
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "I20",
 				"exclusion": false
 			}
 		],
