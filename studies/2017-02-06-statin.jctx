@@ -1,14 +1,58 @@
---- 
-schema: cohortexV1.0.0 
-layout: cohortexStudy 
-researcher_id: pmadril@gmail.com
-description: 'Your full name here...' 
-title: 'Write title here...' 
-tags: 
-  - cohortex 
-published: false 
-authRequired: false 
-summary: 'Write a brief text to blog page...' 
 ---
+schema: cohortexV1.0.0
+layout: cohortexStudy
+researcher_id: pmadril@gmail.com
+description: 'tereza abrahao'
+title: 'estatinas e DCV'
+tags:
+  - cohortex
+  - estatina
+  - DCV
+published: true
+authRequired: false
+summary: 'Write a brief text to blog page...'
+---
+
 {
+	"Research and Study Identification": {
+		"research_id": "Statin",
+		"res_description": "statin research",
+		"study_id": "Statin_DCV",
+		"study_description": "Statin study",
+		"summary": "dkjkdjksdjkjdkdjksjdksjdksjdksjdkasdjksjdkasjdkasjdkajkdsajdka",
+		"published": false,
+		"keywords": []
+	},
+	"Enrollment": {
+		"initialDate": "01/01/1985",
+		"endDate": "31/12/2016"
+	},
+	"studyInterval": {
+		"initialDate": "01/01/2013",
+		"endDate": "01/01/2017"
+	},
+	"personDemographics": {
+		"minAge": 18,
+		"maxAge": 110,
+		"gender": [],
+		"disableGenderFilters": []
+	},
+	"cohortSelection": {
+		"diagnosisSelection": [
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "I20",
+				"exclusion": false
+			},
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "I50",
+				"exclusion": false
+			}
+		],
+		"surgeriesSelection": {
+			"surgeriesFilter": "%REVASC%",
+			"disableSurgeryFilter": []
+		}
+	}
 }
