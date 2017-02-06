@@ -137,7 +137,7 @@
 			var title = $('#title').val();
 			
 			if (schema == ''){
-				schema = cohortexV1.0.0;
+				schema = 'cohortexV1.0.0';
 			}
 			
 			if(properties) {
