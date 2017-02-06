@@ -236,7 +236,7 @@
 					success: function(path){
 						//CohortExDev: delete corresponding _stdyPost site
 						var mdpath = path.replace('.jctx', '.md');
-						mdpath = Stevenson.Account.subFolder + '_stdyPost/' + mdpath.substr(mdpath.lastIndexOf('/'));
+						mdpath = Stevenson.Account.subFolder + '_stdyPost/' + mdpath.substr(mdpath.lastIndexOf('/') + 1);
 						var origFile = path;
 						Stevenson.repo.deleteFile({
 							path: mdpath,
@@ -251,7 +251,7 @@
 								loadFiles(path);
 							},
 							error: function(message){
-								Stevenson.ui.Messages.displayError("Failed to delete file: " + origName + " due to error "+message);
+								Stevenson.ui.Messages.displayError("Failed to delete file: " + studyFile + " due to error " + message);
 								Stevenson.ui.Loader.hide();
 							}
 							
@@ -259,7 +259,7 @@
 						
 					},
 					error: function(message){
-						Stevenson.ui.Messages.displayError("Failed to delete file: "+path+" due to error "+message);
+						Stevenson.ui.Messages.displayError("Failed to delete file: " + path + " due to error " + message);
 						Stevenson.ui.Loader.hide();
 					}
 				});
