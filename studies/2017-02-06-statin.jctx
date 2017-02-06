@@ -20,7 +20,7 @@ summary: 'Write a brief text to blog page...'
 		"res_description": "statin research",
 		"study_id": "Statin_DCV",
 		"study_description": "Statin study",
-		"summary": "dkjkdjksdjkjdkdjksjdksjdksjdksjdkasdjksjdkasjdkasjdkajkdsajdka\n\njkdsjdkjdkjaskjkdjskdjkdjskdjaksdjaksjd",
+		"summary": "dkjkdjksdjkjdkd jksjdksjdksjdksjdkasdjk sjdkasjdkasjdka jkdsajdka\n\njkd sjdkjdkjaskjkdjskdjkdjskdjak  sdjaksjd",
 		"published": false,
 		"keywords": []
 	},
@@ -33,7 +33,7 @@ summary: 'Write a brief text to blog page...'
 		"endDate": "01/01/2017"
 	},
 	"personDemographics": {
-		"minAge": 18,
+		"minAge": 21,
 		"maxAge": 110,
 		"gender": [],
 		"disableGenderFilters": []
