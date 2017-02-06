@@ -5,7 +5,7 @@ researcher_id: pmadril@gmail.com
 description: 'Your full name here...' 
 title: 'Write title here...' 
 tags: 
-	- cohortex 
+  - cohortex 
 published: false 
 authRequired: false 
 summary: 'Write a brief text to blog page...' 
