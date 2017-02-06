@@ -165,7 +165,8 @@
 						success: function(){
 							
 							Stevenson.repo.savePage({
-								path: Stevenson.Account.subFolder + '_stdyPosts/' + this.mkdnName,
+								path: Stevenson.Account.subFolder + '_stdyPosts',
+								fileName: this.mkdnName,
 								page: {
 										origPath: this.path,
 									    mkName: this.mkdnName,
