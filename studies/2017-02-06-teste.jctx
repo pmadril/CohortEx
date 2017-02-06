@@ -17,7 +17,7 @@ summary: 'teste estudo statina e DCV'
 	"Research and Study Identification": {
 		"research_id": "tereza",
 		"res_description": "kkkkkkk",
-		"study_id": "kkkii",
+		"study_id": "kkkiiuuuuuuu",
 		"study_description": "oioioioioioioioi",
 		"summary": "teste 1 estudo statinas",
 		"published": false,
@@ -32,7 +32,7 @@ summary: 'teste estudo statina e DCV'
 		"endDate": "01/01/2017"
 	},
 	"personDemographics": {
-		"minAge": 20,
+		"minAge": 21,
 		"maxAge": 110,
 		"gender": [],
 		"disableGenderFilters": []
@@ -57,6 +57,11 @@ summary: 'teste estudo statina e DCV'
 			{
 				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
 				"code": "I21",
+				"exclusion": false
+			},
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "I22",
 				"exclusion": false
 			}
 		],
