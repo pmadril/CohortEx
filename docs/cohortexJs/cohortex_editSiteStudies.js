@@ -241,7 +241,7 @@
 						Stevenson.repo.deleteFile({
 							path: mdpath,
 							studyFile: origFile,
-							success: funcion(path){
+							success: function(path){
 								Stevenson.ui.Messages.displayMessage("Deleted file: " + studyFile);
 								Stevenson.ui.Loader.hide();
 								var path = window.location.hash;
