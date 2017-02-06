@@ -153,7 +153,7 @@
 							'description: \'Your full name here...\' \n' +
 							'title: \'Write title here...\' \n' +
 							'tags: \n' +
-							'	- cohortex \n' +
+							'  - cohortex \n' +
 							'published: false \n' +
 							'authRequired: false \n' +
 							'summary: \'Write a brief text to blog page...\' \n' +
