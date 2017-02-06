@@ -32,7 +32,7 @@ summary: 'teste estudo statina e DCV'
 		"endDate": "01/01/2017"
 	},
 	"personDemographics": {
-		"minAge": 18,
+		"minAge": 20,
 		"maxAge": 110,
 		"gender": [],
 		"disableGenderFilters": []
