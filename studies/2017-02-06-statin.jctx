@@ -59,6 +59,16 @@ summary: 'Write a brief text to blog page...'
 				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
 				"code": "I22",
 				"exclusion": false
+			},
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "i23",
+				"exclusion": false
+			},
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "I24",
+				"exclusion": false
 			}
 		],
 		"surgeriesSelection": {
