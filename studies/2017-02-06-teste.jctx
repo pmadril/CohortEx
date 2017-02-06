@@ -19,7 +19,7 @@ summary: 'teste estudo statina e DCV'
 		"res_description": "kkkkkkk",
 		"study_id": "kkkii",
 		"study_description": "oioioioioioioioi",
-		"summary": "teste 1",
+		"summary": "teste 1 estudo statinas",
 		"published": false,
 		"keywords": []
 	},
@@ -52,6 +52,11 @@ summary: 'teste estudo statina e DCV'
 			{
 				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
 				"code": "I25",
+				"exclusion": false
+			},
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "I21",
 				"exclusion": false
 			}
 		],
