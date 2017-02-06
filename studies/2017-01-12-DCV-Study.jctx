@@ -1,7 +1,7 @@
 ---
 schema: cohortexV1.0.0
 title: 'DCV Study'
-layout: null
+layout: cohortexStudy
 published: true
 authRequired: true
 studyPath: studies/2017-01-12-DCV-Study.jctx
@@ -18,7 +18,7 @@ description: 'Tereza Abrahao'
 		"res_description": "DCV research on Incor patient database",
 		"study_id": "Statins",
 		"study_description": "A study of statins influence on DCV",
-		"summary": "Um estudo das estatinas para testar o CohortEx no celular. Teste da retirada do I50.",
+		"summary": "Um estudo das estatinas para testar o CohortEx no celular. Teste entra I50.",
 		"published": false,
 		"keywords": [
 			{
@@ -86,7 +86,7 @@ description: 'Tereza Abrahao'
 			},
 			{
 				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
-				"code": "I60",
+				"code": "I50",
 				"exclusion": false
 			}
 		],
