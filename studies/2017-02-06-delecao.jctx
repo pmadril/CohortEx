@@ -1,0 +1,14 @@
+--- 
+schema: cohortexV1.0.0 
+layout: cohortexStudy 
+researcher_id: pmadril@gmail.com
+description: 'Your full name here...' 
+title: 'Write title here...' 
+tags: 
+  - cohortex 
+published: false 
+authRequired: false 
+summary: 'Write a brief text to blog page...' 
+---
+{
+}
