@@ -17,6 +17,23 @@
          "required":true
       },
       {
+         "name":"title",
+         "label":"Title",
+         "type":"text",
+         "required":true
+      },
+      {
+         "name":"summary",
+         "label":"Blog page summary",
+         "type":"text",
+         "required":true
+      },
+      {
+         "name":"tags",
+         "type":"repeating",
+         "label":"Keywords"
+      },
+      {
          "label":"Published",
          "name":"published",
          "type":"checkbox",

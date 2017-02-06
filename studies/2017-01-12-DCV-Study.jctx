@@ -1,15 +1,14 @@
 ---
 schema: cohortexV1.0.0
-title: 'DCV Study'
 layout: cohortexStudy
-published: true
-authRequired: true
-studyPath: studies/2017-01-12-DCV-Study.jctx
-tags:
-  - cohortex
-summary: 'Test of cohortex editor'
 researcher_id: tereza.abrahao@usp.br
 description: 'Tereza Abrahao'
+title: 'DCV Study'
+summary: 'Test of cohortex editor'
+tags:
+  - cohortex
+published: true
+authRequired: true
 ---
 
 {
