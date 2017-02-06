@@ -234,13 +234,29 @@
 				Stevenson.repo.deleteFile({
 					path: path,
 					success: function(path){
-						Stevenson.ui.Messages.displayMessage("Deleted file: "+path);
-						Stevenson.ui.Loader.hide();
-						var path = window.location.hash;
-						if(path != ''){
-							path = path.substr(1);
-						}
-						loadFiles(path);
+						//CohortExDev: delete corresponding _stdyPost site
+						mdpath = path.replace('.jctx', '.md');
+						mdpath = Stevenson.Account.subFolder + '_stdyPost/' + mdpath.substr(mdpath.lastIndexOf('/'));
+						
+						Stevenson.repo.deleteFile({
+							path: mdpath,
+							origName: path,
+							success: funcion(path){
+								Stevenson.ui.Messages.displayMessage("Deleted file: " + origName);
+								Stevenson.ui.Loader.hide();
+								var path = window.location.hash;
+								if(origName != ''){
+									origName = origName.substr(1);
+								}
+								loadFiles(origName);
+							},
+							error: function(message){
+								Stevenson.ui.Messages.displayError("Failed to delete file: " + origName + " due to error "+message);
+								Stevenson.ui.Loader.hide();
+							}
+							
+						});
+						
 					},
 					error: function(message){
 						Stevenson.ui.Messages.displayError("Failed to delete file: "+path+" due to error "+message);

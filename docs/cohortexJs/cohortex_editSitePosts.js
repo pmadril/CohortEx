@@ -200,13 +200,14 @@
 				Stevenson.repo.deleteFile({
 					path: path,
 					success: function(path){
-						Stevenson.ui.Messages.displayMessage("Deleted file: "+path);
+						Stevenson.ui.Messages.displayMessage("Deleted file: " + path);
 						Stevenson.ui.Loader.hide();
 						var path = window.location.hash;
 						if(path != ''){
 							path = path.substr(1);
 						}
 						loadFiles(path);
+						
 					},
 					error: function(message){
 						Stevenson.ui.Messages.displayError("Failed to delete file: "+path+" due to error "+message);
