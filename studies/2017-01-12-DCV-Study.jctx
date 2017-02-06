@@ -82,11 +82,6 @@ authRequired: true
 				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
 				"code": "I24",
 				"exclusion": false
-			},
-			{
-				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
-				"code": "I50",
-				"exclusion": false
 			}
 		],
 		"surgeriesSelection": {
