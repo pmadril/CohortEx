@@ -68,11 +68,6 @@ description: 'Tereza Abrahao'
 				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
 				"code": "I20",
 				"exclusion": false
-			},
-			{
-				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
-				"code": "I22",
-				"exclusion": false
 			}
 		],
 		"surgeriesSelection": {
