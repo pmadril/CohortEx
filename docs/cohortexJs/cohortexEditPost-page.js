@@ -50,7 +50,7 @@
 
 			$('#layout').change(function(){
 				$('.properties .fields').html('');
-				if(typeof properties == "undefined"){
+				if(typeof properties === "undefined"){
 					properties = {};
 				}
 				properties.layout = $('#layout').val();
@@ -79,7 +79,7 @@
 					
 					$('#layout').change(function(){
 						$('.properties .fields').html('');
-						if(typeof properties == "undefined"){
+						if(typeof properties === "undefined"){
 							properties = {};
 						}
 						properties.layout = $('#layout').val();

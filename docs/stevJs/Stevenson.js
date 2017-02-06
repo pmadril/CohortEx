@@ -128,25 +128,25 @@ var Stevenson = {
 	},
 	log: {
 		debug : function() {
-			if (typeof console == 'undefined') {
+			if (typeof console === 'undefined') {
 				return;
 			}
 			console.debug.apply(console, arguments);
 		},
 		info : function() {
-			if (typeof console == 'undefined') {
+			if (typeof console === 'undefined') {
 				return;
 			}
 			console.info.apply(console, arguments);
 		},
 		warn : function() {
-			if (typeof console == 'undefined') {
+			if (typeof console === 'undefined') {
 				return;
 			}
 			console.warn.apply(console, arguments);
 		},
 		error : function() {
-			if (typeof console == 'undefined') {
+			if (typeof console === 'undefined') {
 				return;
 			}
 			console.error.apply(console, arguments);
@@ -866,7 +866,7 @@ var Stevenson = {
                     name: 'json',
                     regex: '^.+\.(json|jctx)$',
                     configure: function (config){
-						if (typeof config.$schema != 'undefined') {
+						if (typeof config.$schema !== 'undefined') {
 							var jsonEditOptions = {
 							ajax: true,
 							disable_array_add: false,

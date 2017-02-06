@@ -62,7 +62,7 @@
 
 			$('#schema').change(function(){
 				$('.properties .fields').html('');
-				if(typeof properties == "undefined"){
+				if(typeof properties === "undefined"){
 					properties = {};
 				}
 				properties.schema = $('#schema').val();

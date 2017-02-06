@@ -76,7 +76,7 @@
 			
 			$('#schema').change(function(){
 				$('.properties .fields').html('');
-				if(typeof properties == "undefined"){
+				if(typeof properties === "undefined"){
 					properties = {};
 				}
 				properties.schema = $('#schema').val();
@@ -106,7 +106,7 @@
 					
 					$('#layout').change(function(){
 						$('.properties .fields').html('');
-						if(typeof properties == "undefined"){
+						if(typeof properties === "undefined"){
 							properties = {};
 						}
 						properties.layout = $('#layout').val();
@@ -115,7 +115,7 @@
 					
 					$('#schema').change(function(){
 						$('.properties .fields').html('');
-						if(typeof properties == "undefined"){
+						if(typeof properties === "undefined"){
 							properties = {};
 						}
 						properties.schema = $('#schema').val();

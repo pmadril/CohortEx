@@ -150,7 +150,7 @@
 		$('#select-title').html(Stevenson.ext.type);
 		
 		Stevenson.ui.Loader.display('Loading organizations...', 100);
-		if (Stevenson.Account.primaryEmail == undefined || Stevenson.Account.primaryEmail == ''){
+		if (typeof Stevenson.Account.primaryEmail === 'undefined' || Stevenson.Account.primaryEmail == ''){
 			Stevenson.repo.getEmails({
 				success: function (emails) {
 					$.each(emails, function (idxe, email) {
