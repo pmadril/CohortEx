@@ -154,7 +154,7 @@
 						},
 						message: 'Creating new post: ' + newName,
 						success: function(){
-								window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#'+this.page.origPath;	
+								window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#'+this.path;	
 						},
 						error: function(msg){
 							$('#new-file-modal .btn, #new-file-modal input').removeAttr('disabled');
