@@ -150,20 +150,22 @@
 		$('#select-title').html(Stevenson.ext.type);
 		
 		Stevenson.ui.Loader.display('Loading organizations...', 100);
-		Stevenson.repo.getEmails({
-			success: function (emails) {
-				$.each(emails, function (idxe, email) {
-					if (email.primary === true){
-						Stevenson.Account.primaryEmail = email.email;
-					}
-				});
-			},
-			error: function (message) {
-				Stevenson.ui.Loader.hide();
-				Stevenson.ui.Messages.displayError('Unable to find user email. '
-						+ message);
-			}
-		});
+		if (Stevenson.Account.primaryEmail == undefined || Stevenson.Account.primaryEmail == ''){
+			Stevenson.repo.getEmails({
+				success: function (emails) {
+					$.each(emails, function (idxe, email) {
+						if (email.primary === true){
+							Stevenson.Account.primaryEmail = email.email;
+						}
+					});
+				},
+				error: function (message) {
+					Stevenson.ui.Loader.hide();
+					Stevenson.ui.Messages.displayError('Unable to find user email. '
+							+ message);
+				}
+			});
+		}
 		Stevenson.repo.getOrgs({
 			success: function (orgs) {
 				$.each(orgs, function (idx, org) {
