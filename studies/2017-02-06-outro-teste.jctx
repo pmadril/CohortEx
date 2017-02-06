@@ -1,14 +1,60 @@
---- 
-schema: cohortexV1.0.0 
-layout: cohortexStudy 
-researcher_id: pmadril@gmail.com
-description: 'Your full name here...' 
-title: 'Write title here...' 
-tags: 
-  - cohortex 
-published: false 
-authRequired: false 
-summary: 'Write a brief text to blog page...' 
 ---
+schema: cohortexV1.0.0
+layout: cohortexStudy
+researcher_id: pmadril@gmail.com
+description: 'tereza abrahao'
+title: statins
+tags:
+  - cohortex
+  - Statin
+  - DCV
+published: false
+authRequired: false
+summary: 'statins research'
+---
+
 {
+	"Research and Study Identification": {
+		"research_id": "teste_1",
+		"res_description": "study test",
+		"study_id": "Statin",
+		"study_description": "mmmmmmmmm",
+		"summary": "mmmmmmmmmmmmmmmm",
+		"published": false,
+		"keywords": [
+			{
+				"keyword": "statin"
+			},
+			{
+				"keyword": "cohort"
+			}
+		]
+	},
+	"Enrollment": {
+		"initialDate": "01/01/1985",
+		"endDate": "31/12/2016"
+	},
+	"studyInterval": {
+		"initialDate": "01/01/2010",
+		"endDate": "01/01/2016"
+	},
+	"personDemographics": {
+		"minAge": 18,
+		"maxAge": 110,
+		"gender": [],
+		"disableGenderFilters": []
+	},
+	"cohortSelection": {
+		"diagnosisSelection": [
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "I50",
+				"exclusion": false
+			}
+		],
+		"surgeriesSelection": {
+			"surgeriesFilter": "%REVASC%",
+			"disableSurgeryFilter": []
+		}
+	}
 }
