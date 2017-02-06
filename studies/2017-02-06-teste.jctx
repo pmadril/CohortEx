@@ -1,14 +1,53 @@
---- 
-schema: cohortexV1.0.0 
-layout: cohortexStudy 
-researcher_id: pmadril@gmail.com
-description: 'Your full name here...' 
-title: 'Write title here...' 
-tags: 
-  - cohortex 
-published: false 
-authRequired: false 
-summary: 'Write a brief text to blog page...' 
 ---
+schema: cohortexV1.0.0
+layout: cohortexStudy
+researcher_id: pmadril@gmail.com
+description: Tereza
+title: 'teste estudo'
+tags:
+  - cohortex
+  - statin
+  - DCV
+published: false
+authRequired: false
+summary: 'teste estudo statina e DCV'
+---
+
 {
+	"Research and Study Identification": {
+		"research_id": "tereza",
+		"res_description": "kkkkkkk",
+		"study_id": "kkkii",
+		"study_description": "oioioioioioioioi",
+		"summary": "",
+		"published": false,
+		"keywords": []
+	},
+	"Enrollment": {
+		"initialDate": "01/01/1985",
+		"endDate": "31/12/2016"
+	},
+	"studyInterval": {
+		"initialDate": "01/01/2010",
+		"endDate": "01/01/2016"
+	},
+	"personDemographics": {
+		"minAge": 18,
+		"maxAge": 110,
+		"gender": [],
+		"disableGenderFilters": []
+	},
+	"cohortSelection": {
+		"diagnosisSelection": [
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "I50",
+				"exclusion": false
+			}
+		],
+		"surgeriesSelection": {
+			"surgeriesFilter": "%REVASC%",
+			"disableSurgeryFilter": []
+		}
+	}
 }
