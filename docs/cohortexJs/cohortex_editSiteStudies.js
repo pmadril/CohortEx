@@ -242,7 +242,7 @@
 							path: mdpath,
 							studyFile: origFile,
 							success: function(path){
-								Stevenson.ui.Messages.displayMessage("Deleted file: " + studyFile);
+								Stevenson.ui.Messages.displayMessage("Deleted file: " + this.studyFile);
 								Stevenson.ui.Loader.hide();
 								var path = window.location.hash;
 								if(path != ''){
@@ -251,7 +251,7 @@
 								loadFiles(path);
 							},
 							error: function(message){
-								Stevenson.ui.Messages.displayError("Failed to delete file: " + studyFile + " due to error " + message);
+								Stevenson.ui.Messages.displayError("Failed to delete file: " + this.studyFile + " due to error " + message);
 								Stevenson.ui.Loader.hide();
 							}
 							
