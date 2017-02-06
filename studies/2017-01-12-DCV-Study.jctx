@@ -17,7 +17,7 @@ authRequired: true
 		"res_description": "DCV research on Incor patient database",
 		"study_id": "Statins",
 		"study_description": "A study of statins influence on DCV",
-		"summary": "Um estudo das estatinas para testar o CohortEx no celular. Teste entra I50.",
+		"summary": "Um estudo das estatinas para testar o CohortEx no celular. Teste entra I50. Testa inclusao e exclusao do I50.",
 		"published": false,
 		"keywords": [
 			{
@@ -86,6 +86,11 @@ authRequired: true
 			{
 				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
 				"code": "I50",
+				"exclusion": false
+			},
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "I60",
 				"exclusion": false
 			}
 		],
