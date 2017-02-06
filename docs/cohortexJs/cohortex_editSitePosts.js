@@ -177,7 +177,7 @@
 			Stevenson.ui.Loader.display('Loading editor...', 100);
 			var path = $('#files input[type=checkbox]:checked').parents('tr').attr('data-path');
 			// CohortExDev If it is .jctx, it is a study
-			if (typeof path !== 'undefined' && path != '') >= 0) {
+			if (typeof path !== 'undefined' && path != '') {
 				window.location = Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editPost.html#' + path;
 			} else {
 					Stevenson.ui.Messages.displayError("No file selected. Please, select a file to edit.");
