@@ -24,4 +24,7 @@ permalink: /blog/:year/:month/:day/:title
 collections:
   stdyPosts:
     output: true
+  posts:
+    output: true
+
 
