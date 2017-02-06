@@ -8,6 +8,7 @@ tags:
   - cohortex
   - estatina
   - DCV
+  - 'I20 e I50'
 published: true
 authRequired: false
 summary: 'Write a brief text to blog page...'
@@ -19,7 +20,7 @@ summary: 'Write a brief text to blog page...'
 		"res_description": "statin research",
 		"study_id": "Statin_DCV",
 		"study_description": "Statin study",
-		"summary": "dkjkdjksdjkjdkdjksjdksjdksjdksjdkasdjksjdkasjdkasjdkajkdsajdka",
+		"summary": "dkjkdjksdjkjdkdjksjdksjdksjdksjdkasdjksjdkasjdkasjdkajkdsajdka\n\njkdsjdkjdkjaskjkdjskdjkdjskdjaksdjaksjd",
 		"published": false,
 		"keywords": []
 	},
@@ -28,7 +29,7 @@ summary: 'Write a brief text to blog page...'
 		"endDate": "31/12/2016"
 	},
 	"studyInterval": {
-		"initialDate": "01/01/2013",
+		"initialDate": "01/01/2014",
 		"endDate": "01/01/2017"
 	},
 	"personDemographics": {
@@ -47,6 +48,11 @@ summary: 'Write a brief text to blog page...'
 			{
 				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
 				"code": "I50",
+				"exclusion": false
+			},
+			{
+				"ICD0_category": "ICD10_CATEGORY_PARTIAL",
+				"code": "I21",
 				"exclusion": false
 			}
 		],
