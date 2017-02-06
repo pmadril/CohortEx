@@ -1,14 +1,45 @@
---- 
-schema: cohortexV1.0.0 
-layout: cohortexStudy 
-researcher_id: pmadril@gmail.com
-description: 'Your full name here...' 
-title: 'Write title here...' 
-tags: 
-  - cohortex 
-published: false 
-authRequired: false 
-summary: 'Write a brief text to blog page...' 
 ---
+schema: cohortexV1.0.0
+layout: cohortexStudy
+researcher_id: pmadril@gmail.com
+description: 'Your full name here...'
+title: 'Write title here...'
+tags:
+  - cohortex
+published: false
+authRequired: false
+summary: 'Write a brief text to blog page...'
+---
+
 {
+	"Research and Study Identification": {
+		"research_id": "",
+		"res_description": "",
+		"study_id": "",
+		"study_description": "",
+		"summary": "",
+		"published": false,
+		"keywords": []
+	},
+	"Enrollment": {
+		"initialDate": "",
+		"endDate": ""
+	},
+	"studyInterval": {
+		"initialDate": "",
+		"endDate": ""
+	},
+	"personDemographics": {
+		"minAge": 18,
+		"maxAge": 110,
+		"gender": [],
+		"disableGenderFilters": []
+	},
+	"cohortSelection": {
+		"diagnosisSelection": [],
+		"surgeriesSelection": {
+			"surgeriesFilter": "%REVASC%",
+			"disableSurgeryFilter": []
+		}
+	}
 }
