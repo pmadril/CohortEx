@@ -579,6 +579,21 @@ var Stevenson = {
 				}
 			});
 		},
+		getEmails: function(options) {
+			var settings = $.extend({}, {
+				success: function(repo){},
+				error: function(err){}
+			}, options);
+			var gh = Stevenson.repo.getGitHub(options);
+			var user = gh.getUser();
+			user.emails(function(err, emails) {
+				if (err) {
+					settings.error(Stevenson.repo.getErrorMessage(err));
+				} else {
+					settings.success(emails);
+				}
+			});
+		},
 		getOrgs: function(options) {
 			var settings = $.extend({}, {
 				success: function(repo){},
