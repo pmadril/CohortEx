@@ -520,44 +520,34 @@ var Stevenson = {
 				success: function(repo){},
 				error: function(err){}
 			}, options);
-            if (settings.schema && settings.schema !== null) {
-                Stevenson.repo.getFile({
-					path: Stevenson.Account.schemasPath + settings.schema + '.json',
-					success: function(file){
-						settings.configSchema(JSON.parse(file.getPageContent()));
-					},
-					error:  function(message){
-						Stevenson.repo.getFile({
-							path:Stevenson.Account.schemasPath  +  settings.schema + '.html',
-							success: function(file){
-								var properties = file.getProperties();
-								if(properties && properties.schema){
-									Stevenson.repo.getEditorConfig({
-										success: settings.configSchema,
-										error: settings.error,
-										schema: properties.schema
-									});
-								}else{
-									settings.error('not configured');
-								}
-							},
-							error:settings.error
-						});
-					}
-				});
-            }
             if (settings.layout && settings.layout !== null) {
                 Stevenson.repo.getFile({
                     path: Stevenson.Account.editorsPath  +  settings.layout + '.json',
                     success: function(file){
+						//Here stops the recursion. Any file can have nested layouts but only one 'must have' json file
                         settings.success(JSON.parse(file.getPageContent()));
+						
+						//CohortExDev: Now check if there is a schema to read
+						if (settings.schema && settings.schema !== null) {
+							Stevenson.repo.getFile({
+								path: Stevenson.Account.schemasPath + settings.schema + '.json',
+								success: function(file){
+									settings.configSchema(JSON.parse(file.getPageContent()));
+								},
+								error:  function(message){
+									settings.error('Schema: ' + Stevenson.Account.schemasPath + settings.schema + '.json ' + message);
+								}
+							});
+						}
                     },
                     error:  function(message){
+						//Try to read a settings.layout + '.html' file
                         Stevenson.repo.getFile({
                             path:Stevenson.Account.layoutsPath +  settings.layout + '.html',
                             success: function(file){
                                 var properties = file.getProperties();
                                 if(properties && properties.layout){
+									//Ok, file read. Now recurse over it until find a json
                                     Stevenson.repo.getEditorConfig({
                                         success: settings.success,
                                         error: settings.error,
