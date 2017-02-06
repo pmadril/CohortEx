@@ -236,7 +236,7 @@
 					success: function(path){
 						//CohortExDev: delete corresponding _stdyPost site
 						var mdpath = path.replace('.jctx', '.md');
-						mdpath = Stevenson.Account.subFolder + '_stdyPost/' + mdpath.substr(mdpath.lastIndexOf('/') + 1);
+						mdpath = Stevenson.Account.subFolder + '_stdyPosts/' + mdpath.substr(mdpath.lastIndexOf('/') + 1);
 						var origFile = path;
 						Stevenson.repo.deleteFile({
 							path: mdpath,
