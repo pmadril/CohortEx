@@ -4,21 +4,17 @@
 	var loadEditor = function(properties){
 		if(properties){
 			
-			var layout = properties.layout;
-			if(!layout || layout == '') {
-				layout = 'cohortexStudy';
-			}
-			
 			var schema = properties.schema;
+			
 			if(!schema || schema == '') {
 				schema = 'cohortexV1.0.0';
-			} else {
-				properties.layout = layout;
 			}
 			
+			properties.layout = 'cohortexStudy';
+			
 			Stevenson.repo.getEditorConfig({
-				layout: properties.layout,
 				schema: properties.schema,
+				layout: properties.layout,
 				success: function(config){
 					editorConfig = config;
 					Stevenson.ui.Editor.load(editorConfig, properties);

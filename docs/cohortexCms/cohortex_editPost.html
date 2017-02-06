@@ -1,23 +1,22 @@
 ---
 layout: stevDefault
-schema: cohortexV1.0.0 
-title: Edit CohortEx Study Parameters
+title: Edit Post
 authRequired: true
-scripts: [/stevJs/yaml.js, /stevJs/jsoneditor/jsoneditor.min.js, /stevJs/tinymce/tinymce.min.js, /cohortexJs/cohortexEditPost-page.js, /stevJs/epiceditor/js/epiceditor.min.js]
+scripts: [/stevJs/yaml.js, /stevJs/tinymce/tinymce.min.js, /cohortexJs/cohortexEditPost-page.js, /stevJs/epiceditor/js/epiceditor.min.js, /stevJs/jsoneditor/jsoneditor.min.js]
 ---
 
 <a href="javascript:window.history.back()" class="cancel">&lt; Back</a>
 <form id="rename-page" class="form-inline">
-	<h2>Editing <input id="page-path" type="text" />&nbsp;<!-- input value="Rename" type="submit" class="btn btn-success" / --></h2>
+	<h2>Editing <input id="page-path" type="text" />&nbsp;<input value="Rename" type="submit" class="btn btn-success" /></h2>
 </form>
 <form id="edit-page" class="form-horizontal">
 	<fieldset class="container properties">
-		<legend>Research Parameters</legend>
+		<legend>Edit post text</legend>
 		<p></p>
 		<div class="control-group">
-			<label for="schema" class="control-label">CohortEx Schema</label>
+			<label for="layout" class="control-label">Page Layout</label>
 			<div class="controls">
-				<select id="schema" name="schema">
+				<select id="layout" name="layout">
 				</select>
 			</div>
 		</div>

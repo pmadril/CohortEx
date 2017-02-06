@@ -11,7 +11,6 @@
 			
 			Stevenson.repo.getEditorConfig({
 				layout: properties.layout,
-				schema: properties.schema,
 				success: function(config){
 					editorConfig = config;
 					Stevenson.ui.Editor.load(editorConfig, properties);
