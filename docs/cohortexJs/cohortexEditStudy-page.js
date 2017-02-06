@@ -25,7 +25,7 @@
 					Stevenson.ui.ContentEditor.configure({});
 					Stevenson.ui.Loader.hide();
 					Stevenson.ui.Messages.displayError('Exception loading properties editor: '
-							+ message+', if you haven\'t already, <a href="' + Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editStudy.html?new=true#' + Stevenson.Account.siteBaseURL + '/' + Stevenson.Account.schemasPath + schema + '.json">configure the schema for this configuration</a>.');
+							+ message+', if you haven\'t already, <a href="' + Stevenson.Account.siteBaseURL + '/cohortexCms/cohortex_editStudy.html?new=true#' + Stevenson.Account.siteBaseURL + '/' + Stevenson.Account.schemasPath + schema + '.json">configure the schema for this study</a>.');
 				},
 				configSchema: function(config){
 					editorConfig = config;
@@ -41,10 +41,6 @@
 	var initialize = function() {
 		Stevenson.log.info('Editing page');
 
-		$.each(Stevenson.repo.layouts, function(index, elem){
-			$('#layout').append('<option>' + elem + '</option>');
-		});
-			
 		$.each(Stevenson.repo.schemas, function(index, elem){
 			$('#schema').append('<option>' + elem + '</option>');
 		});
@@ -61,15 +57,6 @@
 			currentPage = new Page(pagePath, '');
 			Stevenson.ui.ContentEditor.setContent(currentPage);
 
-			$('#layout').change(function(){
-				$('.properties .fields').html('');
-				if(typeof properties == "undefined"){
-					properties = {};
-				}
-				properties.layout = $('#layout').val();
-				loadEditor(properties);
-			});
-			
 			$('#schema').change(function(){
 				$('.properties .fields').html('');
 				if(typeof properties == "undefined"){
@@ -94,21 +81,11 @@
 					Stevenson.log.debug('Loading properties editor');
 					var properties = file.getProperties();
 					if(properties) {
-						$('#layout').val(properties.layout);
 						$('#schema').val(properties.schema);
 					}
 					
 					loadEditor(properties);
-					
-					$('#layout').change(function(){
-						$('.properties .fields').html('');
-						if(typeof properties == "undefined"){
-							properties = {};
-						}
-						properties.layout = $('#layout').val();
-						loadEditor(properties);
-					});
-					
+										
 					$('#schema').change(function(){
 						$('.properties .fields').html('');
 						if(typeof properties == "undefined"){
@@ -156,11 +133,10 @@
 			
 			var properties = currentPage.getProperties();
 			
-			var layout = $('#layout').val();
 			var schema = $('#schema').val();
 			var title = $('#title').val();
 			if(properties) {
-				properties.layout = layout;
+				properties.layout = 'cohortexStudy';
 				properties.schema = schema;
 				if(!Stevenson.ui.Editor.save(editorConfig, properties)){
 					Stevenson.log.info('Unable to save changes due to validation errors');
@@ -168,14 +144,10 @@
 					return false;
 				}
 			} else {
-				if(layout != ''){
-					properties = {};
-					properties.layout = layout;
-					Stevenson.ui.Editor.save(editorConfig, properties);
-				}
 
 				if(schema != ''){
 					properties = {};
+					properties.layout = 'cohortexStudy';
 					properties.schema = schema;
 					Stevenson.ui.Editor.save(editorConfig, properties);
 				}
