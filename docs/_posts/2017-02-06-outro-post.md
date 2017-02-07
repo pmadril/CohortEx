@@ -2,10 +2,10 @@
 layout: stevPost
 title: 'Write a title here..'
 date: 2017-02-06-
-published: false
+published: true
 authRequired: false
-tags: []
 ---
+
 
 
 Markdown can be used to author posts. 
