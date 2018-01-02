@@ -2512,12 +2512,14 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
       var editorDeleted;
       var propertyDeletedIsComplex = false;
       var tabIndexDeleted = 0;
+//      var propertyDeletedFound = false;
 
       var indexAdded =0;
       var propertyAdded;
       var editorAdded;
       var propertyAddedIsComplex = false;
       var tabIndexAdded =0;
+//      var propertyAddedFound = false;
 
       if (previousSize > currentSize) {
         //property deleted
@@ -2537,7 +2539,8 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
 
         //We found the deleted property, so break
         if(this.property_order[m] !== previousProperties[m]) {
-              break;
+//          propertyDeletedFound = true;
+          break;
           }
         }
 
@@ -2556,7 +2559,8 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
 
         //We found the added property, so break
         if(this.property_order[m2] !== previousProperties[m2]) {
-            break;
+//          propertyAddedFound = true;
+          break;
           }
 
           //Still looking for a added property, update currentTab
@@ -2599,14 +2603,22 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
           $trigger(this.tabs_holder.childNodes["0"].childNodes[0],'click');
         }
         else if (this.row_container.childElementCount == tabPanesContainers) {
+          //if ( propertyAddedFound || propertyDeletedFound) 
+          {
             $each(this.property_order, function(i,key) {
               var editor = self.editors[key];
               var complexType = editor.schema.type == "object" || editor.schema.type == "array";
               if(editor.property_removed) return;
               if(k==0 || complexType) {
                 if (k==0){
-                  if (self.rows[0].schema.type == "object" || self.rows[0].schema.type == "array"){
-                    self.addRow(editor,true);
+                  if (!complexType){
+                    if (self.rows[0].schema.type == "object" || self.rows[0].schema.type == "array"){
+                      self.addRow(editor,true);
+                    }
+                  }
+                  else {
+                    k++;
+                    return;
                   }
                 }
                 else if (k == 1){
@@ -2626,6 +2638,11 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
               row.appendChild(editor.container);
             });
           }
+          //else 
+          {
+            $trigger(this.tabs_holder.childNodes["0"].childNodes[0],'click');
+          }
+        }
         else {
           var tabPaneHolder = self.theme.getTabContent();
           if (propertyAddedIsComplex) {
@@ -2644,6 +2661,7 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
           }
           else {
             var newRow = this.theme.getGridRow();
+            var noSimpleProps = true;
             //check for a raw container and add one if not
             if (this.row_container.childNodes.length > 0){
               if (this.row_container.childNodes["0"].childNodes["0"].className != "container-fluid") {
@@ -2658,10 +2676,43 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
                 else this.theme.setGridColumnSize(editorAdded.container,12);
                 newRow.appendChild(editorAdded.container);
 
-                this.addTab(0);
+                $each(this.rows, function(i,row) {
+                  if (row.schema.type && row.schema.type !== "object" && row.schema.type !== "array"){
+                    noSimpleProps = false;
+                    return;
+                  }
+                  if (!row.schema.type && noSimpleProps) {
+                    noSimpleProps = false;
+                    return;
+                  }
+                });
 
-                self.tabs_holder.childNodes["0"].insertBefore(self.rows[0].tab, self.tabs_holder.childNodes[0].childNodes[0]);
-        
+                //Check for additional property just created
+                if (!editorAdded.schema.type) {
+                  var rowsLen = this.rows.length;
+                  if (noSimpleProps) {
+                    for (var t = rowsLen; t > 0;t--){
+                      this.rows[t] = this.rows[t-1];
+//                      this.addTab(t);
+                    }
+                    this.rows[0] = editorAdded;
+                    }
+                    var tbCount = this.tabs_holder.childNodes["0"].childElementCount;
+                    while (this.tabs_holder.childNodes["0"].hasChildNodes()) {   
+                      this.tabs_holder.childNodes["0"].removeChild(this.tabs_holder.childNodes["0"].firstChild);
+                    }
+                    for (var tb=0; tb < this.rows.length; tb++) {
+                      this.addTab(tb);
+                      this.tabs_holder.childNodes["0"].appendChild(this.rows[tb].tab);
+                    }
+                    
+                  }
+                else {
+                  this.addTab(0);
+                  self.tabs_holder.childNodes["0"].insertBefore(self.rows[0].tab, self.tabs_holder.childNodes[0].childNodes[0]);
+                }
+
+                this.active_tab = null;
                 $trigger(this.tabs_holder.childNodes["0"].childNodes[0],'click');
 
               }
@@ -2687,7 +2738,17 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
                   else this.theme.setGridColumnSize(editorAdded.container,12);
                   newRow.appendChild(editorAdded.container);
 
-                  this.addTab(0);
+//                  var firstIsComplex = self.rows[0].schema.type === "object" || self.rows[0].schema.type === "array";
+//                  var lastIsSimple = false;
+//                  if (self.rows.length > 0){
+//                    lastIsSimple = self.rows[self.rows.length - 1].schema.type === "object" || self.rows[self.rows.length - 1].schema.type === "array";
+//                  }
+//                  if (firstIsComplex && lastIsSimple) {
+//                    this.addTab(self.rows.length-1);
+//                  }
+//                  else {
+                    this.addTab(0);
+//                  }
 
                   self.tabs_holder.childNodes["0"].appendChild(self.rows[0].tab);
           
@@ -2828,9 +2889,11 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
   },
   addTab: function(idx){
       var self = this;
+      var isComplexProperty = self.rows[idx].schema.type === "object" || self.rows[idx].schema.type === "array";
       if(self.tabs_holder) {
         self.rows[idx].tab_text = document.createElement('span');
-        if (idx == 0){
+        //if (idx == 0){
+        if ((idx == 0 || !self.rows[idx].schema.type) && !isComplexProperty){
           self.rows[idx].tab_text.textContent = (self.schema.main_title === undefined) ? "Basic" : self.schema.main_title;
         } else {
           self.rows[idx].tab_text.textContent = self.rows[idx].getHeaderText();
@@ -2860,6 +2923,7 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
   refreshTabs: function(refresh_headers) {
     var self = this;
     $each(this.rows, function(i,row) {
+      var isComplexProperty = self.rows[i].schema.type === "object" || self.rows[i].schema.type === "array";
       if(!row.tab) return;
 
       if(refresh_headers) {
@@ -2878,6 +2942,7 @@ JSONEditor.defaults.editors.object = JSONEditor.AbstractEditor.extend({
         }
         else {
           self.theme.markTabInactive(row.tab);
+          //&& self.row_container.childElementCount >= self.rows.length
           if(row.container.className === "span12"){
             self.row_container.children["0"].style.display = 'none';
           }
@@ -3663,7 +3728,7 @@ JSONEditor.defaults.editors.array = JSONEditor.AbstractEditor.extend({
       this.error_holder = document.createElement('div');
       this.container.appendChild(this.error_holder);
 
-      if(this.schema.format === 'tabs_top') {
+      if(this.schema.format === 'tabs-top') {
         this.controls = this.theme.getHeaderButtonHolder();
         this.title.appendChild(this.controls);
         this.tabs_holder = this.theme.getTopTabHolder();
@@ -6951,7 +7016,6 @@ JSONEditor.defaults.themes.bootstrap2 = JSONEditor.AbstractTheme.extend({
   getTopTabHolder: function() {
     var el = document.createElement('div');
     el.className = 'tabbable tabs-over';
-    //<li><a href='#'><span></span></a></li>
     el.innerHTML = "<ul class='nav nav-tabs' style='margin-right: 0;'></ul><div class='tab-content' style='overflow:visible;'></div>";
     return el;
   },
