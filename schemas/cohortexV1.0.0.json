@@ -7,6 +7,7 @@
 		"Research and Study Identification": {
 			"type": "object",
 			"title": "Research and Study Identification",
+			"format": "categories",
 			"layout": "grid",
 			"properties": {
 							  "research_id": {
@@ -65,7 +66,7 @@
 		"Enrollment": {
 			"type": "object",
 			"title": "Enrollment Interval",
-			"format": "grid",
+			"layout": "grid",
 			"properties": {
 					"initialDate": {
 						"default": "01/01/1985",
@@ -88,7 +89,7 @@
 		"studyInterval": {
 			"type": "object",
 			"title": "Study Interval",
-			"format": "grid",
+			"layout": "grid",
 			"properties": {
 				"initialDate": {
 					"title": "Begin",
@@ -149,6 +150,7 @@
 			"type": "object",
 			"title": "Cohort Selection",
 			"description": "Selected cohort follows all criterias (AND Logic)",
+			"format": "categories",
 			"properties": {
 				"diagnosisSelection": {
 				  "type": "array",
